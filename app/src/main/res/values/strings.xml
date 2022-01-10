@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">AlHamduLillah</string>
+    <string name="Tsel">ЦЕЛЬ</string>
+    <string name="plus">+</string>
+    <string name="ok">OK</string>
+    <string name="minus">‒</string>
+    <string name="reset">reset</string>
+    <string name="textToast">Цель Установлена!</string>
+    <string name="vvediteTsel">Введите Цель!</string>
+    <string name="CompleteTsel">Цель достигнута!\nДа вознаградит Вас Аллах</string>
+    <string name="vvediteNumber">Введите число!</string>
+    <string name="vvediteNumberBiggerZero">Введите число больше нуля!</string>
+    <string name="_0">0</string>
+    <string name="title_activity_settings">SettingsActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

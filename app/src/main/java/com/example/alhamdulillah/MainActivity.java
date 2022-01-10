@@ -2,11 +2,18 @@ package com.example.alhamdulillah;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import android.animation.*;
+import android.os.*;
 import android.content.*;
+import android.util.*;
 import android.view.*;
 import android.widget.*;
 import com.google.android.material.floatingactionbutton.*;
+
+import org.jsoup.*;
+import org.jsoup.nodes.*;
+
+import java.io.*;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -34,10 +41,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isAllFabsVisible;
     private boolean isAllWijetsVisible;
 
+    private Button hadice_button;
+    private Button close_hadice_button;
+    private LinearLayout hadice_layout;
+    private boolean isOpenHadice = false;
+
+    private Button ayat_button;
+    private Button close_ayat_button;
+    private LinearLayout ayat_layout;
+    private boolean isOpenAyat = false;
+
+    public static int SelectFragment = 0;
+
+    private final String url = "https://5namaz.com/russia/moskva/";
+    private Document document = null;
+    private String answer = "";
+    private String answerText = "";
+    private TextView raspn;
+    private String txtr;
+    private StringBuilder builder = new StringBuilder();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        raspn = findViewById(R.id.raspn);
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
@@ -105,12 +134,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        Koran_Karim.setOnClickListener(View -> {});
-        Koran_Karim_by_heart.setOnClickListener(View -> {});
-        salavats.setOnClickListener(View -> {});
-        dua.setOnClickListener(View -> {});
-        zickr.setOnClickListener(View -> {});
-        hadice.setOnClickListener(View -> {});
+        Koran_Karim.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Коран", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        Koran_Karim_by_heart.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Заучивание Корана Наизусть", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        salavats.setOnClickListener(View -> {
+            SelectFragment = 2;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            Toast toast = Toast.makeText(getApplicationContext(), "Салаваты", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        dua.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Ду'а", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        zickr.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Зикры", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        hadice.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Хадисы", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        names_of_Allah.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "99 имен Аллаха", Toast.LENGTH_SHORT);
+            toast.show();
+        });
 
 
         wijets.setOnClickListener(View -> {
@@ -143,22 +202,194 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent settings = new Intent(this, SettingsActivity.class);
             startActivity(settings);
         });
-        kompas.setOnClickListener(View -> {});
-        zickr_Counter.setOnClickListener(View -> {});
-        swipe_Zickr_Counter.setOnClickListener(View -> {});
-        dolgi_i_zaslugi.setOnClickListener(View -> {});
-        my_tsels.setOnClickListener(View -> {});
-        my_achieves.setOnClickListener(View -> {});
-        resfolder.setOnClickListener(View -> {});
-        music_Koran.setOnClickListener(View -> {});
 
+        kompas.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Компас", Toast.LENGTH_SHORT);
+            toast.show();
+        });
 
+        zickr_Counter.setOnClickListener(View -> {
+            SelectFragment = 1;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            Toast toast = Toast.makeText(getApplicationContext(), "Счетчик", Toast.LENGTH_SHORT);
+            toast.show();
+        });
 
+        swipe_Zickr_Counter.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Жестовый Счетчик", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        dolgi_i_zaslugi.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Долги и заслуги перед Аллахом", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        my_tsels.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Мои цели", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        my_achieves.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Мои достижения", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        resfolder.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Папка результата", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        music_Koran.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Прослушивание Корана", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        hadice_button = findViewById(R.id.hadice_button);
+        close_hadice_button = findViewById(R.id.close_hadice_button);
+        hadice_button.setOnClickListener(this);
+        close_hadice_button.setOnClickListener(this);
+        hadice_layout = findViewById(R.id.hadice_layout);
+        hadice_layout.setTranslationY(-300);
+
+        ayat_button = findViewById(R.id.ayat_button);
+        ayat_button.setOnClickListener(this);
+        close_ayat_button = findViewById(R.id.close_ayat_button);
+        close_ayat_button.setOnClickListener(this);
+        ayat_layout = findViewById(R.id.ayat_layout);
+        ayat_layout.setTranslationY(730);
+
+        new MyTask().execute();
 
     }
 
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.hadice_button:
 
+                if (!(isOpenHadice)) {
+
+                    hadice_button.setClickable(false);
+
+                    ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", 100f);
+                    hadice_animator.setDuration(1000);
+                    hadice_animator.start();
+                    isOpenHadice = true;
+
+                    ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 0);
+                    hide_button.setDuration(600);
+                    hide_button.start();
+
+                }
+                break;
+
+            case R.id.close_hadice_button:
+
+                hadice_button.setClickable(true);
+
+                ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", -300f);
+                hadice_animator.setDuration(1000);
+                hadice_animator.start();
+                isOpenHadice = false;
+
+                ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 1);
+                hide_button.setDuration(600);
+                hide_button.start();
+
+                break;
+
+            case R.id.ayat_button:
+
+                if (!(isOpenAyat)) {
+
+                    ayat_button.setClickable(false);
+
+                    ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 0f);
+                    ayat_animator.setDuration(1000);
+                    ayat_animator.start();
+                    isOpenAyat = true;
+
+                    ObjectAnimator hide_button_ayat = ObjectAnimator.ofFloat(ayat_button, "alpha", 0);
+                    hide_button_ayat.setDuration(600);
+                    hide_button_ayat.start();
+                    //Log.d("cord", String.valueOf(ayat_layout.getTranslationY()));
+                }
+
+                break;
+
+            case R.id.close_ayat_button:
+
+                ayat_button.setClickable(true);
+
+                ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 730f);
+                ayat_animator.setDuration(1000);
+                ayat_animator.start();
+                isOpenAyat = false;
+
+                ObjectAnimator hide_button_ayat = ObjectAnimator.ofFloat(ayat_button, "alpha", 1);
+                hide_button_ayat.setDuration(600);
+                hide_button_ayat.start();
+                //Log.d("cord1", String.valueOf(ayat_layout.getTranslationY()));
+
+                break;
+
+        }
     }
+
+
+    class MyTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try{
+                document = Jsoup.connect(url).get();
+                answer = document.body().html();
+                answerText = Jsoup.parse(answer).text();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            Element thead = document.select("tbody").first();
+            String txt = thead.html();
+
+
+
+
+            String elt = Jsoup.parse(txt).text();
+
+            String[] words = elt.split(" ");
+            for(String word : words){
+                if(containsTime(word)==true&&word.contains(":")){
+                    String resul = word.replace(word,"\n"+word+"\n");
+                    word = resul;
+
+                }else{
+                    String resul = word.replace(word," "+word+" ");
+                    word = resul;
+                }
+                builder.append(word);
+            }
+
+            raspn.setText(builder.toString());
+            Log.d("LOGG",elt);
+        }
+    }
+
+    public boolean containsTime(String string){
+        return string.matches(".*\\d+.*");
+    }
+
+
 }
