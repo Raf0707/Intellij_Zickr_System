@@ -371,6 +371,8 @@
             android:id="@+id/raspn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/purple_300"
+            android:gravity="left"
             android:textSize="15sp">
         </TextView>
 
