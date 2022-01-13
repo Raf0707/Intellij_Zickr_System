@@ -261,6 +261,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         new MyTask().execute();
 
+        Intent intent = new Intent(this, AzanService.class);
+        startService(intent);
+
     }
 
     @Override
