@@ -1,5 +1,6 @@
 package com.example.alhamdulillah;
 
+import android.content.*;
 import android.os.*;
 
 import androidx.constraintlayout.widget.*;
@@ -14,24 +15,56 @@ import java.util.*;
 import java.util.concurrent.*;
 
 
-public class SalavatFragment extends Fragment {
-    Handler handler = new Handler();
-    String[] textsArabic = new String[30];
-    int currentPage = 0;
-    ConstraintLayout myLayout;
-    TextView arabic;
+public class SalavatFragment extends Fragment implements View.OnClickListener{
+    private Handler handler;
+    private String[] textsArabic;
+    private String[] textPage;
+    private int currentPage = 0;
+    private ConstraintLayout myLayout;
+    private TextView arabic;
+    private TextView page;
+    private SeekBar seekBar;
+    private Button back;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_salavat, null);
 
         myLayout = view.findViewById(R.id.myLayout);
+        back = view.findViewById(R.id.back);
+        back.setOnClickListener(this);
         arabic = view.findViewById(R.id.arabic);
-
-
+        page = view.findViewById(R.id.page);
+        handler = new Handler();
+        textsArabic = new String[31];
+        textPage = new String[31];
+        seekBar = view.findViewById(R.id.seekBar);
         //Objects.requireNonNull(getSupportActionBar()).hide();
 
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    currentPage = progress;
+                    textPage[currentPage] = Integer.toString(progress);
+
+
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         initArabic();
+        initPage();
+
 
         Thread t = new Thread(() -> {
             try{
@@ -49,11 +82,13 @@ public class SalavatFragment extends Fragment {
             @Override
             public void onSwipeRight() {
                 currentPage--;
+                seekBar.setProgress(currentPage);
             }
 
             @Override
             public void onSwipeLeft() {
                 currentPage++;
+                seekBar.setProgress(currentPage);
             }
         });
 
@@ -61,7 +96,7 @@ public class SalavatFragment extends Fragment {
     }
 
     public void initArabic() {
-        textsArabic[0] = "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي ا لْأَوَّلِينَ وَ ا لْآخِرِ ينَ وَ فِي ا لْمَلَا ءِ ا لْأَ عْلَى اِلَى يَوْمِ ا لدِّينِ";
+        textsArabic[0] = "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ فِي الْأَوَّلِينَ وَالْآخِرِ ينَ وَفِي الْمَلَا ءِالْأَ عْلَى اِلَى يَوْمِ الدِّينِ";
         textsArabic[1] = "أللَّهُمَّ صَلِّ وَ سَلِّمْ وَ بَارِكْ عَلَى سَيِّدِنَا مُحَمَّدِنِ الْفَاتِحِ لِمَا أُغْلِقَ وَالْخَاتِمِ لِمَا سَبَقَ وَ نَاصِرِ الْحَقِّ بِالْحَقِّ وَالْهَادِي إِلَى صِرَاطِكَ الْمُسْتَقِيم صَلَّى ٱللَّٰهُ تَعَالَى عَلَيْهِ وَ عَلَى آلِهِ وَ أَ صْحَابِهِ حَقَّ قَدْرِهِ وَ مِقْدَارِهِ الْعَظِيمِ";
         textsArabic[2] = "السَلَامُ عَلَيْكَ أيُّهَا النَّبِيُّ وَ رَحْمَةُ اللهِ تَعَالَى وَ بَرَكَاتُهُ";
         textsArabic[3] = "اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَ نَبِيِّكَ وَ رَسُو لِكَ النَّبِيِّ اْلأُمِّيِّ وَ عَلَى آَلِهِ وَ صَحْبِهِ وَ سَلِّمْ";
@@ -74,16 +109,60 @@ public class SalavatFragment extends Fragment {
         textsArabic[10] = "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ، وَ عَلَى آلِ سَيِّدِنَا مُحِمَّدٍ، صَلَاةً تُنَجِّينَا بِهَا مِنْ جَمِيعِ الْأَهوَالِ وَالْأَفَاتِ، وَتَقْضِي لَنَا بِهَا جَمِيعَ الْحَاجَاتِ وَتُطَهِّرُنَا بِهَا مِنْ جَمِيعِ السَّيِّئَاتِ وَتَرْفَعُنَا بِهَا أَعْلَى الدَّرَجَاتِ وَتُبَلِّغُنَا بِهَا أَقْصَى الْغَايَاتِ مِنْ جَمِيعِ الْخَيْرَاتِ فِي الْحَيَاةِ وَبَعْدَ الْمَمَاتِ، بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينِ. حَسْبُنَا اللهُ وَ نِعْمَ الوَكِيلُ، نِعْمَ المَوْلَى وَ نِعْمَ النَّصِيرُ، غُفْرَانَكَ رَبَّنَا وَاِلَيْكَ الْمَصِيرُ";
         textsArabic[11] = "اَللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَ عَلَى آلِ مُحَمَّدٍ وَ اهْدِنِى مِنْ عِنْدِكَ وَ أَفْضِ عَلَيَّ مِنْ فَضْلِكَ وَ انْشُرْ عَلَيَّ مِنْ رَحْمَتِكَ وَ أَنْزِلْ عَلَيَّ بَرَكَاتِكَ";
         textsArabic[12] = "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ كُلَّمَا ذَكَرَهُ الذَاكِرُونَ وَ صَلِّ عَلَى مُحَمَّدٍ كُلَّمَا غَفَلَ عَنْ ذِكْرِهِ الغَافِلُونَ";
+        textsArabic[13] = "جَزَى اللهُ عَنَّا مُحَمَّدًا صَلَّى اللهُ تَعَالَى عَلَيْهِ وَ سَلَّمَ بِمَا هُوَ أَهْلُهُ";
+        textsArabic[14] = "اَللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ كَمَا لاَ نِهَايَةَ لِكَمَالِكَ وَعَدَدَ كَمَالِه";
 
     }
+
+    public void initPage() {
+        textPage[0] = "0";
+        textPage[1] = "1";
+        textPage[2] = "2";
+        textPage[3] = "3";
+        textPage[4] = "4";
+        textPage[5] = "5";
+        textPage[6] = "6";
+        textPage[7] = "7";
+        textPage[8] = "8";
+        textPage[9] = "9";
+        textPage[10] = "10";
+        textPage[11] = "11";
+        textPage[12] = "12";
+        textPage[13] = "13";
+        textPage[14] = "14";
+        textPage[15] = "15";
+        textPage[16] = "16";
+        textPage[17] = "17";
+        textPage[18] = "18";
+        textPage[19] = "19";
+        textPage[20] = "20";
+        textPage[21] = "21";
+        textPage[22] = "22";
+        textPage[23] = "23";
+        textPage[24] = "24";
+        textPage[25] = "25";
+        textPage[26] = "26";
+        textPage[27] = "27";
+        textPage[28] = "28";
+        textPage[29] = "29";
+        textPage[30] = "30";
+    }
+
+
 
     Runnable r = new Runnable() {
         public void run(){
             if(currentPage < 0) currentPage = 0;
             if(currentPage > 30) currentPage = 30;
             arabic.setText(textsArabic[currentPage]);
+            page.setText(textPage[currentPage]);
             handler.postDelayed(r,100);
         }
     };
 
+    @Override
+    public void onClick(View view) {
+        Intent back = new Intent(getActivity(), MainActivity.class);
+        startActivity(back);
+    }
 }
