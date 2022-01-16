@@ -18,6 +18,10 @@ public class NavigationActivity extends AppCompatActivity {
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new SalavatFragment()).commit();
                 break;
+
+            case 3:
+                getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new Jest_CounterFragment()).commit();
+                break;
         }
     }
 }

@@ -23,11 +23,12 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     private int myCounter = 0;
     private String defolt_value = "10";
     private int maxvalue;
-    private Button button;
+    private Button plus;
     private Button Zero;
     private Button Minus;
     private Button Ok;
-    //private Button settings;
+    private Button baccck;
+    private Button set;
     private TextView textView;
     private TextView editprogress;
     private EditText tsel;
@@ -42,7 +43,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_counter, null);
 
         editprogress = view.findViewById(R.id.editprogress);
-        button = view.findViewById(R.id.plus);
+        plus = view.findViewById(R.id.plus);
         Zero = view.findViewById(R.id.Zzero);
         Minus = view.findViewById(R.id.minus);
         textView = view.findViewById(R.id.count);
@@ -50,12 +51,15 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         mProgressBar.setVisibility(ProgressBar.VISIBLE);
         tsel = view.findViewById(R.id.Tsel);
         Ok = view.findViewById(R.id.ok);
+        baccck = view.findViewById(R.id.baccck);
+        set = view.findViewById(R.id.set);
 
-        button.setOnClickListener(this);
+        plus.setOnClickListener(this);
         Zero.setOnClickListener(this);
         Minus.setOnClickListener(this);
         Ok.setOnClickListener(this);
-        //settings.setOnClickListener(this);
+        set.setOnClickListener(this);
+        baccck.setOnClickListener(this);
 
         handler = new Handler();
 
@@ -84,9 +88,9 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.settings:
-                Intent settings = new Intent(v.getContext(), SettingsActivity.class);
-                startActivity(settings);
+            case R.id.set:
+                Intent set = new Intent(v.getContext(), SettingsActivity.class);
+                startActivity(set);
                 break;
 
             case R.id.ok:
@@ -195,6 +199,10 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                 animator2.setDuration(GAUGE_ANIMATION_DURATION);
                 animator2.start();
                 break;
+
+            case R.id.baccck:
+                Intent baccck = new Intent(getContext(), MainActivity.class);
+                startActivity(baccck);
 
         }
 

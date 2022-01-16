@@ -214,6 +214,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         swipe_Zickr_Counter.setOnClickListener(View -> {
+            SelectFragment = 3;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "Жестовый Счетчик", Toast.LENGTH_SHORT);
             toast.show();
         });

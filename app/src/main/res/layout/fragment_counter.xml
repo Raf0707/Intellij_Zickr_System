@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.533" />
 
     <Button
-        android:id="@+id/settings"
+        android:id="@+id/set"
         android:layout_width="53dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_baseline_settings_24"
@@ -37,6 +37,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/baccck"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_baseline_arrow_circle_left_24"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
 
     <EditText
         android:id="@+id/Tsel"
