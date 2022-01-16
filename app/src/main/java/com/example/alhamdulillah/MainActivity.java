@@ -12,8 +12,10 @@ import com.google.android.material.floatingactionbutton.*;
 
 import org.jsoup.*;
 import org.jsoup.nodes.*;
+import org.jsoup.select.*;
 
 import java.io.*;
+import java.util.*;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -53,20 +55,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static int SelectFragment = 0;
 
-    private final String url = "https://5namaz.com/russia/moskva/";
+    private TextView hijra;
+    private TableLayout namazLayout;
+
+    private final String url = "https://www.mihrab.ru";
     private Document document = null;
-    private String answer = "";
-    private String answerText = "";
-    private TextView raspn;
-    private String txtr;
-    private StringBuilder builder = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        raspn = findViewById(R.id.raspn);
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
@@ -259,6 +257,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ayat_layout = findViewById(R.id.ayat_layout);
         ayat_layout.setTranslationY(730);
 
+        hijra = findViewById(R.id.hijra);
+        namazLayout = findViewById(R.id.namazLayout);
+
         new MyTask().execute();
 
         Intent intent = new Intent(this, AzanService.class);
@@ -346,16 +347,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
 
         @Override
         protected Void doInBackground(Void... params) {
-            try{
+            try {
                 document = Jsoup.connect(url).get();
-                answer = document.body().html();
-                answerText = Jsoup.parse(answer).text();
-            }catch(IOException e){
+
+            } catch(IOException e){
                 e.printStackTrace();
             }
             return null;
@@ -364,29 +363,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            Element thead = document.select("tbody").first();
-            String txt = thead.html();
 
+            Element header_calendar = document.getElementsByClass("head-calendar").first();
 
+            StringBuilder stringBuilder = new StringBuilder();
 
+            String[] spl = header_calendar.text().split(" ");
+            spl[3] = "\n\n" + spl[3];
+            for (String s : spl) {
+                stringBuilder.append(" " + s + " ");
+            }
+            hijra.setText(stringBuilder.toString());
+            hijra.setTextColor(getResources().getColor(R.color.purple_300));
+            hijra.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 6, getResources().getDisplayMetrics()));
 
+            String txt = header_calendar.html();
             String elt = Jsoup.parse(txt).text();
 
-            String[] words = elt.split(" ");
-            for(String word : words){
-                if(containsTime(word)==true&&word.contains(":")){
-                    String resul = word.replace(word,"\n"+word+"\n");
-                    word = resul;
+            Elements elementsRasp = document.getElementsByClass("modiptprayer");
+            ArrayList<CalTimeElement> ctElements = new ArrayList<CalTimeElement>();
 
-                }else{
-                    String resul = word.replace(word," "+word+" ");
-                    word = resul;
+            for(Element element: elementsRasp){
+                String elh= element.html();
+                String preresul = elh.replace("<span>","spaceop").replace("</span>","spacend");
+                String resul = preresul.replace("spaceop"," ").replace("spacend","");
+                String[] pars = resul.split(" ",2);
+
+                if (pars[1].contains(" ")) {
+                    pars[1] = pars[1].replace(" ", "");
                 }
-                builder.append(word);
+
+                ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));
+
             }
 
-            raspn.setText(builder.toString());
-            Log.d("LOGG",elt);
         }
     }
 

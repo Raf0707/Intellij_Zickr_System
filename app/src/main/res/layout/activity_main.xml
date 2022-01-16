@@ -288,13 +288,13 @@
 
     <LinearLayout
         android:id="@+id/hadice_layout"
-        android:layout_width="254dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001">
@@ -358,25 +358,36 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="240dp"
-        android:layout_height="439dp"
-        android:orientation="vertical"
+    <TableLayout
+        android:id="@+id/namazLayout"
+        android:layout_width="230dp"
+        android:layout_height="262dp"
+        android:stretchColumns="0, 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.484">
 
-        <TextView
-            android:id="@+id/raspn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/purple_300"
-            android:gravity="left"
-            android:textSize="15sp">
-        </TextView>
 
-    </LinearLayout>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/hijra"
+        android:layout_width="230dp"
+        android:layout_height="88dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/purple_300"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

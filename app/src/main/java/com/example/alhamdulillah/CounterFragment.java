@@ -9,18 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.*;
-
 import android.animation.*;
-import android.graphics.*;
 import android.os.*;
 import android.view.*;
 import android.view.animation.*;
 import android.widget.*;
 
 import java.text.*;
-import java.util.*;
 import java.util.concurrent.*;
 
 
@@ -47,7 +42,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_counter, null);
 
         editprogress = view.findViewById(R.id.editprogress);
-        button = view.findViewById(R.id.button);
+        button = view.findViewById(R.id.plus);
         Zero = view.findViewById(R.id.Zzero);
         Minus = view.findViewById(R.id.minus);
         textView = view.findViewById(R.id.count);
@@ -123,7 +118,20 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
 
                 break;
 
-            case R.id.button:
+            case R.id.plus:
+                if (tsel.getText().toString().length() == 0) {
+                    maxvalue = 100;
+                    tsel.setText(Integer.toString(maxvalue));
+                    mProgressBar.setMax(100);
+                    editprogress.setText(MessageFormat.format("{0} / {1}", myCounter, 100));
+                }
+                if (myCounter == maxvalue) {
+                    editprogress.setText(MessageFormat.format("{0} / {1}", tsel.getText().toString(), tsel.getText().toString()));
+                    Toast toast = Toast.makeText(requireActivity().getApplicationContext(), R.string.CompleteTsel, Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                    }
+
                 if (tsel.getText().toString() != null) {
                     myCounter++;
                     textView.setText(Integer.toString(myCounter));
@@ -145,21 +153,14 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                             toast.setGravity(Gravity.CENTER, 0, 0);
                             toast.show();
 
-                        }
-
-                    } else {
-                        maxvalue = 100;
-                        mProgressBar.setMax(100);
-                        editprogress.setText(MessageFormat.format("{0} / {1}", myCounter, 100));
-                        if (myCounter == maxvalue) {
-                            editprogress.setText(MessageFormat.format("{0} / {1}", tsel.getText().toString(), tsel.getText().toString()));
-                            Toast toast = Toast.makeText(requireActivity().getApplicationContext(), R.string.CompleteTsel, Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
+                            }
 
                         }
+
                     }
-                } else {
+
+
+                else {
                     Toast toast = Toast.makeText(requireActivity().getApplicationContext(), "Введите цель", Toast.LENGTH_SHORT);
                     toast.show();
                 }

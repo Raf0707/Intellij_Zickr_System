@@ -13,8 +13,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="-27dp"
+        tools:layout_editor_absoluteY="-264dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="الرَّحِيمُُﷻ"
+                android:text="الرَّحِيمُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
-                android:text="المَلِكُُﷻ"
+                android:text="المَلِكُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
-                android:text="القُدُّوسُُﷻ"
+                android:text="القُدُّوسُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="السَّلَامُُﷻ"
+                android:text="السَّلَامُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="المُؤمِنُُِﷻ"
+                android:text="المُؤمِنُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="المُهَيْمِنُُُﷻ"
+                android:text="المُهَيْمِنُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
@@ -107,7 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
-                android:text="الجَبَّارُُُﷻ"
+                android:text="الجَبَّارُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
 
