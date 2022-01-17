@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/myLayout"
+    android:id="@+id/AllahNamesLayout"
     android:background="@drawable/backgroundsalavatcounter"
     tools:context=".AllahNamesFragment">
 
@@ -109,6 +109,35 @@
                 android:text="الجَبَّارُﷻ"
                 android:textColor="@color/white"
                 android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/nameMutacabbir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:text="المُتَكَبِّرُﷻ"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/nameHalic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:text="الخَالِقُﷻ"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/nameBary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:text="البَارِئُﷻ"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+
 
 
         </LinearLayout>

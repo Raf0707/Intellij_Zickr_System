@@ -19,7 +19,6 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
     private int counter = 0;
     private TextView jestCounter;
     private Button bacckmenu;
-    private Button setttings;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,10 +28,7 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
         handler = new Handler();
         jestCounter = view.findViewById(R.id.jestCount);
         bacckmenu = view.findViewById(R.id.bacckmenu);
-        setttings = view.findViewById(R.id.setttings);
-
         bacckmenu.setOnClickListener(this);
-        setttings.setOnClickListener(this);
 
         Thread t = new Thread(() -> {
             try{
@@ -84,15 +80,8 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
+        Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
+        startActivity(bacckkmenu);
 
-            case R.id.setttings:
-                Intent setttings = new Intent(getContext(), SettingsActivity.class);
-                startActivity(setttings);
-
-            case R.id.bacckmenu:
-                Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
-                startActivity(bacckkmenu);
-        }
     }
 }

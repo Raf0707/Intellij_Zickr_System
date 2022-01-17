@@ -22,6 +22,10 @@ public class NavigationActivity extends AppCompatActivity {
             case 3:
                 getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new Jest_CounterFragment()).commit();
                 break;
+
+            case 4:
+                getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new AllahNamesFragment()).commit();
+                break;
         }
     }
 }

@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int SelectFragment = 0;
 
     private TextView hijra;
+    private TextView countNamaz;
+    private TextView textHadice;
     private TableLayout namazLayout;
 
     private final String url = "https://www.mihrab.ru";
@@ -65,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        countNamaz = findViewById(R.id.countnamaz);
+        textHadice = findViewById(R.id.textHadice);
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
@@ -165,6 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         names_of_Allah.setOnClickListener(View -> {
+            //SelectFragment = 4;
+            //startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "99 имен Аллаха", Toast.LENGTH_SHORT);
             toast.show();
         });
@@ -250,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hadice_button.setOnClickListener(this);
         close_hadice_button.setOnClickListener(this);
         hadice_layout = findViewById(R.id.hadice_layout);
-        hadice_layout.setTranslationY(-300);
+        hadice_layout.setTranslationY(-1300);
 
         ayat_button = findViewById(R.id.ayat_button);
         ayat_button.setOnClickListener(this);
@@ -278,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     hadice_button.setClickable(false);
 
-                    ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", 100f);
+                    ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", 0);
                     hadice_animator.setDuration(1000);
                     hadice_animator.start();
                     isOpenHadice = true;
@@ -287,14 +294,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     hide_button.setDuration(600);
                     hide_button.start();
 
+                    ObjectAnimator hijraa = ObjectAnimator.ofFloat(hijra, "alpha", 0);
+                    hijraa.setDuration(600);
+                    hijraa.start();
+
                 }
                 break;
 
             case R.id.close_hadice_button:
 
                 hadice_button.setClickable(true);
+                //hadice_button.setVisibility(View.INVISIBLE);
 
-                ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", -300f);
+                ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", -1300f);
                 hadice_animator.setDuration(1000);
                 hadice_animator.start();
                 isOpenHadice = false;
@@ -302,6 +314,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 1);
                 hide_button.setDuration(600);
                 hide_button.start();
+
+                ObjectAnimator hijraa = ObjectAnimator.ofFloat(hijra, "alpha", 1);
+                hijraa.setDuration(600);
+                hijraa.start();
 
                 break;
 
@@ -385,7 +401,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Elements elementsRasp = document.getElementsByClass("modiptprayer");
             ArrayList<CalTimeElement> ctElements = new ArrayList<CalTimeElement>();
 
-            for(Element element: elementsRasp){
+            Element ayat = document.getElementById("srq_quote");
+            textHadice.setGravity(Gravity.CENTER);
+            textHadice.setTextColor(getResources().getColor(R.color.purple_300));
+            textHadice.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 6, getResources().getDisplayMetrics()));
+            textHadice.setText(ayat.text());
+
+
+            for(Element element: elementsRasp) {
                 String elh= element.html();
                 String preresul = elh.replace("<span>","spaceop").replace("</span>","spacend");
                 String resul = preresul.replace("spaceop"," ").replace("spacend","");
@@ -393,6 +416,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (pars[1].contains(" ")) {
                     pars[1] = pars[1].replace(" ", "");
+                }
+
+                if (pars[0].contains("Шурук")) {
+                    pars[0] = pars[0].replace("Шурук", "Восход");
                 }
 
                 ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));

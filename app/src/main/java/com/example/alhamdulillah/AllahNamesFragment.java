@@ -3,6 +3,7 @@ package com.example.alhamdulillah;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.*;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,12 +121,41 @@ public class AllahNamesFragment extends Fragment {
         ScrollView scrollView = new ScrollView(requireView().getContext());
         nameAllah = view.findViewById(R.id.nameAllah);
         nameRahman = view.findViewById(R.id.nameRahim);
+        nameRahim = view.findViewById(R.id.nameRahim);
+        nameMalick = view.findViewById(R.id.nameMalic);
+        nameKuddus = view.findViewById(R.id.nameKuddus);
+        nameSalam = view.findViewById(R.id.nameSalam);
+        nameMu_Min = view.findViewById(R.id.nameMumin);
+        nameMuhaymin = view.findViewById(R.id.nameMuhaymin);
+        nameAziz = view.findViewById(R.id.nameAziz);
+        nameDjabbar = view.findViewById(R.id.nameDjabbar);
+        nameMutacabbir = view.findViewById(R.id.nameMutacabbir);
 
 
-        nameAllah.setLayoutParams(new ViewGroup.LayoutParams
-                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        nameAllah.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameRahman.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameRahim.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameMalick.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameKuddus.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameSalam.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameMu_Min.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameMuhaymin.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameAziz.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameDjabbar.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        nameMutacabbir.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         scrollView.addView(nameAllah);
+        scrollView.addView(nameRahman);
+        scrollView.addView(nameRahim);
+        scrollView.addView(nameMalick);
+        scrollView.addView(nameKuddus);
+        scrollView.addView(nameSalam);
+        scrollView.addView(nameMu_Min);
+        scrollView.addView(nameMuhaymin);
+        scrollView.addView(nameAziz);
+        scrollView.addView(nameDjabbar);
+        scrollView.addView(nameMutacabbir);
 
 
         return inflater.inflate(R.layout.fragment_allah_names, container, false);

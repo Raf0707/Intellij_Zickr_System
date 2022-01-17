@@ -25,19 +25,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/setttings"
-        android:layout_width="53dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ic_baseline_settings_24"
-        app:cornerRadius="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <Button
         android:id="@+id/bacckmenu"
         android:layout_width="53dp"
         android:layout_height="50dp"

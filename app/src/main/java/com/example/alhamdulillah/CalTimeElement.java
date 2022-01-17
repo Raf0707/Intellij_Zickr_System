@@ -10,8 +10,8 @@ import android.widget.*;
 import androidx.core.content.*;
 
 
-public class CalTimeElement
-{
+public class CalTimeElement {
+    private long secPerHours;
     private String time;
     private String timerTitle;
     private TableLayout tl;
@@ -21,8 +21,7 @@ public class CalTimeElement
     private TextView tv2;
     private CheckBox cb;
 
-    public CalTimeElement(Context ctx,TableLayout tl,String timerTitle, String time)
-    {
+    public CalTimeElement(Context ctx,TableLayout tl,String timerTitle, String time) {
         this.ctx = ctx;
         this.tl = tl;
         this.timerTitle = timerTitle;
@@ -39,11 +38,17 @@ public class CalTimeElement
         tv.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 9, ctx.getResources().getDisplayMetrics()));
         tv.setText(this.getTimerTitle());
 
+        secPerHours = secPerHours(this.getTime());
+
+        long seconds = secPerHours(this.getTime());
+        String resl = timeToString(seconds);
+
+
         tv2 = new TextView(ctx);
         tv2.setTextColor(ctx.getResources().getColor(R.color.purple_300));
         tv2.setTypeface(tv2.getTypeface(), Typeface.BOLD);
         tv2.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 9, ctx.getResources().getDisplayMetrics()));
-        tv2.setText(this.getTime());
+        tv2.setText(this.getTime() + "||" + resl);
         int a = (int) this.hoursToMinutes(this.getTime());
 
         cb = new CheckBox(ctx);
@@ -64,6 +69,14 @@ public class CalTimeElement
         Double hInM = Double.valueOf(hoursInMinutes[0]) * 60;
         Double hmresult = Double.valueOf(hInM + Integer.valueOf(hoursInMinutes[1]));
         long a = Math.round(hmresult);
+        return a;
+    }
+
+    public long secPerHours(String text){
+        String[] secPerHours = text.split(":");
+        Double sPerH = Double.valueOf(secPerHours[0]) * 60 * 60;
+        Double shResult = Double.valueOf(sPerH + Integer.valueOf(secPerHours[1]));
+        long a = Math.round(shResult);
         return a;
     }
 
@@ -102,6 +115,13 @@ public class CalTimeElement
     public String getTimerTitle()
     {
         return timerTitle;
+    }
+
+    private String timeToString(long secs) {
+        long hour = secs / 3600,
+                min = secs / 60 % 60,
+                sec = secs / 1 % 60;
+        return String.format("%02d:%02d:%02d", hour, min, sec);
     }
 
     @Override
