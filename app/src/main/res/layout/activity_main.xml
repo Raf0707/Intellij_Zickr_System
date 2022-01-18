@@ -316,7 +316,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Хадис"
+                    android:text=""
                     android:background="@color/white"
                     android:textColor="@color/purple_300"
                     android:textSize="41sp"
@@ -343,37 +343,53 @@
 
     <LinearLayout
         android:id="@+id/ayat_layout"
-        android:layout_width="178dp"
-        android:layout_height="114dp"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:gravity="center|top"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.972">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textAyat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Аят"
+            android:text="الْحَمْدُ الِلهِ رَبِّ الْعَالَمِينَ"
             android:textColor="@color/purple_300"
-            android:textSize="41sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/close_ayat_button"
-            android:layout_width="53dp"
+            android:layout_width="52dp"
             android:layout_height="53dp"
-            android:background="@drawable/ic_baseline_arrow_drop_down_circle_24" />
+            android:background="@drawable/ic_baseline_control_point_24"
+            android:gravity="left" />
+
+        <TextView
+            android:id="@+id/textCount"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:gravity="center"
+            android:text="33"
+            android:textColor="@color/purple_300"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
 
@@ -403,10 +419,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/countnamaz"

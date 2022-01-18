@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView hijra;
     private TextView countNamaz;
     private TextView textHadice;
+    private TextView textCount;
     private TextView textAyat;
     private TableLayout namazLayout;
 
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Document document = null;
 
     private CalTimeElement calTimeElement;
+    private int dailyCount;
+    private String[] dailySpis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         countNamaz = findViewById(R.id.countnamaz);
         textHadice = findViewById(R.id.textHadice);
         textAyat = findViewById(R.id.textAyat);
+        textCount = findViewById(R.id.textCount);
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
@@ -282,6 +286,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, AzanService.class);
         startService(intent);
 
+        dailySpis = new String[]{"لاَ إلَهَ إلاَّ اللهُ", "حَسْبُنَا اللّهُ وَنِعْمَ الْوَكِيلُ", "أَسْتَغْفِرُ الله", "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ", "الْحَمْدُ الِلهِ رَبِّ الْعَالَمِينَ",
+               "لاَ اِلَهَ اِلَّا اللهُ الْمَلِكُ الْحَقُّ الْمُبِين", "رَبِّ اغْفِـرْ لِي", "أَسْتَغْفِرُ الله العَظِيم اَلَّذِي لاَ إلَهَ إلَّا هُوَ الْحَيَّ القَيُّومَ وَأَتُوبُ إِلَيْهِ", "الم.  اللّهُ لا إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ" ,"رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ" ,"اللهُ أكْبَرُ" ,"لاَ اِلَهَ اِلَّا أَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِين", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"};
+
     }
 
     @Override
@@ -376,10 +383,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ayat_layout.setVisibility(View.VISIBLE);
                     hijra.setVisibility(View.VISIBLE);
 
-                    //calTimeElement.getCb().setClickable(true);
-                    //calTimeElement.getCb().setVisibility(View.VISIBLE);
-
-
                     break;
 
                 }
@@ -389,33 +392,71 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (!(isOpenAyat)) {
 
                     ayat_button.setClickable(false);
+                    ayat_button.setVisibility(View.INVISIBLE);
+
+                    fab.hide();
+                    wijets.hide();
+
+                    settings.hide();
+                    kompas.hide();
+                    zickr_Counter.hide();
+                    swipe_Zickr_Counter.hide();
+                    dolgi_i_zaslugi.hide();
+                    my_tsels.hide();
+                    my_achieves.hide();
+                    resfolder.hide();
+                    music_Koran.hide();
+                    isAllWijetsVisible = false;
+
+                    Koran_Karim.hide();
+                    Koran_Karim_by_heart.hide();
+                    salavats.hide();
+                    dua.hide();
+                    zickr.hide();
+                    hadice.hide();
+                    names_of_Allah.hide();
 
                     ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 0f);
-                    ayat_animator.setDuration(1000);
+                    ayat_animator.setDuration(200);
                     ayat_animator.start();
                     isOpenAyat = true;
 
-                    ObjectAnimator hide_button_ayat = ObjectAnimator.ofFloat(ayat_button, "alpha", 0);
-                    hide_button_ayat.setDuration(600);
-                    hide_button_ayat.start();
-                    //Log.d("cord", String.valueOf(ayat_layout.getTranslationY()));
                 }
 
                 break;
 
             case R.id.close_ayat_button:
+                dailyCount = Integer.parseInt(textCount.getText().toString());
+                dailyCount--;
+                if (dailyCount < 0) {
+                    dailyCount = 0;
 
-                ayat_button.setClickable(true);
+                }
 
-                ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 730f);
-                ayat_animator.setDuration(1000);
-                ayat_animator.start();
-                isOpenAyat = false;
+                textCount.setText(Integer.toString(dailyCount));
 
-                ObjectAnimator hide_button_ayat = ObjectAnimator.ofFloat(ayat_button, "alpha", 1);
-                hide_button_ayat.setDuration(600);
-                hide_button_ayat.start();
-                //Log.d("cord1", String.valueOf(ayat_layout.getTranslationY()));
+                if (dailyCount == 0) {
+                    ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 900f);
+                    ayat_animator.setDuration(200);
+                    ayat_animator.start();
+                    isOpenAyat = false;
+
+                    ObjectAnimator hide_button_ayat = ObjectAnimator.ofFloat(ayat_button, "alpha", 1);
+                    hide_button_ayat.setDuration(100);
+                    hide_button_ayat.start();
+
+                    Toast toast1 = Toast.makeText(this, "Да вознаградит Вас Аллах за ежедневное поминание", Toast.LENGTH_SHORT);
+                    toast1.show();
+
+                    fab.show();
+                    wijets.show();
+
+                    Random r = new Random();
+                    int myRandStringIndex = r.nextInt(dailySpis.length);
+                    textAyat.setText(dailySpis[myRandStringIndex]);
+                    dailyCount = 33;
+                    textCount.setText(Integer.toString(dailyCount));
+                }
 
                 break;
 
