@@ -1,6 +1,7 @@
 package com.example.alhamdulillah;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.*;
 
 import android.animation.*;
 import android.os.*;
@@ -15,10 +16,13 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
 import java.io.*;
+import java.lang.ref.*;
 import java.util.*;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+
 
     private FloatingActionButton fab;
     private FloatingActionButton Koran_Karim;
@@ -58,10 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView hijra;
     private TextView countNamaz;
     private TextView textHadice;
+    private TextView textAyat;
     private TableLayout namazLayout;
 
     private final String url = "https://www.mihrab.ru";
     private Document document = null;
+
+    private CalTimeElement calTimeElement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         countNamaz = findViewById(R.id.countnamaz);
         textHadice = findViewById(R.id.textHadice);
+        textAyat = findViewById(R.id.textAyat);
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
@@ -170,8 +178,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         names_of_Allah.setOnClickListener(View -> {
-            //SelectFragment = 4;
-            //startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            SelectFragment = 4;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "99 имен Аллаха", Toast.LENGTH_SHORT);
             toast.show();
         });
@@ -257,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hadice_button.setOnClickListener(this);
         close_hadice_button.setOnClickListener(this);
         hadice_layout = findViewById(R.id.hadice_layout);
-        hadice_layout.setTranslationY(-1300);
+        hadice_layout.setTranslationY(-2300);
 
         ayat_button = findViewById(R.id.ayat_button);
         ayat_button.setOnClickListener(this);
@@ -283,43 +291,98 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (!(isOpenHadice)) {
 
+                    hadice_button.setVisibility(View.INVISIBLE);
                     hadice_button.setClickable(false);
 
+                    close_hadice_button.setVisibility(View.VISIBLE);
+                    close_hadice_button.setClickable(true);
+
                     ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", 0);
-                    hadice_animator.setDuration(1000);
+                    hadice_animator.setDuration(200);
                     hadice_animator.start();
                     isOpenHadice = true;
 
+                    /*
                     ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 0);
-                    hide_button.setDuration(600);
+                    hide_button.setDuration(100);
                     hide_button.start();
 
-                    ObjectAnimator hijraa = ObjectAnimator.ofFloat(hijra, "alpha", 0);
-                    hijraa.setDuration(600);
-                    hijraa.start();
+                     */
+
+                    settings.hide();
+                    kompas.hide();
+                    zickr_Counter.hide();
+                    swipe_Zickr_Counter.hide();
+                    dolgi_i_zaslugi.hide();
+                    my_tsels.hide();
+                    my_achieves.hide();
+                    resfolder.hide();
+                    music_Koran.hide();
+                    isAllWijetsVisible = false;
+
+                    Koran_Karim.hide();
+                    Koran_Karim_by_heart.hide();
+                    salavats.hide();
+                    dua.hide();
+                    zickr.hide();
+                    hadice.hide();
+                    names_of_Allah.hide();
+
+                    fab.hide();
+                    wijets.hide();
+                    textAyat.setVisibility(View.GONE);
+                    hijra.setVisibility(View.GONE);
+
+                    namazLayout.setVisibility(View.GONE);
+                    ayat_layout.setVisibility(View.GONE);
+
+                    ayat_button.setVisibility(View.INVISIBLE);
+                    ayat_button.setClickable(false);
+
+                    //calTimeElement.getCb().setClickable(false);
+                    //calTimeElement.getCb().setVisibility(View.INVISIBLE);
 
                 }
+
                 break;
 
             case R.id.close_hadice_button:
 
-                hadice_button.setClickable(true);
-                //hadice_button.setVisibility(View.INVISIBLE);
+                if (isOpenHadice) {
 
-                ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", -1300f);
-                hadice_animator.setDuration(1000);
-                hadice_animator.start();
-                isOpenHadice = false;
+                    hadice_button.setClickable(true);
+                    hadice_button.setVisibility(View.VISIBLE);
 
-                ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 1);
-                hide_button.setDuration(600);
-                hide_button.start();
+                    close_hadice_button.setVisibility(View.INVISIBLE);
+                    close_hadice_button.setClickable(false);
 
-                ObjectAnimator hijraa = ObjectAnimator.ofFloat(hijra, "alpha", 1);
-                hijraa.setDuration(600);
-                hijraa.start();
+                    ObjectAnimator hadice_animator = ObjectAnimator.ofFloat(hadice_layout, "translationY", -1300f);
+                    hadice_animator.setDuration(200);
+                    hadice_animator.start();
+                    isOpenHadice = false;
 
-                break;
+                    ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 1);
+                    hide_button.setDuration(100);
+                    hide_button.start();
+
+                    textAyat.setVisibility(View.VISIBLE);
+                    fab.show();
+                    wijets.show();
+
+                    ayat_button.setVisibility(View.VISIBLE);
+                    ayat_button.setClickable(true);
+                    namazLayout.setVisibility(View.VISIBLE);
+                    textAyat.setVisibility(View.VISIBLE);
+                    ayat_layout.setVisibility(View.VISIBLE);
+                    hijra.setVisibility(View.VISIBLE);
+
+                    //calTimeElement.getCb().setClickable(true);
+                    //calTimeElement.getCb().setVisibility(View.VISIBLE);
+
+
+                    break;
+
+                }
 
             case R.id.ayat_button:
 
@@ -404,7 +467,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Element ayat = document.getElementById("srq_quote");
             textHadice.setGravity(Gravity.CENTER);
             textHadice.setTextColor(getResources().getColor(R.color.purple_300));
-            textHadice.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 6, getResources().getDisplayMetrics()));
+            textHadice.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8, getResources().getDisplayMetrics()));
             textHadice.setText(ayat.text());
 
 

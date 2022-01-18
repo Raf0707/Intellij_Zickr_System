@@ -9,140 +9,16 @@
     android:background="@drawable/backgroundsalavatcounter"
     tools:context=".AllahNamesFragment">
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/namesAllah"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-27dp"
-        tools:layout_editor_absoluteY="-264dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
-            <TextView
-                android:id="@+id/nameAllah"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="اللّهُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameRahman"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="الرَّحْمَنُِﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameRahim"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="الرَّحِيمُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameMalic"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="المَلِكُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameKuddus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="القُدُّوسُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameSalam"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="السَّلَامُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameMumin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="المُؤمِنُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameMuhaymin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="المُهَيْمِنُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameAziz"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="االعَزِيزُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameDjabbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="الجَبَّارُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameMutacabbir"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="المُتَكَبِّرُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameHalic"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="الخَالِقُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/nameBary"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:text="البَارِئُﷻ"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

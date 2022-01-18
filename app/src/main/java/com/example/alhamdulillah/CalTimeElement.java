@@ -17,9 +17,9 @@ public class CalTimeElement {
     private TableLayout tl;
     private Context ctx;
 
-    private TextView tv;
-    private TextView tv2;
-    private CheckBox cb;
+    public TextView tv;
+    public TextView tv2;
+    public CheckBox cb;
 
     public CalTimeElement(Context ctx,TableLayout tl,String timerTitle, String time) {
         this.ctx = ctx;
@@ -48,7 +48,7 @@ public class CalTimeElement {
         tv2.setTextColor(ctx.getResources().getColor(R.color.purple_300));
         tv2.setTypeface(tv2.getTypeface(), Typeface.BOLD);
         tv2.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 9, ctx.getResources().getDisplayMetrics()));
-        tv2.setText(this.getTime() + "||" + resl);
+        tv2.setText(this.getTime());
         int a = (int) this.hoursToMinutes(this.getTime());
 
         cb = new CheckBox(ctx);
