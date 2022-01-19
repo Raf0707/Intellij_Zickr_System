@@ -360,7 +360,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="الْحَمْدُ الِلهِ رَبِّ الْعَالَمِينَ"
+            android:text=""
             android:textColor="@color/purple_300"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"

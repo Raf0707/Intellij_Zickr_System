@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.*;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
 
 import java.lang.ref.*;
 import java.util.*;
@@ -22,6 +21,7 @@ public class AllahNamesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_allah_names, null);
+
         ctx = new WeakReference<>(this);
         namess = new ArrayList<Name>();
         names = new String[] {
@@ -125,7 +125,9 @@ public class AllahNamesFragment extends Fragment {
                 "الرَّشِيدُﷻ" ,
                 "الصَّبُورُﷻ" };
 
-        init();
+
+        init(names);
+
 
         NamesAdapter namesAdapter = new NamesAdapter(view.getContext(), namess);
         RecyclerView nameView = view.findViewById(R.id.namesAllah);
@@ -136,9 +138,9 @@ public class AllahNamesFragment extends Fragment {
 
     }
 
-    public void init() {
-        for (int i = 0; i < names.length; ++i) {
-            namess.add(new Name(names[i]));
+    public void init(String[] names) {
+        for (int i = 0; i < this.names.length; ++i) {
+            namess.add(new Name(this.names[i]));
         }
     }
 

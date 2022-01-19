@@ -16,7 +16,6 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
 import java.io.*;
-import java.lang.ref.*;
 import java.util.*;
 
 

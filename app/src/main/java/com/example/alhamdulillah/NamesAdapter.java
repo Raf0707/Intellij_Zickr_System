@@ -30,12 +30,7 @@ class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> {
     public void onBindViewHolder(final NamesAdapter.ViewHolder holder, int position) {
         Name name = names.get(position);
         holder.nameView.setText(name.getName());
-        holder.nameView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-            }
-        });
+        holder.nameView.setOnClickListener(v -> {});
     }
 
     @Override
