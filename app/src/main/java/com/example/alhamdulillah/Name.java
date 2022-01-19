@@ -1,6 +1,7 @@
 package com.example.alhamdulillah;
 
 public class Name {
+
     private String name;
 
     public Name(String name) {
@@ -14,6 +15,5 @@ public class Name {
     public String getName() {
         return this.name;
     }
-
 
 }
