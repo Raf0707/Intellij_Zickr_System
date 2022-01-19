@@ -1,16 +1,16 @@
 package com.example.alhamdulillah;
 
-import android.content.*;
-import android.view.*;
-import android.widget.*;
+import android.view.LayoutInflater;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.view.View;
+import android.widget.TextView;
 
-import androidx.recyclerview.widget.*;
+public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> {
 
-import java.util.*;
-
-class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> {
-
-    public static final AllahNamesFragment NAME = AllahNamesFragment.ctx.get();
+    public static final AllahNamesFragment MAIN = AllahNamesFragment.ctx.get();
 
     private LayoutInflater inflater;
     private List<Name> names;
@@ -28,9 +28,14 @@ class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final NamesAdapter.ViewHolder holder, int position) {
-        Name name = names.get(position);
+        Name name= names.get(position);
         holder.nameView.setText(name.getName());
-        holder.nameView.setOnClickListener(v -> {});
+        holder.nameView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+            }
+        });
     }
 
     @Override
@@ -42,7 +47,7 @@ class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> {
         final TextView nameView;
         ViewHolder(View view){
             super(view);
-            nameView = view.findViewById(R.id.name);
+            nameView = (TextView) view.findViewById(R.id.name);
         }
     }
 

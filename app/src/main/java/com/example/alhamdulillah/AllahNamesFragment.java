@@ -139,8 +139,8 @@ public class AllahNamesFragment extends Fragment {
     }
 
     public void init(String[] names) {
-        for (int i = 0; i < this.names.length; ++i) {
-            namess.add(new Name(this.names[i]));
+        for(String n : names){
+            namess.add(new Name(n));
         }
     }
 
