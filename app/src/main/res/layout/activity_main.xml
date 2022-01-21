@@ -423,20 +423,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192" />
 
+
     <TextView
         android:id="@+id/countnamaz"
-        android:layout_width="260dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
-        android:gravity="center"
-        android:text=""
-        android:textColor="@color/purple_300"
-        android:textSize="16sp"
+        android:gravity="left"
+        android:text="Фаджр"
+        android:textColor="@color/purple_45"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.735" />
+
+    <TextView
+        android:id="@+id/countnamaz2"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:gravity="right"
+        android:text="09:21:47"
+        android:textColor="@color/purple_45"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.735" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
