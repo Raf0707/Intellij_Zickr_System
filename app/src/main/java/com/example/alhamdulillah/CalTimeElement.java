@@ -9,6 +9,8 @@ import android.widget.*;
 
 import androidx.core.content.*;
 
+import java.util.*;
+
 
 public class CalTimeElement {
     private long secPerHours;
@@ -29,7 +31,7 @@ public class CalTimeElement {
 
         if (timerTitle.equals("Духа")) {
             long a = secPerHours(time);
-            a += 32 * 60;//это твои расчеты. Все в секундах!
+            a += 32 * 60;
             String b = timeToString(a);
             this.time = b;
         } else {
@@ -39,6 +41,9 @@ public class CalTimeElement {
         if (timerTitle.equals("Тахаджуд")) {
             long a = secPerHours(time);
             //a += (Иша + 2 * ((Иша – Фаджр) / 3))
+            long fst = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Иша")));
+            long scnd = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Фаджр")));
+            a = ((fst + 2 * ((fst - scnd) / 3)));
             String b = timeToString(a);
             this.time = b;
         } else {
@@ -136,10 +141,11 @@ public class CalTimeElement {
         return this.timerTitle;
     }
 
-    private String timeToString(long secs) {
+    public static String timeToString(long secs) {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
                 sec = secs % 60;
+        if (hour >= 24) hour %= 24;
         return String.format("%02d:%02d", hour, min);
     }
 
@@ -150,4 +156,3 @@ public class CalTimeElement {
     }
 
 }
-

@@ -21,7 +21,7 @@ import java.util.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    public static HashMap<String, String> hm= new HashMap<>();
 
     private FloatingActionButton fab;
     private FloatingActionButton Koran_Karim;
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startService(intent);
 
         dailySpis = new String[]{"لاَ إلَهَ إلاَّ اللهُ", "حَسْبُنَا اللّهُ وَنِعْمَ الْوَكِيلُ", "أَسْتَغْفِرُ الله", "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ", "الْحَمْدُ الِلهِ رَبِّ الْعَالَمِينَ",
-               "لاَ اِلَهَ اِلَّا اللهُ الْمَلِكُ الْحَقُّ الْمُبِين", "رَبِّ اغْفِـرْ لِي", "أَسْتَغْفِرُ الله العَظِيم اَلَّذِي لاَ إلَهَ إلَّا هُوَ الْحَيَّ القَيُّومَ وَأَتُوبُ إِلَيْهِ", "الم.  اللّهُ لا إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ" ,"رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ" ,"اللهُ أكْبَرُ" ,"لاَ اِلَهَ اِلَّا أَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِين", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"};
+                "لاَ اِلَهَ اِلَّا اللهُ الْمَلِكُ الْحَقُّ الْمُبِين", "رَبِّ اغْفِـرْ لِي", "أَسْتَغْفِرُ الله العَظِيم اَلَّذِي لاَ إلَهَ إلَّا هُوَ الْحَيَّ القَيُّومَ وَأَتُوبُ إِلَيْهِ", "الم.  اللّهُ لا إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ" ,"رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ" ,"اللهُ أكْبَرُ" ,"لاَ اِلَهَ اِلَّا أَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِين", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"};
 
 
         Random r = new Random();
@@ -319,7 +319,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 0);
                     hide_button.setDuration(100);
                     hide_button.start();
-
                      */
 
                     settings.hide();
@@ -517,6 +516,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textHadice.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 8, getResources().getDisplayMetrics()));
             textHadice.setText(ayat.text());
 
+            for(Element element: elementsRasp) {
+                String elh= element.html();
+                String preresul = elh.replace("<span>","spaceop").replace("</span>","spacend");
+                String resul = preresul.replace("spaceop"," ").replace("spacend","");
+                String[] pars = resul.split(" ",2);
+                hm.put(pars[0], pars[1]);
+            }
+
 
             for(Element element: elementsRasp) {
                 String elh= element.html();
@@ -549,7 +556,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));
-
             }
 
         }

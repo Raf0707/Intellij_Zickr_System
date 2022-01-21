@@ -410,7 +410,7 @@
 
     <TextView
         android:id="@+id/hijra"
-        android:layout_width="230dp"
+        android:layout_width="260dp"
         android:layout_height="70dp"
         android:gravity="center"
         android:text=""
@@ -425,7 +425,7 @@
 
     <TextView
         android:id="@+id/countnamaz"
-        android:layout_width="230dp"
+        android:layout_width="260dp"
         android:layout_height="43dp"
         android:gravity="center"
         android:text=""
