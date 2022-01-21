@@ -425,7 +425,7 @@
 
 
     <TextView
-        android:id="@+id/countnamaz"
+        android:id="@+id/next_namaz"
         android:layout_width="130dp"
         android:layout_height="43dp"
         android:gravity="left"
@@ -441,11 +441,11 @@
         app:layout_constraintVertical_bias="0.735" />
 
     <TextView
-        android:id="@+id/countnamaz2"
+        android:id="@+id/localtime_next_namaz"
         android:layout_width="130dp"
         android:layout_height="43dp"
         android:gravity="right"
-        android:text="09:21:47"
+        android:text="09:21:37"
         android:textColor="@color/purple_45"
         android:textSize="25sp"
         android:textStyle="bold"
