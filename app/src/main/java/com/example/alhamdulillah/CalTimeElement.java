@@ -3,12 +3,15 @@ package com.example.alhamdulillah;
 import android.content.*;
 import android.content.res.*;
 import android.graphics.*;
+import android.os.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
 
+import androidx.annotation.*;
 import androidx.core.content.*;
 
+import java.time.*;
 import java.util.*;
 
 
@@ -23,24 +26,22 @@ public class CalTimeElement {
     public TextView tv2;
     public CheckBox cb;
 
-    public CalTimeElement(Context ctx,TableLayout tl,String timerTitle, String time) {
+    public LocalTime localTime;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public CalTimeElement(Context ctx, TableLayout tl, String timerTitle, String time) {
         this.ctx = ctx;
         this.tl = tl;
         this.timerTitle = timerTitle;
 
 
-        if (timerTitle.equals("Духа")) {
+        if (timerTitle.contains("Духа")) {
             long a = secPerHours(time);
-            a += 32 * 60;
-            String b = timeToString(a);
+            long c = a + (long) (32 * 60);
+            String b = timeToString(c);
             this.time = b;
-        } else {
-            this.time = time;
-        }
-
-        if (timerTitle.equals("Тахаджуд")) {
-            long a = secPerHours(time);
-            //a += (Иша + 2 * ((Иша – Фаджр) / 3))
+        } else if (timerTitle.equals("Тахаджуд")) {
+            long a;
             long fst = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Иша")));
             long scnd = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Фаджр")));
             a = ((fst + 2 * ((fst - scnd) / 3)));
@@ -54,6 +55,30 @@ public class CalTimeElement {
         int vpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,0,ctx.getResources().getDisplayMetrics());
         TableRow tr = new TableRow(ctx);
         //tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT));
+
+        localTime = LocalTime.now();
+        String lt = timeToString(secPerHours(localTime.toString()));
+/*
+        long fajr = secPerHours((MainActivity.hm.get("Фаджр")));
+        long voshod = secPerHours((MainActivity.hm.get("Восход")));
+        long duha = secPerHours((MainActivity.hm.get("Духа")));
+        long zuckhr = secPerHours((MainActivity.hm.get("Зухр")));
+        long asr = secPerHours((MainActivity.hm.get("Аср")));
+        long magrib = secPerHours((MainActivity.hm.get("Магриб")));
+        long isha = secPerHours((MainActivity.hm.get("Иша")));
+        long tahajud = secPerHours((MainActivity.hm.get("Тахаджуд")));
+
+        long fajr_voshod = voshod - secPerHours(localTime.toString());
+        long voshod_duha = duha - secPerHours(localTime.toString());
+        long duha_zuckhr = zuckhr - secPerHours(localTime.toString());
+        long zuckhr_asr = asr - secPerHours(localTime.toString());
+        long asr_magrib = magrib - secPerHours(localTime.toString());
+        long magrib_isha = isha - secPerHours(localTime.toString());
+        long isha_tahajud = tahajud - secPerHours(localTime.toString());
+        long tahajud_fajr = fajr - secPerHours(localTime.toString());
+
+        //MainActivity.localtime_next_namaz.setText(Integer.toString((int) fajr_voshod));
+*/
 
         tv = new TextView(ctx);
         //tv.setLayoutParams(new TableLayout.LayoutParams(vpx,vpx,3f));

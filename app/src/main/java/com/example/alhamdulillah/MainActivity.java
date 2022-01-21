@@ -1,5 +1,6 @@
 package com.example.alhamdulillah;
 
+import androidx.annotation.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.*;
 
@@ -16,6 +17,7 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
 import java.io.*;
+import java.time.*;
 import java.util.*;
 
 
@@ -59,7 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int SelectFragment = 0;
 
     private TextView hijra;
-    private TextView countNamaz;
+    public  TextView nextNamaz;
+    public  TextView localtime_next_namaz;
+    //public static TextView nextNamaz;
+    //public static TextView localtime_next_namaz;
     private TextView textHadice;
     private TextView textCount;
     private TextView textAyat;
@@ -77,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        countNamaz = findViewById(R.id.countnamaz);
+        nextNamaz = findViewById(R.id.next_namaz);
+        localtime_next_namaz = findViewById(R.id.localtime_next_namaz);
+
         textHadice = findViewById(R.id.textHadice);
         textAyat = findViewById(R.id.textAyat);
         textCount = findViewById(R.id.textCount);
@@ -487,6 +494,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return null;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
