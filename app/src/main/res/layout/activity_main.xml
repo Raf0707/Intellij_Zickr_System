@@ -380,7 +380,7 @@
             android:id="@+id/textCount"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:gravity="center"
+            android:gravity="top|center"
             android:text="33"
             android:textColor="@color/purple_300"
             android:textSize="25sp"
@@ -395,16 +395,15 @@
 
     <TableLayout
         android:id="@+id/namazLayout"
-        android:layout_width="230dp"
-        android:layout_height="262dp"
+        android:layout_width="260dp"
+        android:layout_height="328dp"
         android:stretchColumns="0, 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484">
-
+        app:layout_constraintVertical_bias="0.488">
 
 
     </TableLayout>
@@ -412,7 +411,7 @@
     <TextView
         android:id="@+id/hijra"
         android:layout_width="230dp"
-        android:layout_height="88dp"
+        android:layout_height="70dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/purple_300"
@@ -427,7 +426,7 @@
     <TextView
         android:id="@+id/countnamaz"
         android:layout_width="230dp"
-        android:layout_height="51dp"
+        android:layout_height="43dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/purple_300"
@@ -437,7 +436,7 @@
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.764" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

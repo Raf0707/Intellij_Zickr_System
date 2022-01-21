@@ -288,6 +288,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dailySpis = new String[]{"لاَ إلَهَ إلاَّ اللهُ", "حَسْبُنَا اللّهُ وَنِعْمَ الْوَكِيلُ", "أَسْتَغْفِرُ الله", "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيمِ", "الْحَمْدُ الِلهِ رَبِّ الْعَالَمِينَ",
                "لاَ اِلَهَ اِلَّا اللهُ الْمَلِكُ الْحَقُّ الْمُبِين", "رَبِّ اغْفِـرْ لِي", "أَسْتَغْفِرُ الله العَظِيم اَلَّذِي لاَ إلَهَ إلَّا هُوَ الْحَيَّ القَيُّومَ وَأَتُوبُ إِلَيْهِ", "الم.  اللّهُ لا إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ" ,"رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ" ,"اللهُ أكْبَرُ" ,"لاَ اِلَهَ اِلَّا أَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِين", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"};
 
+
+        Random r = new Random();
+        int myRandStringIndex = r.nextInt(dailySpis.length);
+        textAyat.setText(dailySpis[myRandStringIndex]);
+        dailyCount = 33;
+        textCount.setText(Integer.toString(dailyCount));
+
     }
 
     @Override
@@ -523,6 +530,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (pars[0].contains("Шурук")) {
                     pars[0] = pars[0].replace("Шурук", "Восход");
+                }
+
+                if (pars[0].equals("Иша")) {
+                    ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));
+                }
+
+                if (pars[0].contains("Иша")) {
+                    pars[0] = pars[0].replace("Иша", "Тахаджуд");
+                }
+
+                if (pars[0].equals("Восход")) {
+                    ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));
+                }
+
+                if (pars[0].contains("Восход")) {
+                    pars[0] = pars[0].replace("Восход", "Духа");
                 }
 
                 ctElements.add(new CalTimeElement(getApplicationContext(), namazLayout, pars[0], pars[1]));

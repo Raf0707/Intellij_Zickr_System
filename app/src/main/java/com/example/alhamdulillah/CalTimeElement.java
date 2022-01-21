@@ -25,7 +25,26 @@ public class CalTimeElement {
         this.ctx = ctx;
         this.tl = tl;
         this.timerTitle = timerTitle;
-        this.time = time;
+
+
+        if (timerTitle.equals("Духа")) {
+            long a = secPerHours(time);
+            a += 32 * 60;//это твои расчеты. Все в секундах!
+            String b = timeToString(a);
+            this.time = b;
+        } else {
+            this.time = time;
+        }
+
+        if (timerTitle.equals("Тахаджуд")) {
+            long a = secPerHours(time);
+            //a += (Иша + 2 * ((Иша – Фаджр) / 3))
+            String b = timeToString(a);
+            this.time = b;
+        } else {
+            this.time = time;
+        }
+
 
         int vpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,0,ctx.getResources().getDisplayMetrics());
         TableRow tr = new TableRow(ctx);
@@ -75,26 +94,26 @@ public class CalTimeElement {
     public long secPerHours(String text){
         String[] secPerHours = text.split(":");
         Double sPerH = Double.valueOf(secPerHours[0]) * 60 * 60;
-        Double shResult = Double.valueOf(sPerH + Integer.valueOf(secPerHours[1]));
+        Double shResult = Double.valueOf(sPerH + Integer.valueOf(secPerHours[1])*60);
         long a = Math.round(shResult);
         return a;
     }
 
     public TextView getTv()
     {
-        return tv;
+        return this.tv;
     }
 
 
     public TextView getTv2()
     {
-        return tv2;
+        return this.tv2;
     }
 
 
     public CheckBox getCb()
     {
-        return cb;
+        return this.cb;
     }
 
     public void setTime(String time)
@@ -104,7 +123,7 @@ public class CalTimeElement {
 
     public String getTime()
     {
-        return time;
+        return this.time;
     }
 
     public void setTimerTitle(String timerTitle)
@@ -114,14 +133,14 @@ public class CalTimeElement {
 
     public String getTimerTitle()
     {
-        return timerTitle;
+        return this.timerTitle;
     }
 
     private String timeToString(long secs) {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
-                sec = secs / 1 % 60;
-        return String.format("%02d:%02d:%02d", hour, min, sec);
+                sec = secs % 60;
+        return String.format("%02d:%02d", hour, min);
     }
 
     @Override
@@ -131,3 +150,4 @@ public class CalTimeElement {
     }
 
 }
+
