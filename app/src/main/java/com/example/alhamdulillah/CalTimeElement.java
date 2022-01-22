@@ -26,7 +26,6 @@ public class CalTimeElement {
     public TextView tv2;
     public CheckBox cb;
 
-    public LocalTime localTime;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public CalTimeElement(Context ctx, TableLayout tl, String timerTitle, String time) {
@@ -40,6 +39,7 @@ public class CalTimeElement {
             long c = a + (long) (32 * 60);
             String b = timeToString(c);
             this.time = b;
+            MainActivity.hm.put("Духа", b);
         } else if (timerTitle.equals("Тахаджуд")) {
             long a;
             long fst = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Иша")));
@@ -47,6 +47,7 @@ public class CalTimeElement {
             a = ((fst + 2 * ((fst - scnd) / 3)));
             String b = timeToString(a);
             this.time = b;
+            MainActivity.hm.put("Тахаджуд", b);
         } else {
             this.time = time;
         }
@@ -55,30 +56,6 @@ public class CalTimeElement {
         int vpx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,0,ctx.getResources().getDisplayMetrics());
         TableRow tr = new TableRow(ctx);
         //tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT));
-
-        localTime = LocalTime.now();
-        String lt = timeToString(secPerHours(localTime.toString()));
-/*
-        long fajr = secPerHours((MainActivity.hm.get("Фаджр")));
-        long voshod = secPerHours((MainActivity.hm.get("Восход")));
-        long duha = secPerHours((MainActivity.hm.get("Духа")));
-        long zuckhr = secPerHours((MainActivity.hm.get("Зухр")));
-        long asr = secPerHours((MainActivity.hm.get("Аср")));
-        long magrib = secPerHours((MainActivity.hm.get("Магриб")));
-        long isha = secPerHours((MainActivity.hm.get("Иша")));
-        long tahajud = secPerHours((MainActivity.hm.get("Тахаджуд")));
-
-        long fajr_voshod = voshod - secPerHours(localTime.toString());
-        long voshod_duha = duha - secPerHours(localTime.toString());
-        long duha_zuckhr = zuckhr - secPerHours(localTime.toString());
-        long zuckhr_asr = asr - secPerHours(localTime.toString());
-        long asr_magrib = magrib - secPerHours(localTime.toString());
-        long magrib_isha = isha - secPerHours(localTime.toString());
-        long isha_tahajud = tahajud - secPerHours(localTime.toString());
-        long tahajud_fajr = fajr - secPerHours(localTime.toString());
-
-        //MainActivity.localtime_next_namaz.setText(Integer.toString((int) fajr_voshod));
-*/
 
         tv = new TextView(ctx);
         //tv.setLayoutParams(new TableLayout.LayoutParams(vpx,vpx,3f));
@@ -172,6 +149,14 @@ public class CalTimeElement {
                 sec = secs % 60;
         if (hour >= 24) hour %= 24;
         return String.format("%02d:%02d", hour, min);
+    }
+
+    public static String timeToStringSec(long secs) {
+        long hour = secs / 3600,
+                min = secs / 60 % 60,
+                sec = secs % 60;
+        if (hour >= 24) hour %= 24;
+        return String.format("%02d:%02d:%02d", hour, min, sec);
     }
 
     @Override

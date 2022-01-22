@@ -312,21 +312,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dailyCount = 33;
         textCount.setText(Integer.toString(dailyCount));
 
-        Callback.addCallback(new CallbackInterface() {
-            @Override
-            public void call() {
+        Callback.addCallback(() -> {
+
+            if (hm.get("Фаджр") != null && hm.get("Шурук") != null && hm.get("Духа") != null && hm.get("Зухр") != null && hm.get("Аср") != null && hm.get("Магриб") != null && hm.get("Иша") != null && hm.get("Тахаджуд") != null) {
+
                 localTime = Calendar.getInstance().getTime();
-                Date fff = new Date();
+                Date fff = localTime;
                 SimpleDateFormat sss = new SimpleDateFormat("HH:mm:ss");
-                String nextNamazTime = hm.get("Фаджр");
-                long w = CalTimeElement.secPerHours(nextNamazTime);
-                localtime_next_namaz.setText(sss.format(fff));
+
+                String lt = sss.format(fff);
+                long llt = CalTimeElement.secPerHours(lt);
+
+                long fajr = CalTimeElement.secPerHours(hm.get("Фаджр"));
+                long voshod = CalTimeElement.secPerHours(hm.get("Шурук"));
+                long duha = CalTimeElement.secPerHours(hm.get("Духа"));
+                long zuckhr = CalTimeElement.secPerHours(hm.get("Зухр"));
+                long asr = CalTimeElement.secPerHours(hm.get("Аср"));
+                long magrib = CalTimeElement.secPerHours(hm.get("Магриб"));
+                long isha = CalTimeElement.secPerHours(hm.get("Иша"));
+                long tahajud = CalTimeElement.secPerHours(hm.get("Тахаджуд"));
+
+                long fajr_voshod = Math.abs((voshod + 24 * 3600) - llt);
+                long voshod_duha = Math.abs((duha + 24 * 3600) - llt);
+                long duha_zuckhr = Math.abs((zuckhr + 24 * 3600) - llt);
+                long zuckhr_asr = Math.abs((asr + 24 * 3600) - llt);
+                long asr_magrib = Math.abs((magrib + 24 * 3600) - llt);
+                long magrib_isha = Math.abs((isha + 24 * 3600) - llt);
+                long isha_tahajud = Math.abs((tahajud + 24 * 3600) - llt);
+                long tahajud_fajr = Math.abs((fajr + 24 * 3600) - llt);
+
+                Log.d("NAMAZ", "" + CalTimeElement.timeToStringSec(tahajud_fajr) + " " + llt);
+
+
+                if ((fajr <= llt) && (llt < voshod)) {
+                    nextNamaz.setText("Восход");
+                    localtime_next_namaz.setText(String.valueOf(fajr_voshod));
+                    Log.d("VVV", "VVV");
+                } else if ((voshod <= llt) && (llt < duha)) {
+                    nextNamaz.setText("Духа");
+                    localtime_next_namaz.setText(String.valueOf(voshod_duha));
+                } else if ((duha <= llt) && (llt < zuckhr)) {
+                    nextNamaz.setText("Зухр");
+                    localtime_next_namaz.setText(String.valueOf(duha_zuckhr));
+                } else if ((zuckhr <= llt) && (llt < asr)) {
+                    nextNamaz.setText("Аср");
+                    localtime_next_namaz.setText(String.valueOf(zuckhr_asr));
+                } else if ((asr <= llt) && (llt < magrib)) {
+                    nextNamaz.setText("Магриб");
+                    localtime_next_namaz.setText(String.valueOf(asr_magrib));
+                } else if ((magrib <= llt) && (llt < isha)) {
+                    nextNamaz.setText("Иша");
+                    localtime_next_namaz.setText(String.valueOf(magrib_isha));
+                } else if ((isha <= llt) && (llt < tahajud)) {
+                    nextNamaz.setText("Тахаджуд");
+                    localtime_next_namaz.setText(String.valueOf(isha_tahajud));
+                } else if ((tahajud <= llt) && (llt < fajr)) {
+                    nextNamaz.setText("Фаджр");
+                    localtime_next_namaz.setText(String.valueOf(tahajud_fajr));
+                }
+
+                //localtime_next_namaz.setText(sss.format(fff));
             }
         });
 
         Thread t = new Thread(() -> {
             try {
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(1000);
                 handler.post((Runnable) r);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -340,7 +391,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void run() {
             Callback.runAllCallbacks();
-            handler.postDelayed(r,100);
+            handler.postDelayed(r,1000);
         }
     };
 
