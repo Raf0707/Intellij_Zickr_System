@@ -17,13 +17,21 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
 import java.io.*;
+import java.text.*;
 import java.time.*;
 import java.util.*;
+import java.util.concurrent.*;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static HashMap<String, String> hm= new HashMap<>();
+
+    private Handler handler;
+    private String activeNamaz;
+
+    private Date currentDate;
+    private Date localTime;
 
     private FloatingActionButton fab;
     private FloatingActionButton Koran_Karim;
@@ -81,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        handler = new Handler();
 
         nextNamaz = findViewById(R.id.next_namaz);
         localtime_next_namaz = findViewById(R.id.localtime_next_namaz);
@@ -296,13 +306,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "لاَ اِلَهَ اِلَّا اللهُ الْمَلِكُ الْحَقُّ الْمُبِين", "رَبِّ اغْفِـرْ لِي", "أَسْتَغْفِرُ الله العَظِيم اَلَّذِي لاَ إلَهَ إلَّا هُوَ الْحَيَّ القَيُّومَ وَأَتُوبُ إِلَيْهِ", "الم.  اللّهُ لا إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ" ,"رَبِّ ابْنِ لِي عِنْدَكَ بَيْتًا فِي الْجَنَّةِ" ,"اللهُ أكْبَرُ" ,"لاَ اِلَهَ اِلَّا أَنْتَ سُبْحَانَكَ اِنِّي كُنْتُ مِنَ الظَّالِمِين", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"};
 
 
-        Random r = new Random();
-        int myRandStringIndex = r.nextInt(dailySpis.length);
+        Random random = new Random();
+        int myRandStringIndex = random.nextInt(dailySpis.length);
         textAyat.setText(dailySpis[myRandStringIndex]);
         dailyCount = 33;
         textCount.setText(Integer.toString(dailyCount));
 
+        Callback.addCallback(new CallbackInterface() {
+            @Override
+            public void call() {
+                localTime = Calendar.getInstance().getTime();
+                Date fff = new Date();
+                SimpleDateFormat sss = new SimpleDateFormat("HH:mm:ss");
+                String nextNamazTime = hm.get("Фаджр");
+                long w = CalTimeElement.secPerHours(nextNamazTime);
+                localtime_next_namaz.setText(sss.format(fff));
+            }
+        });
+
+        Thread t = new Thread(() -> {
+            try {
+                TimeUnit.MILLISECONDS.sleep(100);
+                handler.post((Runnable) r);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        t.start();
     }
+
+
+    Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            Callback.runAllCallbacks();
+            handler.postDelayed(r,100);
+        }
+    };
+
+
 
     @Override
     public void onClick(View view) {

@@ -121,7 +121,7 @@ public class CalTimeElement {
         return a;
     }
 
-    public long secPerHours(String text){
+    public static long secPerHours(String text){
         String[] secPerHours = text.split(":");
         Double sPerH = Double.valueOf(secPerHours[0]) * 60 * 60;
         Double shResult = Double.valueOf(sPerH + Integer.valueOf(secPerHours[1])*60);
