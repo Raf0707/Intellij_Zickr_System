@@ -44,7 +44,7 @@ public class CalTimeElement {
             long a;
             long fst = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Иша")));
             long scnd = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Фаджр")));
-            a = ((fst + 2 * ((fst - scnd) / 3)));
+            a = (((fst + 2 * ((fst - scnd) / 3))) - (24 * 3600));
             String b = timeToString(a);
             this.time = b;
             MainActivity.hm.put("Тахаджуд", b);
@@ -75,7 +75,7 @@ public class CalTimeElement {
         tv2.setTypeface(tv2.getTypeface(), Typeface.BOLD);
         tv2.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 9, ctx.getResources().getDisplayMetrics()));
         tv2.setText(this.getTime());
-        int a = (int) this.hoursToMinutes(this.getTime());
+        //int a = (int) this.hoursToMinutes(this.getTime());
 
         cb = new CheckBox(ctx);
         //cb.setLayoutParams(new TableLayout.LayoutParams(vpx,vpx,1f));
@@ -147,7 +147,7 @@ public class CalTimeElement {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
                 sec = secs % 60;
-        if (hour >= 24) hour %= 24;
+        //if (hour >= 24) hour %= 24;
         return String.format("%02d:%02d", hour, min);
     }
 
@@ -155,7 +155,7 @@ public class CalTimeElement {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
                 sec = secs % 60;
-        if (hour >= 24) hour %= 24;
+        //if (hour >= 24) hour %= 24;
         return String.format("%02d:%02d:%02d", hour, min, sec);
     }
 

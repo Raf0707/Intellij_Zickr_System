@@ -14,6 +14,7 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
 
     private LayoutInflater inflater;
     private List<Name> names;
+    private TextView name;
 
     NamesAdapter(Context context, List<Name> names) {
         this.names = names;
@@ -25,6 +26,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
         View view = inflater.inflate(R.layout.listitem, parent, false);
         return new ViewHolder(view);
     }
+
+
 
     @Override
     public void onBindViewHolder(final NamesAdapter.ViewHolder holder, int position) {
@@ -50,6 +53,8 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
             nameView = (TextView) view.findViewById(R.id.name);
         }
     }
+
+
 
 
 }

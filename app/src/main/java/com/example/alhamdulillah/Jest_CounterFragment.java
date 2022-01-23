@@ -43,6 +43,8 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
         jestLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
 
+            int countClick = 0;
+
             @Override
             public void onSwipeRight() {
                 counter++;
@@ -51,21 +53,45 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
             @Override
             public void onSwipeLeft() {
-                counter = 0;
+                counter--;
                 jestCounter.setText(Integer.toString(counter));
             }
 
             @Override
-            public void onSwipeTop() {
+            public void onSwipeUp() {
                 if (counter > 0) counter--;
                 jestCounter.setText(Integer.toString(counter));
             }
 
             @Override
-            public void onSwipeBottom() {
+            public void onSwipeDown() {
                 counter++;
                 jestCounter.setText(Integer.toString(counter));
             }
+
+            @Override
+            public void onClick() {
+                countClick = 1;
+                counter++;
+                jestCounter.setText(Integer.toString(counter));
+
+            }
+
+            @Override
+            public void onLongClick() {
+                counter = 0;
+                jestCounter.setText(Integer.toString(counter));
+            }
+
+
+            @Override
+            public void onDoubleClick() {
+                countClick = 2;
+                counter++;
+                jestCounter.setText(Integer.toString(counter));
+            }
+
+
         });
 
         return view;

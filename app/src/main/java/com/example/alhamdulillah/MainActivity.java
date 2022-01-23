@@ -2,6 +2,7 @@ package com.example.alhamdulillah;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.collection.*;
 import androidx.recyclerview.widget.*;
 
 import android.animation.*;
@@ -17,6 +18,7 @@ import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
 import java.io.*;
+import java.lang.ref.*;
 import java.text.*;
 import java.time.*;
 import java.util.*;
@@ -26,6 +28,7 @@ import java.util.concurrent.*;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static HashMap<String, String> hm= new HashMap<>();
+    public static WeakReference<MainActivity> ctx = null;
 
     private Handler handler;
     private String activeNamaz;
@@ -69,10 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static int SelectFragment = 0;
 
     private TextView hijra;
-    public  TextView nextNamaz;
-    public  TextView localtime_next_namaz;
-    //public static TextView nextNamaz;
-    //public static TextView localtime_next_namaz;
+    public TextView nextNamaz;
+    public TextView localtime_next_namaz;
+
     private TextView textHadice;
     private TextView textCount;
     private TextView textAyat;
@@ -89,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ctx = new WeakReference<MainActivity>(this);
 
         handler = new Handler();
 
@@ -323,14 +327,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String lt = sss.format(fff);
                 long llt = CalTimeElement.secPerHours(lt);
 
-                long fajr = CalTimeElement.secPerHours(hm.get("Фаджр"));
+                long fajr = CalTimeElement.secPerHours(hm.get("Фаджр") );
                 long voshod = CalTimeElement.secPerHours(hm.get("Шурук"));
                 long duha = CalTimeElement.secPerHours(hm.get("Духа"));
                 long zuckhr = CalTimeElement.secPerHours(hm.get("Зухр"));
                 long asr = CalTimeElement.secPerHours(hm.get("Аср"));
                 long magrib = CalTimeElement.secPerHours(hm.get("Магриб"));
                 long isha = CalTimeElement.secPerHours(hm.get("Иша"));
-                long tahajud = CalTimeElement.secPerHours(hm.get("Тахаджуд"));
+                long tahajud = (CalTimeElement.secPerHours(hm.get("Тахаджуд")) + (24 * 3600));
 
                 long fajr_voshod = Math.abs((voshod + 24 * 3600) - llt);
                 long voshod_duha = Math.abs((duha + 24 * 3600) - llt);
@@ -341,35 +345,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 long isha_tahajud = Math.abs((tahajud + 24 * 3600) - llt);
                 long tahajud_fajr = Math.abs((fajr + 24 * 3600) - llt);
 
-                Log.d("NAMAZ", "" + CalTimeElement.timeToStringSec(tahajud_fajr) + " " + llt);
+                Log.d("NAMAZ", "" + CalTimeElement.timeToStringSec(isha_tahajud) + " " + CalTimeElement.timeToStringSec(llt));
+                Log.d("SECC", "" + isha_tahajud + " " + llt);
 
+                if (llt >= 0 && llt <= tahajud) {
+                    llt += (24 * 3600);
+                }
 
                 if ((fajr <= llt) && (llt < voshod)) {
                     nextNamaz.setText("Восход");
-                    localtime_next_namaz.setText(String.valueOf(fajr_voshod));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(fajr_voshod % (24 * 3600))));
                     Log.d("VVV", "VVV");
                 } else if ((voshod <= llt) && (llt < duha)) {
                     nextNamaz.setText("Духа");
-                    localtime_next_namaz.setText(String.valueOf(voshod_duha));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(voshod_duha % (24 * 3600))));
+                    Log.d("QQQ", "QQQ");
                 } else if ((duha <= llt) && (llt < zuckhr)) {
                     nextNamaz.setText("Зухр");
-                    localtime_next_namaz.setText(String.valueOf(duha_zuckhr));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(duha_zuckhr % (24 * 3600))));
+                    Log.d("RRR", "RRR");
                 } else if ((zuckhr <= llt) && (llt < asr)) {
                     nextNamaz.setText("Аср");
-                    localtime_next_namaz.setText(String.valueOf(zuckhr_asr));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(zuckhr_asr % (24 * 3600))));
+                    Log.d("EEE", "EEE");
                 } else if ((asr <= llt) && (llt < magrib)) {
                     nextNamaz.setText("Магриб");
-                    localtime_next_namaz.setText(String.valueOf(asr_magrib));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(asr_magrib % (24 * 3600))));
+                    Log.d("SSS", "SSS");
                 } else if ((magrib <= llt) && (llt < isha)) {
                     nextNamaz.setText("Иша");
-                    localtime_next_namaz.setText(String.valueOf(magrib_isha));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(magrib_isha % (24 * 3600))));
+                    Log.d("AAA", "AAA");
                 } else if ((isha <= llt) && (llt < tahajud)) {
                     nextNamaz.setText("Тахаджуд");
-                    localtime_next_namaz.setText(String.valueOf(isha_tahajud));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(isha_tahajud % (24 * 3600))));
+                    Log.d("PPP", "PPP");
                 } else if ((tahajud <= llt) && (llt < fajr)) {
                     nextNamaz.setText("Фаджр");
-                    localtime_next_namaz.setText(String.valueOf(tahajud_fajr));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(tahajud_fajr % (24 * 3600))));
+                    Log.d("OOO", "OOO");
                 }
+
+
 
                 //localtime_next_namaz.setText(sss.format(fff));
             }

@@ -3,12 +3,11 @@ package com.example.alhamdulillah;
 import android.content.*;
 import android.view.*;
 
-
-public class OnSwipeTouchListener implements View.OnTouchListener {
+public class newOnSwipeTouchListener implements View.OnTouchListener {
 
     private GestureDetector gestureDetector;
 
-    public OnSwipeTouchListener(Context c) {
+    public newOnSwipeTouchListener(Context c) {
         gestureDetector = new GestureDetector(c, new GestureListener());
     }
 
@@ -38,18 +37,11 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
             return super.onDoubleTap(e);
         }
 
-        public MotionEvent onTripleTap(MotionEvent e) {
-            onTripleClick();
-            return e;
-        }
-
         @Override
         public void onLongPress(MotionEvent e) {
             onLongClick();
             super.onLongPress(e);
         }
-
-
 
         // Determines the fling velocity and then fires the appropriate swipe event accordingly
         @Override
@@ -99,10 +91,6 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
     }
 
     public void onDoubleClick() {
-
-    }
-
-    public void onTripleClick() {
 
     }
 
