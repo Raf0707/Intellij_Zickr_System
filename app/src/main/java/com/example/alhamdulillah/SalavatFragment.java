@@ -199,42 +199,49 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     }
 
     public void initCounter() {
-        textCount[0] = "";
-        textCount[1] = "";
-        textCount[2] = "";
-        textCount[3] = "";
-        textCount[4] = "";
-        textCount[5] = "";
-        textCount[6] = "";
-        textCount[7] = "";
-        textCount[8] = "";
-        textCount[9] = "";
-        textCount[10] = "";
-        textCount[11] = "";
-        textCount[12] = "";
-        textCount[13] = "";
-        textCount[14] = "";
-        textCount[15] = "";
-        textCount[16] = "";
-        textCount[17] = "";
-        textCount[18] = "";
-        textCount[19] = "";
-        textCount[20] = "";
-        textCount[21] = "";
-        textCount[22] = "";
-        textCount[23] = "";
-        textCount[24] = "";
-        textCount[25] = "";
-        textCount[26] = "";
-        textCount[27] = "";
-        textCount[28] = "";
-        textCount[29] = "";
-        textCount[30] = "";
-        textCount[31] = "";
+        textCount[0] = "0";
+        textCount[1] = "0";
+        textCount[2] = "0";
+        textCount[3] = "0";
+        textCount[4] = "0";
+        textCount[5] = "0";
+        textCount[6] = "0";
+        textCount[7] = "0";
+        textCount[8] = "0";
+        textCount[9] = "0";
+        textCount[10] = "0";
+        textCount[11] = "0";
+        textCount[12] = "0";
+        textCount[13] = "0";
+        textCount[14] = "0";
+        textCount[15] = "0";
+        textCount[16] = "0";
+        textCount[17] = "0";
+        textCount[18] = "0";
+        textCount[19] = "0";
+        textCount[20] = "0";
+        textCount[21] = "0";
+        textCount[22] = "0";
+        textCount[23] = "0";
+        textCount[24] = "0";
+        textCount[25] = "0";
+        textCount[26] = "0";
+        textCount[27] = "0";
+        textCount[28] = "0";
+        textCount[29] = "0";
+        textCount[30] = "0";
+        textCount[31] = "0";
     }
 
     public int getCurrentPage() {
         return Integer.parseInt(page.getText().toString());
+    }
+
+    public void saveRes() {
+        switch (getCurrentPage()) {
+            case 0:
+
+        }
     }
 
 

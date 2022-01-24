@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (hm.get("Фаджр") != null && hm.get("Шурук") != null && hm.get("Духа") != null && hm.get("Зухр") != null && hm.get("Аср") != null && hm.get("Магриб") != null && hm.get("Иша") != null && hm.get("Тахаджуд") != null) {
 
-                localTime = Calendar.getInstance().getTime();
+                localTime = Calendar.getInstance().getTime();;
                 Date fff = localTime;
                 SimpleDateFormat sss = new SimpleDateFormat("HH:mm:ss");
 
@@ -463,8 +463,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     namazLayout.setVisibility(View.GONE);
                     ayat_layout.setVisibility(View.GONE);
 
-                    ayat_button.setVisibility(View.INVISIBLE);
-                    ayat_button.setClickable(false);
+                    nextNamaz.setVisibility(View.GONE);
+                    localtime_next_namaz.setVisibility(View.GONE);
+
+                    //ayat_button.setVisibility(View.INVISIBLE);
+                    //ayat_button.setClickable(false);
 
                     //calTimeElement.getCb().setClickable(false);
                     //calTimeElement.getCb().setVisibility(View.INVISIBLE);
@@ -496,12 +499,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fab.show();
                     wijets.show();
 
-                    ayat_button.setVisibility(View.VISIBLE);
-                    ayat_button.setClickable(true);
+                    //ayat_button.setVisibility(View.VISIBLE);
+                    //ayat_button.setClickable(true);
                     namazLayout.setVisibility(View.VISIBLE);
                     textAyat.setVisibility(View.VISIBLE);
                     ayat_layout.setVisibility(View.VISIBLE);
                     hijra.setVisibility(View.VISIBLE);
+
+                    nextNamaz.setVisibility(View.VISIBLE);
+                    localtime_next_namaz.setVisibility(View.VISIBLE);
 
                     break;
 
