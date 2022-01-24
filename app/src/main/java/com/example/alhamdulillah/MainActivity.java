@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("NAMAZ", "" + CalTimeElement.timeToStringSec(isha_tahajud) + " " + CalTimeElement.timeToStringSec(llt));
                 Log.d("SECC", "" + isha_tahajud + " " + llt);
 
-                if (llt >= 0 && llt <= tahajud) {
+                if (llt >= 0 && llt <= voshod) {
                     llt += (24 * 3600);
                 }
 
@@ -387,8 +387,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
 
-
-                //localtime_next_namaz.setText(sss.format(fff));
             }
         });
 

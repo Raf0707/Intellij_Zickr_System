@@ -19,10 +19,14 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     private Handler handler;
     private String[] textsArabic;
     private String[] textPage;
+    private String[] textCount;
+    private ArrayList<String> save = new ArrayList<>();
     private int currentPage = 0;
+    private int currentCount = 0;
     private ConstraintLayout myLayout;
     private TextView arabic;
     private TextView page;
+    private TextView salavatCounter;
     private SeekBar seekBar;
     private Button back;
 
@@ -35,9 +39,11 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         back.setOnClickListener(this);
         arabic = view.findViewById(R.id.arabic);
         page = view.findViewById(R.id.page);
+        salavatCounter = view.findViewById(R.id.salavatCounter);
         handler = new Handler();
         textsArabic = new String[31];
         textPage = new String[31];
+        textCount = new String[31];
         seekBar = view.findViewById(R.id.seekBar);
         //Objects.requireNonNull(getSupportActionBar()).hide();
 
@@ -46,20 +52,15 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                     currentPage = progress;
                     textPage[currentPage] = Integer.toString(progress);
-
-
-
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
+
         });
 
         initArabic();
@@ -78,17 +79,65 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         t.start();
 
         myLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+            int ciCurrent = currentPage;
 
             @Override
             public void onSwipeRight() {
+                textCount[getCurrentPage()] = salavatCounter.getText().toString();
+                currentCount = 0;
+                salavatCounter.setText("0");
                 currentPage--;
                 seekBar.setProgress(currentPage);
             }
 
             @Override
             public void onSwipeLeft() {
+                textCount[getCurrentPage()] = salavatCounter.getText().toString();
+                currentCount = 0;
+                salavatCounter.setText("0");
                 currentPage++;
                 seekBar.setProgress(currentPage);
+            }
+
+            @Override
+            public void onSwipeDown() {
+                currentCount++;
+                textCount[currentPage] = Integer.toString(currentCount);
+                salavatCounter.setText(textCount[currentPage]);
+
+            }
+
+            @Override
+            public void onSwipeUp() {
+                currentCount--;
+                if (currentCount < 0) currentCount = 0;
+                textCount[currentPage] = Integer.toString(currentCount);
+                salavatCounter.setText(textCount[currentPage]);
+
+            }
+
+            @Override
+            public void onClick() {
+                currentCount++;
+                textCount[currentPage] = Integer.toString(currentCount);
+                salavatCounter.setText(textCount[currentPage]);
+
+            }
+
+            @Override
+            public void onDoubleClick() {
+                currentCount++;
+                textCount[currentPage] = Integer.toString(currentCount);
+                salavatCounter.setText(textCount[currentPage]);
+
+            }
+
+            @Override
+            public void onLongClick() {
+                currentCount = 0;
+                textCount[currentPage] = Integer.toString(currentCount);
+                salavatCounter.setText(textCount[currentPage]);
+
             }
         });
 
@@ -147,6 +196,45 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         textPage[28] = "28";
         textPage[29] = "29";
         textPage[30] = "30";
+    }
+
+    public void initCounter() {
+        textCount[0] = "";
+        textCount[1] = "";
+        textCount[2] = "";
+        textCount[3] = "";
+        textCount[4] = "";
+        textCount[5] = "";
+        textCount[6] = "";
+        textCount[7] = "";
+        textCount[8] = "";
+        textCount[9] = "";
+        textCount[10] = "";
+        textCount[11] = "";
+        textCount[12] = "";
+        textCount[13] = "";
+        textCount[14] = "";
+        textCount[15] = "";
+        textCount[16] = "";
+        textCount[17] = "";
+        textCount[18] = "";
+        textCount[19] = "";
+        textCount[20] = "";
+        textCount[21] = "";
+        textCount[22] = "";
+        textCount[23] = "";
+        textCount[24] = "";
+        textCount[25] = "";
+        textCount[26] = "";
+        textCount[27] = "";
+        textCount[28] = "";
+        textCount[29] = "";
+        textCount[30] = "";
+        textCount[31] = "";
+    }
+
+    public int getCurrentPage() {
+        return Integer.parseInt(page.getText().toString());
     }
 
 
