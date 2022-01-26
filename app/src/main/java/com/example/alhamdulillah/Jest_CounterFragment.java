@@ -53,7 +53,7 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
             @Override
             public void onSwipeLeft() {
-                counter--;
+                if (counter > 0) counter--;
                 jestCounter.setText(Integer.toString(counter));
             }
 

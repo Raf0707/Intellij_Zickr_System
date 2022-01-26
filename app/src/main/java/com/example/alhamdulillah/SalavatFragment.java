@@ -20,7 +20,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     private String[] textsArabic;
     private String[] textPage;
     private String[] textCount;
-    private ArrayList<String> save = new ArrayList<>();
+    private String[] save;
     private int currentPage = 0;
     private int currentCount = 0;
     private ConstraintLayout myLayout;
@@ -44,6 +44,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         textsArabic = new String[31];
         textPage = new String[31];
         textCount = new String[31];
+        save = new String[31];
         seekBar = view.findViewById(R.id.seekBar);
         //Objects.requireNonNull(getSupportActionBar()).hide();
 
@@ -65,6 +66,9 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
         initArabic();
         initPage();
+        initCounter();
+        initSave();
+        setRes();
 
 
         Thread t = new Thread(() -> {
@@ -83,16 +87,21 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
             @Override
             public void onSwipeRight() {
-                textCount[getCurrentPage()] = salavatCounter.getText().toString();
+                textCount[currentPage] = salavatCounter.getText().toString();
+                save[currentPage] = salavatCounter.getText().toString();
+                int ciCurrent = currentPage;
                 currentCount = 0;
                 salavatCounter.setText("0");
                 currentPage--;
+                if (currentCount < 0) currentCount = 0;
                 seekBar.setProgress(currentPage);
             }
 
             @Override
             public void onSwipeLeft() {
-                textCount[getCurrentPage()] = salavatCounter.getText().toString();
+                textCount[currentPage] = salavatCounter.getText().toString();
+                save[currentPage] = salavatCounter.getText().toString();
+                int ciCurrent = currentPage;
                 currentCount = 0;
                 salavatCounter.setText("0");
                 currentPage++;
@@ -230,18 +239,49 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         textCount[28] = "0";
         textCount[29] = "0";
         textCount[30] = "0";
-        textCount[31] = "0";
+
     }
 
     public int getCurrentPage() {
         return Integer.parseInt(page.getText().toString());
     }
 
-    public void saveRes() {
-        switch (getCurrentPage()) {
-            case 0:
+    public void initSave() {
+        save[0] = "";
+        save[1] = "";
+        save[2] = "";
+        save[3] = "";
+        save[4] = "";
+        save[5] = "";
+        save[6] = "";
+        save[7] = "";
+        save[8] = "";
+        save[9] = "";
+        save[10] = "";
+        save[11] = "";
+        save[12] = "";
+        save[13] = "";
+        save[14] = "";
+        save[15] = "";
+        save[16] = "";
+        save[17] = "";
+        save[18] = "";
+        save[19] = "";
+        save[20] = "";
+        save[21] = "";
+        save[22] = "";
+        save[23] = "";
+        save[24] = "";
+        save[25] = "";
+        save[26] = "";
+        save[27] = "";
+        save[28] = "";
+        save[29] = "";
+        save[30] = "";
+    }
 
-        }
+    public void setRes(){
+        salavatCounter.setText(textCount[currentPage]);
     }
 
 

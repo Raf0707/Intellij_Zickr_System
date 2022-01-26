@@ -21,6 +21,8 @@ public class CalTimeElement {
     private String timerTitle;
     private TableLayout tl;
     private Context ctx;
+    private Runnable task;
+
 
     public TextView tv;
     public TextView tv2;
@@ -133,6 +135,8 @@ public class CalTimeElement {
         return this.time;
     }
 
+    public Runnable getTask() { return this.task; }
+
     public void setTimerTitle(String timerTitle)
     {
         this.timerTitle = timerTitle;
@@ -154,8 +158,8 @@ public class CalTimeElement {
     public static String timeToStringSec(long secs) {
         long hour = secs / 3600,
                 min = secs / 60 % 60,
-                sec = secs % 60;
-        //if (hour >= 24) hour %= 24;
+                sec = -(((System.currentTimeMillis() / 1000) % 60) - 59);
+
         return String.format("%02d:%02d:%02d", hour, min, sec);
     }
 

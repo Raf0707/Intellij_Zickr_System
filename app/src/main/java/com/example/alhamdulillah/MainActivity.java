@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int dailyCount;
     private String[] dailySpis;
 
+    //private TextView tv3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ctx = new WeakReference<MainActivity>(this);
 
         handler = new Handler();
+
+        //tv3 = findViewById(R.id.tv3);
 
         nextNamaz = findViewById(R.id.next_namaz);
         localtime_next_namaz = findViewById(R.id.localtime_next_namaz);
@@ -388,6 +392,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             }
+
+            
         });
 
         Thread t = new Thread(() -> {
@@ -399,6 +405,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         t.start();
+
+
+        //Timer timer = new Timer();
+        //timer.setTask(() -> tv3.setText("f"));
+        //timer.runTimer(10);
+
+
     }
 
 
