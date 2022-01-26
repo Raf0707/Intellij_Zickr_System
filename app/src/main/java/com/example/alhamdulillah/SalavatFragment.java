@@ -1,5 +1,7 @@
 package com.example.alhamdulillah;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.*;
 import android.os.*;
 
@@ -29,6 +31,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     private TextView salavatCounter;
     private SeekBar seekBar;
     private Button back;
+    private SharedPreferences sPref;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
@@ -83,28 +86,22 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         t.start();
 
         myLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
-            int ciCurrent = currentPage;
 
             @Override
             public void onSwipeRight() {
-                textCount[currentPage] = salavatCounter.getText().toString();
-                save[currentPage] = salavatCounter.getText().toString();
-                int ciCurrent = currentPage;
-                currentCount = 0;
-                salavatCounter.setText("0");
+                saveText();
                 currentPage--;
+                loadText();
                 if (currentCount < 0) currentCount = 0;
+                if (currentPage < 0) currentPage = 0;
                 seekBar.setProgress(currentPage);
             }
 
             @Override
             public void onSwipeLeft() {
-                textCount[currentPage] = salavatCounter.getText().toString();
-                save[currentPage] = salavatCounter.getText().toString();
-                int ciCurrent = currentPage;
-                currentCount = 0;
-                salavatCounter.setText("0");
+                saveText();
                 currentPage++;
+                loadText();
                 seekBar.setProgress(currentPage);
             }
 
@@ -300,5 +297,20 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         Intent back = new Intent(getActivity(), MainActivity.class);
         startActivity(back);
+    }
+
+    public void saveText() {
+        sPref = getActivity().getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString( "Прочитал" + currentPage, salavatCounter.getText().toString());
+        ed.apply();
+        currentCount = Integer.parseInt(salavatCounter.getText().toString());
+    }
+
+    public void loadText() {
+        sPref = getActivity().getPreferences(MODE_PRIVATE);
+        String salavat = sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString());
+        salavatCounter.setText(salavat);
+        currentCount = Integer.parseInt(sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString()));
     }
 }

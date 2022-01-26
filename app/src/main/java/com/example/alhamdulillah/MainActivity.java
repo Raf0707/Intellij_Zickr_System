@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton zickr;
     private FloatingActionButton hadice;
     private FloatingActionButton names_of_Allah;
+    private FloatingActionButton post;
 
     private FloatingActionButton wijets;
     private FloatingActionButton settings;
@@ -87,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int dailyCount;
     private String[] dailySpis;
 
-    //private TextView tv3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         zickr = findViewById(R.id.add_fab_zickr);
         hadice = findViewById(R.id.add_fab_hadice);
         names_of_Allah = findViewById(R.id.add_fab_99_names_of_Allah);
+        post = findViewById(R.id.add_fab_post);
 
         wijets = findViewById(R.id.add_fab_wijet);
         settings = findViewById(R.id.add_fab_settings);
@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         zickr.setVisibility(View.GONE);
         hadice.setVisibility(View.GONE);
         names_of_Allah.setVisibility(View.GONE);
+        post.setVisibility(View.GONE);
 
 
         settings.setVisibility(View.GONE);
@@ -146,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         my_achieves.setVisibility(View.GONE);
         resfolder.setVisibility(View.GONE);
         music_Koran.setVisibility(View.GONE);
-
 
         isAllFabsVisible = false;
         isAllWijetsVisible = false;
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 zickr.show();
                 hadice.show();
                 names_of_Allah.show();
+                post.show();
                 isAllFabsVisible = true;
             } else {
                 Koran_Karim.hide();
@@ -169,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 zickr.hide();
                 hadice.hide();
                 names_of_Allah.hide();
+                post.hide();
                 isAllFabsVisible = false;
             }
         });
@@ -209,6 +211,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SelectFragment = 4;
             startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "99 имен Аллаха", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        post.setOnClickListener(View -> {
+            SelectFragment = 5;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            Toast toast = Toast.makeText(getApplicationContext(), "Пост в месяц Рамадан", Toast.LENGTH_SHORT);
             toast.show();
         });
 
@@ -404,13 +413,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 e.printStackTrace();
             }
         });
+
         t.start();
-
-
-        //Timer timer = new Timer();
-        //timer.setTask(() -> tv3.setText("f"));
-        //timer.runTimer(10);
-
 
     }
 
@@ -432,6 +436,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (!(isOpenHadice)) {
 
+                    textHadice.setVisibility(View.VISIBLE);
+
                     hadice_button.setVisibility(View.INVISIBLE);
                     hadice_button.setClickable(false);
 
@@ -442,12 +448,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     hadice_animator.setDuration(200);
                     hadice_animator.start();
                     isOpenHadice = true;
-
-                    /*
-                    ObjectAnimator hide_button = ObjectAnimator.ofFloat(hadice_button, "alpha", 0);
-                    hide_button.setDuration(100);
-                    hide_button.start();
-                     */
 
                     settings.hide();
                     kompas.hide();
@@ -467,6 +467,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     zickr.hide();
                     hadice.hide();
                     names_of_Allah.hide();
+                    post.hide();
 
                     fab.hide();
                     wijets.hide();
@@ -479,12 +480,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     nextNamaz.setVisibility(View.GONE);
                     localtime_next_namaz.setVisibility(View.GONE);
 
-                    //ayat_button.setVisibility(View.INVISIBLE);
-                    //ayat_button.setClickable(false);
-
-                    //calTimeElement.getCb().setClickable(false);
-                    //calTimeElement.getCb().setVisibility(View.INVISIBLE);
-
                 }
 
                 break;
@@ -492,6 +487,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.close_hadice_button:
 
                 if (isOpenHadice) {
+
+                    textHadice.setVisibility(View.GONE);
 
                     hadice_button.setClickable(true);
                     hadice_button.setVisibility(View.VISIBLE);
@@ -512,8 +509,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     fab.show();
                     wijets.show();
 
-                    //ayat_button.setVisibility(View.VISIBLE);
-                    //ayat_button.setClickable(true);
                     namazLayout.setVisibility(View.VISIBLE);
                     textAyat.setVisibility(View.VISIBLE);
                     ayat_layout.setVisibility(View.VISIBLE);
@@ -554,6 +549,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     zickr.hide();
                     hadice.hide();
                     names_of_Allah.hide();
+                    post.hide();
 
                     ObjectAnimator ayat_animator = ObjectAnimator.ofFloat(ayat_layout, "translationY", 0f);
                     ayat_animator.setDuration(200);

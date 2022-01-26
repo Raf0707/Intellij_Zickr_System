@@ -125,27 +125,33 @@ public class CalTimeElement {
         return this.cb;
     }
 
+
     public void setTime(String time)
     {
         this.time = time;
     }
+
 
     public String getTime()
     {
         return this.time;
     }
 
+
     public Runnable getTask() { return this.task; }
+
 
     public void setTimerTitle(String timerTitle)
     {
         this.timerTitle = timerTitle;
     }
 
+
     public String getTimerTitle()
     {
         return this.timerTitle;
     }
+
 
     public static String timeToString(long secs) {
         long hour = secs / 3600,
@@ -162,6 +168,7 @@ public class CalTimeElement {
 
         return String.format("%02d:%02d:%02d", hour, min, sec);
     }
+
 
     @Override
     public String toString()

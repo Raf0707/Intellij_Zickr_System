@@ -24,6 +24,20 @@
         app:layout_constraintVertical_bias="0.374" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_baseline_pan_tool_alt_24"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.287" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_hadice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
