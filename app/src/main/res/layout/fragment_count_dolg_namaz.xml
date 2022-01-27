@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CountDolgNamazFragment">
+
+    <TextView
+        android:id="@+id/instructsia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center"
+        android:text="Согласно шариату, человек несет ответственность за намаз с 14 лет. \n Сколько времени Вы не читали намаз?"
+        android:textColor="@color/purple_300"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/tsel"
+        android:layout_width="145dp"
+        android:layout_height="62dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="введите число"
+        android:textColorHint="@color/purple_10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <TextView
+        android:id="@+id/podschet"
+        android:layout_width="match_parent"
+        android:layout_height="262dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/purple_300"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.416" />
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="98dp"
+        android:layout_height="62dp"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/instructsia"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <Button
+        android:id="@+id/startt"
+        android:layout_width="192dp"
+        android:layout_height="121dp"
+        android:text="Начать"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/nazad"
+        android:layout_width="116dp"
+        android:layout_height="68dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="-50sp"
+        android:text="←"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="95dp"
+        android:layout_height="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

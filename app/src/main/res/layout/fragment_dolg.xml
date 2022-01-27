@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.398" />
 
     <Button
         android:id="@+id/postt"
@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/today"
@@ -41,22 +41,34 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.398" />
 
     <TextView
         android:id="@+id/Dolgi"
         android:layout_width="335dp"
         android:layout_height="114dp"
-        android:text="Долги перед Аллахом"
         android:gravity="center"
-        android:textSize="30sp"
+        android:text="Долги перед Аллахом"
         android:textColor="@color/purple_300"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.145" />
+
+    <Button
+        android:id="@+id/nazad"
+        android:layout_width="59dp"
+        android:layout_height="55dp"
+        android:background="@drawable/ic_baseline_arrow_circle_left_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 public class DolgFragment extends Fragment implements View.OnClickListener {
-
+    private Button namaz;
+    private Button post;
+    private Button today;
+    private Button nazad;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -19,17 +22,19 @@ public class DolgFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_dolg, null);
 
-        Button namaz = view.findViewById(R.id.namaz);
+        namaz = view.findViewById(R.id.namaz);
         namaz.setOnClickListener(this);
 
-        Button post = view.findViewById(R.id.postt);
+        post = view.findViewById(R.id.postt);
         post.setOnClickListener(this);
 
-        Button today = view.findViewById(R.id.today);
+        today = view.findViewById(R.id.today);
         today.setOnClickListener(this);
 
+        nazad = view.findViewById(R.id.nazad);
+        nazad.setOnClickListener(this);
 
-        return inflater.inflate(R.layout.fragment_dolg, container, false);
+        return view;
     }
 
     @Override
@@ -42,7 +47,12 @@ public class DolgFragment extends Fragment implements View.OnClickListener {
 
 
             case R.id.today:
-                
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new TodayNamazFragment()).commit();
+                break;
+
+            case R.id.nazad:
+                Intent settings = new Intent(getContext(), MainActivity.class);
+                startActivity(settings);
 
         }
 

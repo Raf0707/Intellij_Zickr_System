@@ -273,6 +273,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         dolgi_i_zaslugi.setOnClickListener(View -> {
+            SelectFragment = 7;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "Долги и заслуги перед Аллахом", Toast.LENGTH_SHORT);
             toast.show();
         });
