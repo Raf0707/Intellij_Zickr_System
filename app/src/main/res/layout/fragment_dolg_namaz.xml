@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cll1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DolgNamazFragment">
+
+    <TextView
+        android:id="@+id/ostaloss"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <TextView
+        android:id="@+id/vospolnill"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <TextView
+        android:id="@+id/selectionid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textvospolnill"
+        android:layout_width="181dp"
+        android:layout_height="34dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="23sp"
+        android:text="Восполнил"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textostaloss"
+        android:layout_width="181dp"
+        android:layout_height="34dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="23sp"
+        android:text="Осталось"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <CheckBox
+        android:id="@+id/fadjrr"
+        android:layout_width="137dp"
+        android:layout_height="39dp"
+        android:text="Фаджр"
+        android:textSize="23sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <CheckBox
+        android:id="@+id/Magribb"
+        android:layout_width="123dp"
+        android:layout_height="31dp"
+        android:text="Магриб"
+        android:textSize="23sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.638" />
+
+    <CheckBox
+        android:id="@+id/Magrib_fardd"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:text="3 раката Магриб фард"
+        android:textSize="17sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.697" />
+
+    <CheckBox
+        android:id="@+id/Ishaa"
+        android:layout_width="86dp"
+        android:layout_height="30dp"
+        android:text="Иша"
+        android:textSize="23sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.76" />
+
+    <CheckBox
+        android:id="@+id/Zuckhrr"
+        android:layout_width="102dp"
+        android:layout_height="37dp"
+        android:text="Зухр"
+        android:textSize="23sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+    <CheckBox
+        android:id="@+id/Witrr"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:text="3 раката Витр-ваджиб"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
+
+    <CheckBox
+        android:id="@+id/fadjr_fardd"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:text="2 раката Фаджр фард"
+        android:textSize="17sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.326" />
+
+    <CheckBox
+        android:id="@+id/Isha_fardd"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:text="4 раката Иша фард"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811" />
+
+    <CheckBox
+        android:id="@+id/asr_fardd"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:text="4 раката Аср фард"
+        android:textSize="17sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <CheckBox
+        android:id="@+id/Zuckhr_fardd"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:text="4 раката Зухр фард"
+        android:textSize="17sp"
+        android:buttonTint="@color/purple_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <CheckBox
+        android:id="@+id/asrr"
+        android:layout_width="101dp"
+        android:layout_height="34dp"
+        android:text="Аср"
+        android:buttonTint="@color/purple_300"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <Button
+        android:id="@+id/backbackk"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:text="Меню"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+    <Button
+        android:id="@+id/resett"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:text="Reset"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+    <Button
+        android:id="@+id/pluss"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="+"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+    <Button
+        android:id="@+id/minuss"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="-"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.989" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

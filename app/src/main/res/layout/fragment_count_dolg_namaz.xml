@@ -25,58 +25,70 @@
 
     <EditText
         android:id="@+id/tsel"
-        android:layout_width="145dp"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         android:ems="10"
         android:gravity="center"
         android:hint="введите число"
-        android:textColorHint="@color/purple_10"
         android:inputType="number"
+        android:textColorHint="@color/purple_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.162" />
 
     <TextView
         android:id="@+id/podschet"
         android:layout_width="match_parent"
         android:layout_height="262dp"
-        android:textSize="30sp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/purple_300"
         android:text=""
+        android:textColor="@color/purple_300"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/ok"
+        android:id="@+id/okk"
         android:layout_width="98dp"
         android:layout_height="62dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/instructsia"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.394" />
+
+    <Button
+        android:id="@+id/prod"
+        android:layout_width="172dp"
+        android:layout_height="62dp"
+        android:text="Продолжить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/instructsia"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396" />
 
     <Button
         android:id="@+id/startt"
-        android:layout_width="192dp"
-        android:layout_height="121dp"
+        android:layout_width="116dp"
+        android:layout_height="68dp"
         android:text="Начать"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <Button
         android:id="@+id/nazad"
@@ -95,14 +107,14 @@
         app:layout_constraintVertical_bias="0.973" />
 
     <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="95dp"
+        android:id="@+id/spinnerqwert"
+        android:layout_width="match_parent"
         android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.255" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

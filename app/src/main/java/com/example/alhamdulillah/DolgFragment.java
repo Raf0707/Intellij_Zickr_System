@@ -41,7 +41,8 @@ public class DolgFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.namaz:
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new CountDolgNamazFragment()).commit();
+                break;
 
             case R.id.postt:
 
