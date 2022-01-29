@@ -38,6 +38,10 @@ public class NavigationActivity extends AppCompatActivity {
             case 7:
                 getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
                 break;
+
+            case 8:
+                getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new GreenKoranFragment()).commit();
+                break;
         }
     }
 }

@@ -1,13 +1,19 @@
 package com.example.alhamdulillah;
 
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.os.Build.VERSION.SDK_INT;
+
 import androidx.annotation.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.collection.*;
+import androidx.core.app.*;
 import androidx.recyclerview.widget.*;
 
 import android.animation.*;
+import android.net.*;
 import android.os.*;
 import android.content.*;
+import android.provider.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
@@ -176,6 +182,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         Koran_Karim.setOnClickListener(View -> {
+            SelectFragment = 8;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "Коран", Toast.LENGTH_SHORT);
             toast.show();
         });
@@ -696,6 +704,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean containsTime(String string){
         return string.matches(".*\\d+.*");
+    }
+
+    private void requestPermission() {
+        if (SDK_INT >= Build.VERSION_CODES.R) {
+            try {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
+                startActivityForResult(intent, 2296);
+            } catch (Exception e) {
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivityForResult(intent, 2296);
+            }
+        } else {
+            //below android 11
+            //ActivityCompat.requestPermissions(MainActivity.this, new String[]{WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+             }
     }
 
 
