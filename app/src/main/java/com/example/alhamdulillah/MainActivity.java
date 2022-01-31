@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton hadice;
     private FloatingActionButton names_of_Allah;
     private FloatingActionButton post;
+    private FloatingActionButton intellij_zickr_system;
 
     private FloatingActionButton wijets;
     private FloatingActionButton settings;
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hadice = findViewById(R.id.add_fab_hadice);
         names_of_Allah = findViewById(R.id.add_fab_99_names_of_Allah);
         post = findViewById(R.id.add_fab_post);
+        intellij_zickr_system = findViewById(R.id.add_fab_intellij_zickr_system);
 
         wijets = findViewById(R.id.add_fab_wijet);
         settings = findViewById(R.id.add_fab_settings);
@@ -142,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         hadice.setVisibility(View.GONE);
         names_of_Allah.setVisibility(View.GONE);
         post.setVisibility(View.GONE);
+        intellij_zickr_system.setVisibility(View.GONE);
 
 
         settings.setVisibility(View.GONE);
@@ -167,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hadice.show();
                 names_of_Allah.show();
                 post.show();
+                intellij_zickr_system.show();
                 isAllFabsVisible = true;
             } else {
                 Koran_Karim.hide();
@@ -177,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hadice.hide();
                 names_of_Allah.hide();
                 post.hide();
+                intellij_zickr_system.hide();
                 isAllFabsVisible = false;
             }
         });
@@ -226,6 +231,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             SelectFragment = 5;
             startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "Пост в месяц Рамадан", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        intellij_zickr_system.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Система умных зикров", Toast.LENGTH_SHORT);
             toast.show();
         });
 
@@ -371,7 +381,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("NAMAZ", "" + CalTimeElement.timeToStringSec(isha_tahajud) + " " + CalTimeElement.timeToStringSec(llt));
                 Log.d("SECC", "" + isha_tahajud + " " + llt);
 
-                if (llt >= 0 && llt <= voshod) {
+                if (llt >= 0 && llt <= fajr) {
                     llt += (24 * 3600);
                 }
 
@@ -403,9 +413,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     nextNamaz.setText("Тахаджуд");
                     localtime_next_namaz.setText((CalTimeElement.timeToStringSec(isha_tahajud % (24 * 3600))));
                     Log.d("PPP", "PPP");
-                } else if ((tahajud <= llt) && (llt < fajr)) {
+                } else if ((tahajud <= llt) && (llt < (fajr % (24 * 3600)))) {
                     nextNamaz.setText("Фаджр");
-                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(tahajud_fajr % (24 * 3600))));
+                    localtime_next_namaz.setText((CalTimeElement.timeToStringSec(tahajud_fajr)));
                     Log.d("OOO", "OOO");
                 }
 
@@ -721,8 +731,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             //below android 11
             //ActivityCompat.requestPermissions(MainActivity.this, new String[]{WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
-             }
-    }
+        }
 
+    }
 
 }

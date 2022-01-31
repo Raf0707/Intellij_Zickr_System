@@ -44,11 +44,12 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         page = view.findViewById(R.id.page);
         salavatCounter = view.findViewById(R.id.salavatCounter);
         handler = new Handler();
-        textsArabic = new String[31];
-        textPage = new String[31];
-        textCount = new String[31];
-        save = new String[31];
+        textsArabic = new String[32];
+        textPage = new String[32];
+        textCount = new String[32];
+        save = new String[32];
         seekBar = view.findViewById(R.id.seekBar);
+
         //Objects.requireNonNull(getSupportActionBar()).hide();
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -202,6 +203,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         textPage[28] = "28";
         textPage[29] = "29";
         textPage[30] = "30";
+        textPage[31] = "31";
     }
 
     public void initCounter() {
@@ -236,6 +238,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         textCount[28] = "0";
         textCount[29] = "0";
         textCount[30] = "0";
+        textCount[31] = "0";
 
     }
 
@@ -275,6 +278,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         save[28] = "";
         save[29] = "";
         save[30] = "";
+        save[31] = "";
     }
 
     public void setRes(){
@@ -288,7 +292,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             if(currentPage < 0) currentPage = 0;
             if(currentPage > 30) currentPage = 30;
             arabic.setText(textsArabic[currentPage]);
-            page.setText(textPage[currentPage]);
+            page.setText(textPage[currentPage + 1]);
             handler.postDelayed(r,100);
         }
     };
