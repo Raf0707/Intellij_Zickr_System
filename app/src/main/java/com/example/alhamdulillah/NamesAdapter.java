@@ -16,7 +16,7 @@ public class NamesAdapter extends RecyclerView.Adapter<NamesAdapter.ViewHolder> 
     private List<Name> names;
     private TextView name;
 
-    NamesAdapter(Context context, List<Name> names) {
+    public NamesAdapter(Context context, List<Name> names) {
         this.names = names;
         this.inflater = LayoutInflater.from(context);
     }
