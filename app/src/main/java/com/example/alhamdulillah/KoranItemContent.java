@@ -2,15 +2,10 @@ package com.example.alhamdulillah;
 
 public class KoranItemContent {
     private String title;
-    private int numSure;
     private int pageNumber;
 
     public String getTitle() {
         return this.title;
-    }
-
-    public int getNumSure() {
-        return this.numSure;
     }
 
     public int getPageNumber() {
@@ -21,16 +16,11 @@ public class KoranItemContent {
         this.title = title;
     }
 
-    public void setNumSure(int numSure) {
-        this.numSure = numSure;
-    }
-
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    public KoranItemContent(String title, int numSure, int pageNumber) {
-        this.numSure = numSure;
+    public KoranItemContent(String title, int pageNumber) {
         this.title = title;
         this.pageNumber = pageNumber;
     }

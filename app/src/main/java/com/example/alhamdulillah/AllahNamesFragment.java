@@ -145,7 +145,7 @@ public class AllahNamesFragment extends Fragment {
 
     }
 
-    public void init(){
+    public void init() {
         for(String n : namesAllaha){
             names.add(new Name(n));
         }

@@ -34,7 +34,7 @@ public class KoranAdapter extends RecyclerView.Adapter<KoranAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(final KoranAdapter.ViewHolder holder, int position) {
         KoranItemContent sure = sures.get(position);
-        holder.nameView.setText(format("%d %s %d", sure.getNumSure(), sure.getTitle(), sure.getPageNumber()));
+        holder.nameView.setText(format("%s %d", sure.getTitle(), sure.getPageNumber()));
 
         holder.nameView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,7 +53,7 @@ public class KoranAdapter extends RecyclerView.Adapter<KoranAdapter.ViewHolder> 
         final TextView nameView;
         ViewHolder(View view){
             super(view);
-            nameView = (TextView) view.findViewById(R.id.itemKoran);
+            nameView = view.findViewById(R.id.itemKoran);
         }
     }
 
