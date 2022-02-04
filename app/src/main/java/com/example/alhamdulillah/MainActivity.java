@@ -1,13 +1,9 @@
 package com.example.alhamdulillah;
 
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.os.Build.VERSION.SDK_INT;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.*;
-import androidx.core.app.*;
-import androidx.recyclerview.widget.*;
 
 import android.animation.*;
 import android.net.*;
@@ -26,7 +22,6 @@ import org.jsoup.select.*;
 import java.io.*;
 import java.lang.ref.*;
 import java.text.*;
-import java.time.*;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -44,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FloatingActionButton fab;
     private FloatingActionButton Koran_Karim;
-    private FloatingActionButton Koran_Karim_by_heart;
+    private FloatingActionButton sunna;
     private FloatingActionButton salavats;
     private FloatingActionButton dua;
     private FloatingActionButton zickr;
@@ -115,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fab = findViewById(R.id.add_fab);
         Koran_Karim = findViewById(R.id.add_fab_read_Koran);
-        Koran_Karim_by_heart = findViewById(R.id.add_fab_Koran_by_heart);
+        sunna = findViewById(R.id.add_fab_Koran_by_heart);
         salavats = findViewById(R.id.add_fab_salavats);
         dua = findViewById(R.id.add_fab_dua);
         zickr = findViewById(R.id.add_fab_zickr);
@@ -137,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         Koran_Karim.setVisibility(View.GONE);
-        Koran_Karim_by_heart.setVisibility(View.GONE);
+        sunna.setVisibility(View.GONE);
         salavats.setVisibility(View.GONE);
         dua.setVisibility(View.GONE);
         zickr.setVisibility(View.GONE);
@@ -163,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fab.setOnClickListener(View -> {
             if (!(isAllFabsVisible)) {
                 Koran_Karim.show();
-                Koran_Karim_by_heart.show();
+                sunna.show();
                 salavats.show();
                 dua.show();
                 zickr.show();
@@ -174,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 isAllFabsVisible = true;
             } else {
                 Koran_Karim.hide();
-                Koran_Karim_by_heart.hide();
+                sunna.hide();
                 salavats.hide();
                 dua.hide();
                 zickr.hide();
@@ -193,8 +188,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.show();
         });
 
-        Koran_Karim_by_heart.setOnClickListener(View -> {
-            Toast toast = Toast.makeText(getApplicationContext(), "Заучивание Корана Наизусть", Toast.LENGTH_SHORT);
+        sunna.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Сунна", Toast.LENGTH_SHORT);
             toast.show();
         });
 
@@ -481,7 +476,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     isAllWijetsVisible = false;
 
                     Koran_Karim.hide();
-                    Koran_Karim_by_heart.hide();
+                    sunna.hide();
                     salavats.hide();
                     dua.hide();
                     zickr.hide();
@@ -563,7 +558,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     isAllWijetsVisible = false;
 
                     Koran_Karim.hide();
-                    Koran_Karim_by_heart.hide();
+                    sunna.hide();
                     salavats.hide();
                     dua.hide();
                     zickr.hide();

@@ -80,9 +80,14 @@ public class CalTimeElement {
         //int a = (int) this.hoursToMinutes(this.getTime());
 
         cb = new CheckBox(ctx);
+        cb.setBackgroundResource(R.drawable.ic_baseline_doorbell_24);
+        cb.callOnClick();
         //cb.setLayoutParams(new TableLayout.LayoutParams(vpx,vpx,1f));
         cb.setButtonTintList(ColorStateList.valueOf(Color.parseColor("#12705A")));
+        //cb.setBackground(R.id.ic_baseline_doorbell_24);
         cb.setChecked(false);
+        //ctx.getDrawable(ctx, R.drawable.ic_baseline_doorbell_24);
+
 
         tr.addView(tv);
         tr.addView(cb);
