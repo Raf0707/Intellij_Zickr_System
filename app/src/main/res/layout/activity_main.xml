@@ -1,342 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-
-    android:id="@+id/drawerLayout"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start"
+    tools:context=".MainActivity"
+    tools:visibility="visible"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/topAppKoranFragmentBar"
-            app:navigationIcon="@drawable/ic_baseline_menu_24"
-            style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
-            android:background="@android:color/transparent"
-            android:elevation="0dp" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_99_names_of_Allah"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_beenhere_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.374" />
 
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_post"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_pan_tool_alt_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.201" />
 
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_intellij_zickr_system"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_view_in_ar_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.287" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        tools:visibility="visible">
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_hadice"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_book_online_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.461" />
 
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_zickr"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_brightness_3_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.55" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_99_names_of_Allah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_beenhere_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:layout_marginBottom="8dp"
+    android:src="@drawable/ic_baseline_add_circle_outline_24"
+    app:fabSize="normal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.954"
+    app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_pan_tool_alt_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_read_Koran"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:layout_marginBottom="68dp"
+    android:src="@drawable/ic_baseline_book_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_intellij_zickr_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_view_in_ar_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_Koran_by_heart"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_blur_on_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.812" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_hadice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_book_online_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_salavats"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_nights_stay_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.725" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_zickr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_brightness_3_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_dua"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_hexagon_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.955"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.637" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_baseline_add_circle_outline_24"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_wijet"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:layout_marginBottom="8dp"
+    android:src="@drawable/ic_baseline_more_horiz_24"
+    app:fabSize="normal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.053"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.998" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_read_Koran"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="68dp"
-        android:src="@drawable/ic_baseline_book_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_settings"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_settings_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.899" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_Koran_by_heart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_blur_on_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_kompas"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_share_location_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.812" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_salavats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_nights_stay_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_zickr_counter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_all_inclusive_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.725" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_dua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_hexagon_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_swipe_zickr_counter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_waving_hand_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.637" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_wijet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/ic_baseline_more_horiz_24"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_dolgi_i_zaslugi"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_rule_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.55" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_settings_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_my_tsels"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_adjust_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.461" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_kompas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_share_location_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_my_achieves"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_add_task_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.374" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_zickr_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_all_inclusive_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_resfolder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_folder_special_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.287" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_swipe_zickr_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_waving_hand_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_fab_music_Koran"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:src="@drawable/ic_baseline_library_music_24"
+    app:fabSize="mini"
+    app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.052"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.202" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_dolgi_i_zaslugi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_rule_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_my_tsels"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_adjust_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_my_achieves"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_add_task_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_resfolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_folder_special_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.287" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_fab_music_Koran"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_library_music_24"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
-
-    <Button
-        android:id="@+id/hadice_button"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:background="@drawable/ic_baseline_arrow_circle_down_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001" />
+<Button
+    android:id="@+id/hadice_button"
+    android:layout_width="53dp"
+    android:layout_height="53dp"
+    android:background="@drawable/ic_baseline_arrow_circle_down_24"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.001" />
 
 
-    <Button
-        android:id="@+id/ayat_button"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:background="@drawable/ic_baseline_arrow_drop_down_circle_24"
-        android:rotationX="180"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+<Button
+    android:id="@+id/ayat_button"
+    android:layout_width="53dp"
+    android:layout_height="53dp"
+    android:background="@drawable/ic_baseline_arrow_drop_down_circle_24"
+    android:rotationX="180"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
         android:id="@+id/hadice_layout"
@@ -346,10 +322,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001">
+        app:layout_constraintVertical_bias="0.025">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -367,9 +343,9 @@
                     android:id="@+id/textHadice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:gravity="center"
                     android:text=""
-                    android:background="@color/white"
                     android:textColor="@color/purple_300"
                     android:textSize="41sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -378,6 +354,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
+
 
             </LinearLayout>
 
@@ -390,160 +367,126 @@
             android:background="@drawable/ic_baseline_arrow_circle_up_24" />
 
 
-
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ayat_layout"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:gravity="center|top"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    android:id="@+id/ayat_layout"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <TextView
-            android:id="@+id/textAyat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/purple_300"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/close_ayat_button"
-            android:layout_width="52dp"
-            android:layout_height="53dp"
-            android:background="@drawable/ic_baseline_control_point_24"
-            android:gravity="left" />
-
-        <TextView
-            android:id="@+id/textCount"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:gravity="top|center"
-            android:text="33"
-            android:textColor="@color/purple_300"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
-    <TableLayout
-        android:id="@+id/namazLayout"
-        android:layout_width="260dp"
-        android:layout_height="328dp"
-        android:stretchColumns="0, 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488">
-
-
-    </TableLayout>
+    app:layout_constraintHorizontal_bias="0.513"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0">
 
     <TextView
-        android:id="@+id/hijra"
-        android:layout_width="260dp"
-        android:layout_height="70dp"
+        android:id="@+id/textAyat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text=""
         android:textColor="@color/purple_300"
-        android:textSize="16sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/close_ayat_button"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left" />
 
     <TextView
-        android:id="@+id/next_namaz"
-        android:layout_width="130dp"
-        android:layout_height="43dp"
-        android:gravity="left"
-        android:text=""
-        android:textColor="@color/purple_45"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.735" />
-
-    <TextView
-        android:id="@+id/localtime_next_namaz"
-        android:layout_width="130dp"
-        android:layout_height="43dp"
-        android:gravity="right"
-        android:text=""
-        android:textColor="@color/purple_45"
+        android:id="@+id/textCount"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:gravity="top|center"
+        android:text="33"
+        android:textColor="@color/purple_300"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.735" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start" >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/koranContent"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </com.google.android.material.navigation.NavigationView>
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end" >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/zakladky"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </com.google.android.material.navigation.NavigationView>
+<TableLayout
+    android:id="@+id/namazLayout"
+    android:layout_width="260dp"
+    android:layout_height="328dp"
+    android:stretchColumns="0, 1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.513"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.488">
 
 
+</TableLayout>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+<TextView
+    android:id="@+id/hijra"
+    android:layout_width="260dp"
+    android:layout_height="70dp"
+    android:gravity="center"
+    android:text=""
+    android:textColor="@color/purple_300"
+    android:textSize="16sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.513"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.192" />
+
+
+<TextView
+    android:id="@+id/next_namaz"
+    android:layout_width="130dp"
+    android:layout_height="43dp"
+    android:gravity="left"
+    android:text=""
+    android:textColor="@color/purple_45"
+    android:textSize="23sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.281"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.735" />
+
+<TextView
+    android:id="@+id/localtime_next_namaz"
+    android:layout_width="130dp"
+    android:layout_height="43dp"
+    android:gravity="right"
+    android:text=""
+    android:textColor="@color/purple_45"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.743"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.735" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
