@@ -108,45 +108,61 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
             @Override
             public void onSwipeDown() {
+                saveText();
                 currentCount++;
                 textCount[currentPage] = Integer.toString(currentCount);
                 salavatCounter.setText(textCount[currentPage]);
+                saveText();
+                loadText();
 
             }
 
             @Override
             public void onSwipeUp() {
+                saveText();
                 currentCount--;
                 if (currentCount < 0) currentCount = 0;
                 textCount[currentPage] = Integer.toString(currentCount);
                 salavatCounter.setText(textCount[currentPage]);
+                saveText();
+                loadText();
 
             }
 
             @Override
             public void onClick() {
+                saveText();
                 currentCount++;
                 textCount[currentPage] = Integer.toString(currentCount);
                 salavatCounter.setText(textCount[currentPage]);
-
+                saveText();
+                loadText();
             }
 
             @Override
             public void onDoubleClick() {
+                saveText();
                 currentCount++;
                 textCount[currentPage] = Integer.toString(currentCount);
                 salavatCounter.setText(textCount[currentPage]);
+                saveText();
+                loadText();
 
             }
 
             @Override
             public void onLongClick() {
+                saveText();
                 currentCount = 0;
                 textCount[currentPage] = Integer.toString(currentCount);
                 salavatCounter.setText(textCount[currentPage]);
+                saveText();
+                loadText();
 
             }
         });
+
+        loadText();
 
         return view;
     }
@@ -317,4 +333,12 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         salavatCounter.setText(salavat);
         currentCount = Integer.parseInt(sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString()));
     }
+
+    @Override
+    public void onDestroy() {
+        saveText();
+        loadText();
+        super.onDestroy();
+    }
+
 }

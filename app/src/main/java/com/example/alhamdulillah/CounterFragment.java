@@ -1,5 +1,7 @@
 package com.example.alhamdulillah;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.*;
 import android.os.Bundle;
 
@@ -29,10 +31,11 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     private Button Ok;
     private Button baccck;
     private Button set;
-    private TextView textView;
+    private TextView counter;
     private TextView editprogress;
     private EditText tsel;
     private Handler handler;
+    private SharedPreferences sPreff;
 
     private ProgressBar mProgressBar;
     private static final TimeInterpolator GAUGE_ANIMATION_INTERPOLATOR = new DecelerateInterpolator(2);
@@ -46,7 +49,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         plus = view.findViewById(R.id.plus);
         Zero = view.findViewById(R.id.Zzero);
         Minus = view.findViewById(R.id.minus);
-        textView = view.findViewById(R.id.count);
+        counter = view.findViewById(R.id.count);
         mProgressBar = view.findViewById(R.id.mainProgressBar);
         mProgressBar.setVisibility(ProgressBar.VISIBLE);
         tsel = view.findViewById(R.id.Tsel);
@@ -73,6 +76,8 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         });
         thread.start();
 
+        loadText();
+
         return view;
     }
 
@@ -89,12 +94,14 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.set:
+                saveText();
                 Intent set = new Intent(v.getContext(), SettingsActivity.class);
                 startActivity(set);
+                loadText();
                 break;
 
             case R.id.ok:
-
+                saveText();
                 tsel.setText(tsel.getText().toString().replaceAll("\\.", ""));
                 tsel.setText(tsel.getText().toString().replaceAll("-", ""));
                 tsel.setText(tsel.getText().toString().replaceAll(",", ""));
@@ -120,9 +127,13 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                     }
                 }
 
+                saveText();
+                loadText();
+
                 break;
 
             case R.id.plus:
+                saveText();
                 if (tsel.getText().toString().length() == 0) {
                     maxvalue = 100;
                     tsel.setText(Integer.toString(maxvalue));
@@ -138,7 +149,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
 
                 if (tsel.getText().toString() != null) {
                     myCounter++;
-                    textView.setText(Integer.toString(myCounter));
+                    counter.setText(Integer.toString(myCounter));
                     if (myCounter <= Integer.parseInt(tsel.getText().toString())) {
                         editprogress.setText(MessageFormat.format("{0} / {1}", myCounter, tsel.getText().toString()));
                     }
@@ -168,14 +179,19 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                     Toast toast = Toast.makeText(requireActivity().getApplicationContext(), "Введите цель", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+                saveText();
+                loadText();
+
                 break;
 
             case R.id.minus:
+                saveText();
                 myCounter--;
                 if (myCounter < 0) {
                     myCounter = 0;
                 }
-                textView.setText(Integer.toString(myCounter));
+                counter.setText(Integer.toString(myCounter));
 
                 if (tsel.getText().toString().length() == 0) {
                     editprogress.setText(MessageFormat.format("{0} / {1}", myCounter, 100));
@@ -187,26 +203,69 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                 animator1.setInterpolator(GAUGE_ANIMATION_INTERPOLATOR);
                 animator1.setDuration(GAUGE_ANIMATION_DURATION);
                 animator1.start();
+
+                saveText();
+                loadText();
+
                 break;
 
             case R.id.Zzero:
+                saveText();
                 myCounter = 0;
-                textView.setText(Integer.toString(myCounter));
+                counter.setText(Integer.toString(myCounter));
                 editprogress.setText("");
 
                 ObjectAnimator animator2 = ObjectAnimator.ofInt(mProgressBar, "progress", myCounter, myCounter);
                 animator2.setInterpolator(GAUGE_ANIMATION_INTERPOLATOR);
                 animator2.setDuration(GAUGE_ANIMATION_DURATION);
                 animator2.start();
+
+                saveText();
+                loadText();
+
                 break;
 
             case R.id.baccck:
+                saveText();
                 Intent baccck = new Intent(getContext(), MainActivity.class);
                 startActivity(baccck);
+                loadText();
 
         }
 
 
+    }
+
+    public void saveText() {
+        sPreff = getActivity().getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPreff.edit();
+        ed.putString("Цель", tsel.getText().toString());
+        ed.putString("Сделал", counter.getText().toString());
+        ed.putString("ПрогрессВью", editprogress.getText().toString());
+        myCounter = Integer.parseInt(counter.getText().toString());
+        mProgressBar.setMax(Integer.parseInt(tsel.getText().toString()));
+        mProgressBar.setProgress(myCounter);
+        ed.apply();
+    }
+
+    public void loadText() {
+        sPreff = getActivity().getPreferences(MODE_PRIVATE);
+        String tselText = sPreff.getString("Цель", tsel.getText().toString());
+        String sdelText = sPreff.getString("Сделал", counter.getText().toString());
+        String progressText = sPreff.getString("ПрогрессВью", editprogress.getText().toString());
+        tsel.setText(tselText);
+        counter.setText(sdelText);
+        editprogress.setText(progressText);
+        myCounter = Integer.parseInt(counter.getText().toString());
+        mProgressBar.setMax(Integer.parseInt(tsel.getText().toString()));
+        mProgressBar.setProgress(myCounter);
+    }
+
+    @Override
+    public void onDestroy() {
+        saveText();
+        loadText();
+        super.onDestroy();
     }
 
 
