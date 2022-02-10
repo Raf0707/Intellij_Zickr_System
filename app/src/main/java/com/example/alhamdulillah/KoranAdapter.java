@@ -57,7 +57,4 @@ public class KoranAdapter extends RecyclerView.Adapter<KoranAdapter.ViewHolder> 
         }
     }
 
-
-
-
 }

@@ -121,7 +121,9 @@ public class AllahNamesFragment extends Fragment {
 
     public static WeakReference<AllahNamesFragment> ctx = null;
     private List<Name> names = new ArrayList<>();
+    private List<DrawerNamesContent> namesDrawer = new ArrayList<>();
     private NamesAdapter namesAdapter;
+    private DrawerNamesAdapter drawerNamesAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,15 +133,21 @@ public class AllahNamesFragment extends Fragment {
         ctx = new WeakReference<>(this);
 
         init();
+        initDrawer();
 
         for (int x = 0; x < namesAllaha.length; x++) {
             Log.d("LOGG",namesAllaha[x] + "\n" + names.toString());
         }
 
         namesAdapter = new NamesAdapter(view.getContext(), names);
-        RecyclerView nameView = view.findViewById(R.id.list);
+        RecyclerView nameView = view.findViewById(R.id.drawer_list);
         nameView.setAdapter(namesAdapter);
         nameView.setHasFixedSize(false);
+
+        drawerNamesAdapter = new DrawerNamesAdapter(view.getContext(), namesDrawer);
+        RecyclerView nameView1 = view.findViewById(R.id.name1);
+        nameView1.setAdapter(drawerNamesAdapter);
+        nameView1.setHasFixedSize(false);
 
         return view;
 
@@ -148,6 +156,12 @@ public class AllahNamesFragment extends Fragment {
     public void init() {
         for(String n : namesAllaha){
             names.add(new Name(n));
+        }
+    }
+
+    public void initDrawer() {
+        for(String i : namesAllaha){
+            namesDrawer.add(new DrawerNamesContent(i));
         }
     }
 

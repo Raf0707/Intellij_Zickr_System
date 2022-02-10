@@ -242,8 +242,8 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         ed.putString("Цель", tsel.getText().toString());
         ed.putString("Сделал", counter.getText().toString());
         ed.putString("ПрогрессВью", editprogress.getText().toString());
-        myCounter = Integer.parseInt(counter.getText().toString());
-        mProgressBar.setMax(Integer.parseInt(tsel.getText().toString()));
+        if (counter.getText().toString().length() != 0 ) {myCounter = Integer.parseInt(counter.getText().toString());}
+        if (tsel.getText().toString().length() != 0) {mProgressBar.setMax(Integer.parseInt(tsel.getText().toString()));}
         mProgressBar.setProgress(myCounter);
         ed.apply();
     }

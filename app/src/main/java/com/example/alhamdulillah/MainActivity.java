@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton resfolder;
     private FloatingActionButton music_Koran;
 
+    private FloatingActionButton daily;
+
     private boolean isAllFabsVisible;
     private boolean isAllWijetsVisible;
 
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         handler = new Handler();
 
-        //tv3 = findViewById(R.id.tv3);
+        daily = findViewById(R.id.add_fab_daily);
 
         nextNamaz = findViewById(R.id.next_namaz);
         localtime_next_namaz = findViewById(R.id.localtime_next_namaz);
@@ -309,6 +311,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         music_Koran.setOnClickListener(View -> {
             Toast toast = Toast.makeText(getApplicationContext(), "Прослушивание Корана", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
+        daily.setOnClickListener(View -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "Дневной план", Toast.LENGTH_SHORT);
             toast.show();
         });
 
@@ -683,6 +690,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (pars[0].contains("Шурук")) {
                     pars[0] = pars[0].replace("Шурук", "Восход");
+                }
+
+                if (pars[0].contains("Фаджр")) {
+                    if (String.valueOf(pars[1]).length() == 4) {
+                        pars[1] = "0" + pars[1];
+                    }
+                }
+
+                if (pars[0].contains("Восход")) {
+                    if (String.valueOf(pars[1]).length() == 4) {
+                        pars[1] = "0" + pars[1];
+                    }
+                }
+
+                if (pars[0].contains("Духа")) {
+                    if (String.valueOf(pars[1]).length() == 4) {
+                        pars[1] = "0" + pars[1];
+                    }
+                }
+
+                if (pars[0].contains("Тахаджуд")) {
+                    if (String.valueOf(pars[1]).length() == 4) {
+                        pars[1] = "0" + pars[1];
+                    }
                 }
 
                 if (pars[0].equals("Иша")) {

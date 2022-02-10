@@ -160,9 +160,7 @@ public class CalTimeElement {
 
     public static String timeToString(long secs) {
         long hour = secs / 3600,
-                min = secs / 60 % 60,
-                sec = secs % 60;
-        //if (hour >= 24) hour %= 24;
+                min = secs / 60 % 60;
         return String.format("%02d:%02d", hour, min);
     }
 

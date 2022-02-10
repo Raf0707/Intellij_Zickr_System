@@ -11,17 +11,19 @@
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/activity_navigation.xml" value="0.3453125" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/activity_settings.xml" value="0.27853260869565216" />
+        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/drawer_names_item.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_allah_names.xml" value="0.33" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_allah_names_translate.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_content.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_content_koran.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_count_dolg_namaz.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_counter.xml" value="0.3453125" />
+        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_daily.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_daily_hadis.xml" value="0.2848731884057971" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_dolg.xml" value="0.3453125" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_dolg_namaz.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_empty.xml" value="0.359375" />
-        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_green_koran.xml" value="0.1" />
+        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_green_koran.xml" value="0.25" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_jest__counter.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_koran.xml" value="0.31476449275362317" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_post_ramadan.xml" value="0.33" />
