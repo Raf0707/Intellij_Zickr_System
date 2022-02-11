@@ -139,7 +139,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     }
 
     public static String getRandomTsel(int min, int max){
-        int x = (int) ((Math.random()*((max-min)+1))+min);
+        int x = (int) ((Math.random() * ((max - min) + 1)) + min);
         return Integer.toString(x);
     }
 

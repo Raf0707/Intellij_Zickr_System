@@ -3,6 +3,7 @@ package com.example.alhamdulillah;
 import android.content.*;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.*;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -34,6 +35,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
     private CheckBox witr_vajib;
 
     private Button back_namaz;
+
+    private ConstraintLayout todayLayout;
 
 
     @Override
@@ -67,6 +70,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
 
         back_namaz = view.findViewById(R.id.back_namaz);
         back_namaz.setOnClickListener(this);
+
+        todayLayout = view.findViewById(R.id.todayLayout);
 
         this.fajr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -198,6 +203,15 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+            }
+        });
+
+        todayLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+
+            @Override
+            public void onDoubleClick() {
+                Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
+                startActivity(bacckkmenu);
             }
         });
 

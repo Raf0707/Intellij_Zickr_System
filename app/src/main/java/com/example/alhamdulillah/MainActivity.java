@@ -449,6 +449,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         t.start();
 
+        namazLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
+
+            @Override
+            public void onDoubleClick() {
+                SelectFragment = 6;
+                startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            }
+        });
+
     }
 
 
