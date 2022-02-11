@@ -42,6 +42,10 @@ public class NavigationActivity extends AppCompatActivity {
             case 8:
                 getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new GreenKoranFragment()).commit();
                 break;
+
+            case 9:
+                getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new SubhanFragment()).commit();
+                break;
         }
     }
 }

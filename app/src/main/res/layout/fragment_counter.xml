@@ -132,12 +132,12 @@
 
     <ProgressBar
         android:id="@+id/mainProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="49dp"
+        style="?android:attr/progressBarStyleHorizontal"
         android:indeterminateTint="#12705a"
-        android:max="100"
         android:scaleY="13"
+        android:max="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"

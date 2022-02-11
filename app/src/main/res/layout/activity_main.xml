@@ -357,6 +357,23 @@
         app:layout_constraintVertical_bias="0.01" />
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab_subhanLlahWaBiHamdih"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_baseline_error_outline_24"
+        app:tint="@color/white"
+        android:backgroundTint="@color/purple_49"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+
     <Button
     android:id="@+id/hadice_button"
     android:layout_width="53dp"

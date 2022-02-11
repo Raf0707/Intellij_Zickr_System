@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FloatingActionButton daily;
 
+    private FloatingActionButton subhanAllah_wa_bi_Hamdih;
+
     private boolean isAllFabsVisible;
     private boolean isAllWijetsVisible;
 
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         handler = new Handler();
 
         daily = findViewById(R.id.add_fab_daily);
+
+        subhanAllah_wa_bi_Hamdih = findViewById(R.id.add_fab_subhanLlahWaBiHamdih);
 
         nextNamaz = findViewById(R.id.next_namaz);
         localtime_next_namaz = findViewById(R.id.localtime_next_namaz);
@@ -319,6 +323,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.show();
         });
 
+        subhanAllah_wa_bi_Hamdih.setOnClickListener(View -> {
+            SelectFragment = 9;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            Toast toast = Toast.makeText(getApplicationContext(), "Субхана Ллахи ва би Хамдих, Субхана Ллахиль Азым", Toast.LENGTH_SHORT);
+            toast.show();
+        });
+
         hadice_button = findViewById(R.id.hadice_button);
         close_hadice_button = findViewById(R.id.close_hadice_button);
         hadice_button.setOnClickListener(this);
@@ -493,6 +504,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     fab.hide();
                     wijets.hide();
+                    daily.hide();
+                    subhanAllah_wa_bi_Hamdih.hide();
+
                     textAyat.setVisibility(View.GONE);
                     hijra.setVisibility(View.GONE);
 
@@ -528,8 +542,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     hide_button.start();
 
                     textAyat.setVisibility(View.VISIBLE);
+
                     fab.show();
                     wijets.show();
+                    daily.show();
+                    subhanAllah_wa_bi_Hamdih.show();
 
                     namazLayout.setVisibility(View.VISIBLE);
                     textAyat.setVisibility(View.VISIBLE);
@@ -552,6 +569,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     fab.hide();
                     wijets.hide();
+                    daily.hide();
+                    subhanAllah_wa_bi_Hamdih.hide();
 
                     settings.hide();
                     kompas.hide();
@@ -607,6 +626,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     fab.show();
                     wijets.show();
+                    daily.show();
+                    subhanAllah_wa_bi_Hamdih.show();
 
                     Random r = new Random();
                     int myRandStringIndex = r.nextInt(dailySpis.length);

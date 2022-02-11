@@ -7,6 +7,7 @@
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.37552083333333336" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/drawable/ic_baseline_arrow_circle_left_24.xml" value="0.37552083333333336" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.37552083333333336" />
+        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/drawable/ic_baseline_error_outline_24.xml" value="0.37552083333333336" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/drawable/ic_baseline_pan_tool_alt_24.xml" value="0.37552083333333336" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/activity_navigation.xml" value="0.3453125" />
@@ -28,6 +29,7 @@
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_koran.xml" value="0.31476449275362317" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_post_ramadan.xml" value="0.33" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_salavat.xml" value="0.359375" />
+        <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_subhan.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/fragment_today_namaz.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/listitem.xml" value="0.359375" />
         <entry key="..\:/Android_Projects/AlHamduLillah/app/src/main/res/layout/listitem_koran.xml" value="0.359375" />
