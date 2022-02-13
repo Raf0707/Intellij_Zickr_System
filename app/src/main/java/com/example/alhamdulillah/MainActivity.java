@@ -4,8 +4,10 @@ import static android.os.Build.VERSION.SDK_INT;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.*;
 
 import android.animation.*;
+import android.app.*;
 import android.net.*;
 import android.os.*;
 import android.content.*;
@@ -324,8 +326,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         subhanAllah_wa_bi_Hamdih.setOnClickListener(View -> {
-            SelectFragment = 9;
-            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+//            SelectFragment = 9;
+//            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
+            Intent intentt = new Intent(this, SubhanActivity.class);
+            startActivity(intentt);
             Toast toast = Toast.makeText(getApplicationContext(), "Субхана Ллахи ва би Хамдих, Субхана Ллахиль Азым", Toast.LENGTH_SHORT);
             toast.show();
         });
@@ -457,6 +461,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             }
         });
+
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Title")
+                        .setContentText("Notification text")
+                        .setContentIntent(resultPendingIntent);
+
+        Notification notification = builder.build();
+
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(2, notification);
 
     }
 

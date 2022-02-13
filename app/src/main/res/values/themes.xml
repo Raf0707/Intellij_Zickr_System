@@ -6,6 +6,7 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
+        <item name="android:windowCloseOnTouchOutside">false</item>
 
         <item name="android:textColorHint">@android:color/white</item>
         <item name="colorAccent">@color/purple_300</item>

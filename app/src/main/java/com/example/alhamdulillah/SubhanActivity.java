@@ -1,25 +1,18 @@
 package com.example.alhamdulillah;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import static com.example.alhamdulillah.AllahNamesFragment.context;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.*;
 
 import android.app.*;
 import android.content.*;
 import android.os.*;
-
-import androidx.constraintlayout.widget.*;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.*;
 
 import java.util.concurrent.*;
 
+public class SubhanActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class SubhanFragment extends Fragment implements View.OnClickListener {
     private ConstraintLayout subhanLayout;
     private Handler handler;
     private int counter = 0;
@@ -33,21 +26,19 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     View vview;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        
-        View view = inflater.inflate(R.layout.fragment_subhan, null);
-
-        subhanLayout = view.findViewById(R.id.subhanLayout);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_subhan);
+        subhanLayout = findViewById(R.id.subhanLayout1);
         handler = new Handler();
-        subhanCounter = view.findViewById(R.id.subhanCount);
-        bacckmenusss = view.findViewById(R.id.bacckmenusss);
+        subhanCounter = findViewById(R.id.subhanCount1);
+        bacckmenusss = findViewById(R.id.bacckmenusss1);
         bacckmenusss.setOnClickListener(this);
 
-        subhanLlahBiHamdih = view.findViewById(R.id.subhanLlahBiHamdih);
-        translateSubhanLlahBiHamdih = view.findViewById(R.id.translateSubhanLlahBiHamdih);
+        subhanLlahBiHamdih = findViewById(R.id.subhanLlahBiHamdih1);
+        translateSubhanLlahBiHamdih = findViewById(R.id.translateSubhanLlahBiHamdih1);
 
-        generateTsel = view.findViewById(R.id.subhanCountGenerateTsel);
+        generateTsel = findViewById(R.id.subhanCountGenerateTsel1);
 
         generateTsel.setText(getRandomTsel(146325749, 938789359));
         tselCount = Integer.parseInt(generateTsel.getText().toString());
@@ -65,7 +56,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
         t.start();
 
 
-        subhanLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+        subhanLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
 
             @Override
             public void onSwipeRight() {
@@ -135,7 +126,6 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
 
         loadText();
 
-        return view;
     }
 
     Runnable r = new Runnable() {
@@ -148,7 +138,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         saveText();
-        Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
+        Intent bacckkmenu = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(bacckkmenu);
         loadText();
 
@@ -160,7 +150,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     }
 
     public void saveText() {
-        sssPrefff = getActivity().getPreferences(MODE_PRIVATE);
+        sssPrefff = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sssPrefff.edit();
         ed.putString("Сделаллсс", subhanCounter.getText().toString());
         ed.putString("Осталосьь", generateTsel.getText().toString());
@@ -170,7 +160,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     }
 
     public void loadText() {
-        sssPrefff = getActivity().getPreferences(MODE_PRIVATE);
+        sssPrefff = getPreferences(MODE_PRIVATE);
         String sdellText = sssPrefff.getString("Сделаллсс", subhanCounter.getText().toString());
         String ossstText = sssPrefff.getString("Осталосьь", generateTsel.getText().toString());
         subhanCounter.setText(sdellText);
@@ -180,7 +170,7 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     }
 
     public void onAlert() {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
         builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
         builder1.setCancelable(true);
 
@@ -227,3 +217,5 @@ public class SubhanFragment extends Fragment implements View.OnClickListener {
     }
 
 }
+
+   
