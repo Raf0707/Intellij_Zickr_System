@@ -2,6 +2,7 @@ package com.example.alhamdulillah;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.*;
 import android.content.*;
 import android.os.*;
 
@@ -22,6 +23,7 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
     private TextView jestCounter;
     private Button bacckmenu;
     private SharedPreferences sPrefff;
+    private View vview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,8 +89,7 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
             @Override
             public void onLongClick() {
-                counter = 0;
-                jestCounter.setText(Integer.toString(counter));
+                if (counter != 0 && jestCounter.getText().toString() != "0") onAlert();
                 saveText();
             }
 
@@ -128,6 +129,36 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
         String sdellText = sPrefff.getString("Сделалл", jestCounter.getText().toString());
         jestCounter.setText(sdellText);
         counter = Integer.parseInt(jestCounter.getText().toString());
+    }
+
+    public void onAlert() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        counter = 0;
+                        jestCounter.setText(Integer.toString(counter));
+                        saveText();
+                        loadText();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Отмена", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        vview = getLayoutInflater().inflate(R.layout.alert_dialog_counter, null);
+        builder1.setView(vview);
+        AlertDialog alert11 = builder1.create();
+        alert11.getWindow().setLayout(400,800);
+        alert11.setTitle("Reset");
+        alert11.show();
     }
 
     @Override

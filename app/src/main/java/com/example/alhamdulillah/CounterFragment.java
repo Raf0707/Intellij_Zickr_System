@@ -2,6 +2,7 @@ package com.example.alhamdulillah;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.*;
 import android.content.*;
 import android.os.Bundle;
 
@@ -36,6 +37,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     private EditText tsel;
     private Handler handler;
     private SharedPreferences sPreff;
+    private View vview;
 
     private ProgressBar mProgressBar;
     private static final TimeInterpolator GAUGE_ANIMATION_INTERPOLATOR = new DecelerateInterpolator(2);
@@ -211,15 +213,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
 
             case R.id.Zzero:
                 saveText();
-                myCounter = 0;
-                counter.setText(Integer.toString(myCounter));
-                editprogress.setText("");
-
-                ObjectAnimator animator2 = ObjectAnimator.ofInt(mProgressBar, "progress", myCounter, myCounter);
-                animator2.setInterpolator(GAUGE_ANIMATION_INTERPOLATOR);
-                animator2.setDuration(GAUGE_ANIMATION_DURATION);
-                animator2.start();
-
+                if (myCounter != 0 && counter.getText().toString() != "0") onAlert();
                 saveText();
                 loadText();
 
@@ -259,6 +253,43 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         myCounter = Integer.parseInt(counter.getText().toString());
         mProgressBar.setMax(Integer.parseInt(tsel.getText().toString()));
         mProgressBar.setProgress(myCounter);
+    }
+
+    public void onAlert() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        myCounter = 0;
+                        counter.setText(Integer.toString(myCounter));
+                        editprogress.setText("0 / " + tsel.getText().toString());
+
+                        ObjectAnimator animator2 = ObjectAnimator.ofInt(mProgressBar, "progress", myCounter, myCounter);
+                        animator2.setInterpolator(GAUGE_ANIMATION_INTERPOLATOR);
+                        animator2.setDuration(GAUGE_ANIMATION_DURATION);
+                        animator2.start();
+
+                        saveText();
+                        loadText();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Отмена", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        vview = getLayoutInflater().inflate(R.layout.alert_dialog_counter, null);
+        builder1.setView(vview);
+        AlertDialog alert11 = builder1.create();
+        alert11.getWindow().setLayout(400,800);
+        alert11.setTitle("Reset");
+        alert11.show();
     }
 
     @Override

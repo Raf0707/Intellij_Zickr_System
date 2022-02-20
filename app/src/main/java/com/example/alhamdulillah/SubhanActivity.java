@@ -117,7 +117,7 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onLongClick() {
                 saveText();
-                onAlert();
+                if (counter != 0 && subhanCounter.getText().toString() != "0") onAlert();
                 saveText();
                 loadText();
             }
@@ -179,6 +179,8 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
                     public void onClick(DialogInterface dialog, int id) {
                         counter = 0;
                         subhanCounter.setText(Integer.toString(counter));
+                        saveText();
+                        loadText();
                     }
                 });
 
@@ -196,18 +198,6 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
         alert11.setTitle("Reset");
         alert11.show();
     }
-
-//    public Dialog onCreateDialog(Bundle savedInstanceState) {
-//
-//        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-//        return builder
-//                .setTitle("Диалоговое окно")
-//                .setIcon(android.R.drawable.ic_dialog_alert)
-//                .setMessage("Для закрытия окна нажмите ОК")
-//                .setPositiveButton("OK", null)
-//                .setNegativeButton("Отмена", null)
-//                .create();
-//    }
 
     @Override
     public void onDestroy() {

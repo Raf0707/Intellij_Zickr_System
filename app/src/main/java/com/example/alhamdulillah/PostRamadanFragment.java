@@ -1,5 +1,9 @@
 package com.example.alhamdulillah;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.animation.*;
+import android.app.*;
 import android.content.*;
 import android.os.*;
 
@@ -17,6 +21,8 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
     private Handler handler;
     private int countCheck = 0;
     private TextView itog;
+    private SharedPreferences sPreff;
+    private View vview;
 
     private ProgressBar postProgressBar;
 
@@ -312,6 +318,7 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
             }
         });
 
+        loadText();
 
         return view;
     }
@@ -330,51 +337,118 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
         }
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_reset:
-                this.c1.setChecked(false);
-                this.c2.setChecked(false);
-                this.c3.setChecked(false);
-                this.c4.setChecked(false);
-                this.c5.setChecked(false);
-                this.c6.setChecked(false);
-                this.c7.setChecked(false);
-                this.c8.setChecked(false);
-                this.c9.setChecked(false);
-                this.c10.setChecked(false);
-                this.c11.setChecked(false);
-                this.c12.setChecked(false);
-                this.c13.setChecked(false);
-                this.c14.setChecked(false);
-                this.c15.setChecked(false);
-                this.c16.setChecked(false);
-                this.c17.setChecked(false);
-                this.c18.setChecked(false);
-                this.c19.setChecked(false);
-                this.c20.setChecked(false);
-                this.c21.setChecked(false);
-                this.c22.setChecked(false);
-                this.c23.setChecked(false);
-                this.c24.setChecked(false);
-                this.c25.setChecked(false);
-                this.c26.setChecked(false);
-                this.c27.setChecked(false);
-                this.c28.setChecked(false);
-                this.c29.setChecked(false);
-                this.c30.setChecked(false);
-
+                if (countCheck != 0 && itog.getText().toString() != "0") onAlert();
                 break;
 
             case R.id.button_menu:
+                saveText();
+                loadText();
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
+                saveText();
                 break;
 
 
         }
+    }
+
+    public void saveText() {
+        sPreff = getActivity().getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPreff.edit();
+
+        ed.putBoolean("c1", c1.isChecked());
+
+
+        ed.putString("ПродержалПост", itog.getText().toString());
+        postProgressBar.setProgress(countCheck);
+        countCheck = Integer.parseInt(itog.getText().toString());
+        ed.apply();
+    }
+
+    public void loadText() {
+        sPreff = getActivity().getPreferences(MODE_PRIVATE);
+
+        c1.setChecked(sPreff.getBoolean("c1", false));
+
+
+        String tselText = sPreff.getString("ПродержалПост", itog.getText().toString());
+        itog.setText(tselText);
+        postProgressBar.setProgress(countCheck);
+    }
+
+    public void onAlert() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        c1.setChecked(false);
+                        c2.setChecked(false);
+                        c3.setChecked(false);
+                        c4.setChecked(false);
+                        c5.setChecked(false);
+                        c6.setChecked(false);
+                        c7.setChecked(false);
+                        c8.setChecked(false);
+                        c9.setChecked(false);
+                        c10.setChecked(false);
+                        c11.setChecked(false);
+                        c12.setChecked(false);
+                        c13.setChecked(false);
+                        c14.setChecked(false);
+                        c15.setChecked(false);
+                        c16.setChecked(false);
+                        c17.setChecked(false);
+                        c18.setChecked(false);
+                        c19.setChecked(false);
+                        c20.setChecked(false);
+                        c21.setChecked(false);
+                        c22.setChecked(false);
+                        c23.setChecked(false);
+                        c24.setChecked(false);
+                        c25.setChecked(false);
+                        c26.setChecked(false);
+                        c27.setChecked(false);
+                        c28.setChecked(false);
+                        c29.setChecked(false);
+                        c30.setChecked(false);
+
+                        itog.setText("0");
+                        countCheck = 0;
+                        postProgressBar.setProgress(countCheck);
+
+
+                        saveText();
+                        loadText();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Отмена", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        vview = getLayoutInflater().inflate(R.layout.alert_dialog_counter, null);
+        builder1.setView(vview);
+        AlertDialog alert11 = builder1.create();
+        alert11.getWindow().setLayout(400,800);
+        alert11.setTitle("Reset");
+        alert11.show();
+    }
+
+    @Override
+    public void onDestroy() {
+        saveText();
+        loadText();
+        super.onDestroy();
     }
 }
 

@@ -2,6 +2,7 @@ package com.example.alhamdulillah;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.*;
 import android.content.*;
 import android.os.*;
 
@@ -32,6 +33,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
     private SeekBar seekBar;
     private Button back;
     private SharedPreferences sPref;
+    private View vview;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
@@ -153,9 +155,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onLongClick() {
                 saveText();
-                currentCount = 0;
-                textCount[currentPage] = Integer.toString(currentCount);
-                salavatCounter.setText(textCount[currentPage]);
+                onAlert();
                 saveText();
                 loadText();
 
@@ -332,6 +332,37 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         String salavat = sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString());
         salavatCounter.setText(salavat);
         currentCount = Integer.parseInt(sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString()));
+    }
+
+    public void onAlert() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Да", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        currentCount = 0;
+                        textCount[currentPage] = Integer.toString(currentCount);
+                        salavatCounter.setText(textCount[currentPage]);
+                        saveText();
+                        loadText();
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "Отмена", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        vview = getLayoutInflater().inflate(R.layout.alert_dialog_counter, null);
+        builder1.setView(vview);
+        AlertDialog alert11 = builder1.create();
+        alert11.getWindow().setLayout(400,800);
+        alert11.setTitle("Reset");
+        alert11.show();
     }
 
     @Override

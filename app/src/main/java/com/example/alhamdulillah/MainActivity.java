@@ -306,6 +306,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         my_achieves.setOnClickListener(View -> {
+            SelectFragment = 10;
+            startActivity(new Intent(MainActivity.this, NavigationActivity.class));
             Toast toast = Toast.makeText(getApplicationContext(), "Мои достижения", Toast.LENGTH_SHORT);
             toast.show();
         });
