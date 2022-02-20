@@ -8,6 +8,10 @@
         <!-- Secondary brand color. -->
         <item name="android:windowCloseOnTouchOutside">false</item>
 
+        <item name="colorControlNormal">@color/white</item>
+
+        <item name="android:actionMenuTextColor">@color/white</item>
+
         <item name="android:textColorHint">@android:color/white</item>
         <item name="colorAccent">@color/purple_300</item>
         <item name="colorSecondary">@color/white</item>

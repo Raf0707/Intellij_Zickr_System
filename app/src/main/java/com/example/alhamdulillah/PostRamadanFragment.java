@@ -361,6 +361,36 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
         SharedPreferences.Editor ed = sPreff.edit();
 
         ed.putBoolean("c1", c1.isChecked());
+        ed.putBoolean("c2", c1.isChecked());
+        ed.putBoolean("c3", c3.isChecked());
+        ed.putBoolean("c4", c4.isChecked());
+        ed.putBoolean("c5", c5.isChecked());
+        ed.putBoolean("c6", c6.isChecked());
+        ed.putBoolean("c7", c7.isChecked());
+        ed.putBoolean("c8", c8.isChecked());
+        ed.putBoolean("c9", c9.isChecked());
+        ed.putBoolean("c10", c10.isChecked());
+        ed.putBoolean("c11", c11.isChecked());
+        ed.putBoolean("c12", c12.isChecked());
+        ed.putBoolean("c13", c13.isChecked());
+        ed.putBoolean("c14", c14.isChecked());
+        ed.putBoolean("c15", c15.isChecked());
+        ed.putBoolean("c16", c16.isChecked());
+        ed.putBoolean("c17", c17.isChecked());
+        ed.putBoolean("c18", c18.isChecked());
+        ed.putBoolean("c19", c19.isChecked());
+        ed.putBoolean("c20", c20.isChecked());
+        ed.putBoolean("c21", c21.isChecked());
+        ed.putBoolean("c22", c22.isChecked());
+        ed.putBoolean("c23", c23.isChecked());
+        ed.putBoolean("c24", c24.isChecked());
+        ed.putBoolean("c25", c25.isChecked());
+        ed.putBoolean("c26", c26.isChecked());
+        ed.putBoolean("c27", c27.isChecked());
+        ed.putBoolean("c28", c28.isChecked());
+        ed.putBoolean("c29", c29.isChecked());
+        ed.putBoolean("c30", c30.isChecked());
+
 
 
         ed.putString("ПродержалПост", itog.getText().toString());
@@ -373,6 +403,36 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
         sPreff = getActivity().getPreferences(MODE_PRIVATE);
 
         c1.setChecked(sPreff.getBoolean("c1", false));
+        c2.setChecked(sPreff.getBoolean("c2", false));
+        c3.setChecked(sPreff.getBoolean("c3", false));
+        c4.setChecked(sPreff.getBoolean("c4", false));
+        c5.setChecked(sPreff.getBoolean("c5", false));
+        c6.setChecked(sPreff.getBoolean("c6", false));
+        c7.setChecked(sPreff.getBoolean("c7", false));
+        c8.setChecked(sPreff.getBoolean("c8", false));
+        c9.setChecked(sPreff.getBoolean("c9", false));
+        c10.setChecked(sPreff.getBoolean("c10", false));
+        c11.setChecked(sPreff.getBoolean("c11", false));
+        c12.setChecked(sPreff.getBoolean("c12", false));
+        c13.setChecked(sPreff.getBoolean("c13", false));
+        c14.setChecked(sPreff.getBoolean("c14", false));
+        c15.setChecked(sPreff.getBoolean("c15", false));
+        c16.setChecked(sPreff.getBoolean("c16", false));
+        c17.setChecked(sPreff.getBoolean("c17", false));
+        c18.setChecked(sPreff.getBoolean("c18", false));
+        c19.setChecked(sPreff.getBoolean("c19", false));
+        c20.setChecked(sPreff.getBoolean("c20", false));
+        c21.setChecked(sPreff.getBoolean("c21", false));
+        c22.setChecked(sPreff.getBoolean("c22", false));
+        c23.setChecked(sPreff.getBoolean("c23", false));
+        c24.setChecked(sPreff.getBoolean("c24", false));
+        c25.setChecked(sPreff.getBoolean("c25", false));
+        c26.setChecked(sPreff.getBoolean("c26", false));
+        c27.setChecked(sPreff.getBoolean("c27", false));
+        c28.setChecked(sPreff.getBoolean("c28", false));
+        c29.setChecked(sPreff.getBoolean("c29", false));
+        c30.setChecked(sPreff.getBoolean("c30", false));
+
 
 
         String tselText = sPreff.getString("ПродержалПост", itog.getText().toString());
