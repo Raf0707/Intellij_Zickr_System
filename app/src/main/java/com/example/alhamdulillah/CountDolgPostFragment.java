@@ -80,6 +80,9 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
                 String myIsm = qwertPost.getSelectedItem().toString();
                 if (myIsm == "Единица измерения") {
                     podschetPost.setText("Выберете единицу измерения!");
+                } else if (tselPost.getText().toString().length() == 0) {
+                    Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else if (myIsm == "Годы") {
                     dolgPost = Integer.parseInt(tselPost.getText().toString());
                     if (dolgPost <= 0) {
@@ -118,10 +121,17 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
                 if (times.length() == 0) {
                     Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
                     toast.show();
+                } else if (podschetPost.getText().toString().length() == 0) {
+                    Toast toast = Toast.makeText(getContext(), "Введите количество намазов и нажмите ок!", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgPostFragment()).commit();
                     break;
                 }
+                break;
+
+            case R.id.nazadPost:
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
                 break;
         }
     }

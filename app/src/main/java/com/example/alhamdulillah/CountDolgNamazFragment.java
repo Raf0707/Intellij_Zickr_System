@@ -15,7 +15,11 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
 
     private EditText tsel;
     private TextView podschet;
+
     private Button ok;
+    private Button starter;
+    private Button nazad;
+
     private int dolg;
     public int dney;
     private int namazov;
@@ -37,18 +41,18 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
 
         ism = new String[]{"Единица измерения", "Годы", "Месяцы", "Недели", "Дни", "Свое Количество намазов"};
 
-        Button starter = view.findViewById(R.id.startt);
-        starter.setOnClickListener(this);
-
-        Button nazad = view.findViewById(R.id.nazad);
-        nazad.setOnClickListener(this);
+        ok = view.findViewById(R.id.okk);
+        starter = view.findViewById(R.id.startt);
+        nazad = view.findViewById(R.id.nazad);
 
         tsel = view.findViewById(R.id.tsel);
         podschet = view.findViewById(R.id.podschet);
-        ok = view.findViewById(R.id.okk);
-        ok.setOnClickListener(this);
         layoutInflater = getLayoutInflater();
         qwert = view.findViewById(R.id.spinnerqwert);
+
+        ok.setOnClickListener(this);
+        starter.setOnClickListener(this);
+        nazad.setOnClickListener(this);
 
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, ism);
@@ -82,6 +86,9 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 String myIsm = qwert.getSelectedItem().toString();
                 if (myIsm == "Единица измерения") {
                     podschet.setText("Выберете единицу измерения!");
+                } else if (tsel.getText().toString().length() == 0) {
+                    Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else if (myIsm == "Годы") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
@@ -148,10 +155,17 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 if (times.length() == 0) {
                     Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
                     toast.show();
+                } else if (podschet.getText().toString().length() == 0) {
+                    Toast toast = Toast.makeText(getContext(), "Введите количество намазов и нажмите ок!", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else {
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgNamazFragment()).commit();
                     break;
                 }
+                break;
+
+            case R.id.nazad:
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
                 break;
         }
     }
