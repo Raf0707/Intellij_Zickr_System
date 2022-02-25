@@ -45,16 +45,17 @@ public class DolgFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.postt:
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new CountDolgPostFragment()).commit();
+                break;
 
             case R.id.today:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new TodayNamazFragment()).commit();
                 break;
 
             case R.id.nazad:
-                Intent settings = new Intent(getContext(), MainActivity.class);
-                startActivity(settings);
-
+                Intent mn = new Intent(getContext(), MainActivity.class);
+                startActivity(mn);
+                break;
         }
 
     }

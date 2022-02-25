@@ -145,7 +145,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
 
             case R.id.startt:
                 String times = tsel.getText().toString();
-                if (times == "") {
+                if (times.length() == 0) {
                     Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {

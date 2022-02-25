@@ -4,6 +4,8 @@ import android.content.*;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.*;
+import androidx.constraintlayout.widget.*;
+import androidx.coordinatorlayout.widget.*;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.*;
 import androidx.lifecycle.Observer;
@@ -20,12 +22,16 @@ import java.util.*;
 
 public class MyAchievementsFragment extends Fragment {
     private RecyclerView recyclerView;
+    private CoordinatorLayout achivLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_my_achievements, null, false);
+        //view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()));
+
+        achivLayout = view.findViewById(R.id.achivLayout);
 
         recyclerView = view.findViewById(R.id.listtt);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
@@ -36,21 +42,21 @@ public class MyAchievementsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), NoteDetailsActivity.class);
-                startActivity(intent);
-            }
+        fab.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getContext(), NoteDetailsActivity.class);
+            startActivity(intent);
         });
 
         MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        mainViewModel.getNoteLiveData().observe(getViewLifecycleOwner(), new Observer<List<Note>>() {
-            @Override
-            public void onChanged(List<Note> notes) {
-                adapter.setItems(notes);
-            }
-        });
+        mainViewModel.getNoteLiveData().observe(getViewLifecycleOwner(), adapter::setItems);
+
+//        achivLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
+//            @Override
+//            public void onSwipeRight() {
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         return view;
     }

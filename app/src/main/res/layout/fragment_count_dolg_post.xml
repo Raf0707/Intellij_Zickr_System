@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/counterfragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CountDolgNamazFragment">
+    tools:context=".CountDolgPostFragment">
 
     <TextView
-        android:id="@+id/instructsia"
+        android:id="@+id/instructsiaPost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="top|center"
-        android:text="Согласно шариату, человек несет ответственность за намаз с 14 лет. \n Сколько времени Вы не читали намаз?"
+        android:text="Согласно шариату, человек несет ответственность за пост, как и за намаз с 14 лет. \n Сколько времени Вы не постились?"
         android:textColor="@color/purple_300"
         android:textSize="20sp"
         android:textStyle="bold|italic"
@@ -24,7 +25,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/tsel"
+        android:id="@+id/tselPost"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:ems="10"
@@ -39,7 +40,7 @@
         app:layout_constraintVertical_bias="0.162" />
 
     <TextView
-        android:id="@+id/podschet"
+        android:id="@+id/podschetPost"
         android:layout_width="match_parent"
         android:layout_height="262dp"
         android:gravity="center"
@@ -55,31 +56,31 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/okk"
+        android:id="@+id/okkPost"
         android:layout_width="98dp"
         android:layout_height="62dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/instructsia"
+        app:layout_constraintEnd_toEndOf="@+id/instructsiaPost"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.394" />
 
     <Button
-        android:id="@+id/prod"
+        android:id="@+id/prodPost"
         android:layout_width="172dp"
         android:layout_height="62dp"
         android:text="Продолжить"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/instructsia"
+        app:layout_constraintEnd_toEndOf="@+id/instructsiaPost"
         app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396" />
 
     <Button
-        android:id="@+id/startt"
+        android:id="@+id/starttPost"
         android:layout_width="116dp"
         android:layout_height="68dp"
         android:text="Начать"
@@ -91,7 +92,7 @@
         app:layout_constraintVertical_bias="0.97" />
 
     <Button
-        android:id="@+id/nazad"
+        android:id="@+id/nazadPost"
         android:layout_width="116dp"
         android:layout_height="68dp"
         android:gravity="center_horizontal"
@@ -107,7 +108,7 @@
         app:layout_constraintVertical_bias="0.973" />
 
     <Spinner
-        android:id="@+id/spinnerqwert"
+        android:id="@+id/spinnerqwertPost"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"
