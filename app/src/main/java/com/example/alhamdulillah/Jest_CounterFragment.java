@@ -84,6 +84,14 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
                 counter++;
                 jestCounter.setText(Integer.toString(counter));
                 saveText();
+            }
+
+            @Override
+            public void onDoubleClick() {
+                countClick = 1;
+                counter++;
+                jestCounter.setText(Integer.toString(counter));
+                saveText();
 
             }
 

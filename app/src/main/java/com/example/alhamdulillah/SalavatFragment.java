@@ -94,6 +94,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             public void onSwipeRight() {
                 saveText();
                 currentPage--;
+                savePage();
                 loadText();
                 if (currentCount < 0) currentCount = 0;
                 if (currentPage < 0) currentPage = 0;
@@ -104,6 +105,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             public void onSwipeLeft() {
                 saveText();
                 currentPage++;
+                savePage();
                 loadText();
                 seekBar.setProgress(currentPage);
             }
@@ -162,6 +164,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
             }
         });
 
+        loadPage();
         loadText();
 
         return view;
@@ -258,10 +261,6 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
     }
 
-    public int getCurrentPage() {
-        return Integer.parseInt(page.getText().toString());
-    }
-
     public void initSave() {
         save[0] = "";
         save[1] = "";
@@ -315,6 +314,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
+        savePage();
         Intent back = new Intent(getActivity(), MainActivity.class);
         startActivity(back);
     }
@@ -334,6 +334,20 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
         currentCount = Integer.parseInt(sPref.getString("Прочитал" + currentPage, salavatCounter.getText().toString()));
     }
 
+    public void savePage() {
+        sPref = getActivity().getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putInt("page", currentPage);
+        ed.apply();
+    }
+
+    public void loadPage() {
+        sPref = getActivity().getPreferences(MODE_PRIVATE);
+        currentPage = (sPref.getInt("page", currentPage));
+        seekBar.setProgress(currentPage);
+        page.setText(Integer.toString(currentPage));
+    }
+
     public void onAlert() {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
         builder1.setMessage("Вы уверены, что хотите сбросить счетчик?");
@@ -347,6 +361,8 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
                         salavatCounter.setText(textCount[currentPage]);
                         saveText();
                         loadText();
+                        savePage();
+                        loadPage();
                     }
                 });
 
@@ -367,8 +383,10 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onDestroy() {
+        savePage();
         saveText();
         loadText();
+        loadPage();
         super.onDestroy();
     }
 

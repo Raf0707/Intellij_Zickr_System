@@ -1,5 +1,7 @@
 package com.example.alhamdulillah;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.*;
 import android.os.Bundle;
 
@@ -35,8 +37,11 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
     private CheckBox witr_vajib;
 
     private Button back_namaz;
+    private Button reset;
 
     private ConstraintLayout todayLayout;
+
+    private SharedPreferences ssPref;
 
 
     @Override
@@ -70,6 +75,9 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
 
         back_namaz = view.findViewById(R.id.back_namaz);
         back_namaz.setOnClickListener(this);
+
+        reset = view.findViewById(R.id.reset);
+        reset.setOnClickListener(this);
 
         todayLayout = view.findViewById(R.id.todayLayout);
 
@@ -210,10 +218,14 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void onDoubleClick() {
+                saveText();
+                loadText();
                 Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
                 startActivity(bacckkmenu);
             }
         });
+
+        loadText();
 
         return view;
 
@@ -281,10 +293,110 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
-    }
-        
-    
+        switch (view.getId()) {
+            case R.id.back_namaz:
+                saveText();
+                loadText();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
 
-    
+            case R.id.reset:
+
+                fajr.setChecked(false);
+                fadjr_sunna.setChecked(false);
+                fadjr_fard.setChecked(false);
+
+                zuckhr.setChecked(false);
+                zuckhr_sunna_4.setChecked(false);
+                zuckhr_fard.setChecked(false);
+                zuckhr_sunna_2.setChecked(false);
+
+                asr.setChecked(false);
+                asr_sunna.setChecked(false);
+                asr_fard.setChecked(false);
+
+                magrib.setChecked(false);
+                magrib_fard.setChecked(false);
+                magrib_sunna.setChecked(false);
+
+                isha.setChecked(false);
+                isha_sunna_4.setChecked(false);
+                isha_fard.setChecked(false);
+                isha_sunna_2.setChecked(false);
+                tahajud.setChecked(false);
+                witr_vajib.setChecked(false);
+
+                saveText();
+                loadText();
+
+        }
+
+    }
+
+    public void saveText() {
+        ssPref = getActivity().getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = ssPref.edit();
+
+        ed.putBoolean("fadjr", fajr.isChecked());
+        ed.putBoolean("fadjr_sunna", fadjr_sunna.isChecked());
+        ed.putBoolean("fadjr_fard", fadjr_fard.isChecked());
+
+        ed.putBoolean("zuckhr", zuckhr.isChecked());
+        ed.putBoolean("zuckhr_sunna_4", zuckhr_sunna_4.isChecked());
+        ed.putBoolean("zuckhr_fard", zuckhr_fard.isChecked());
+        ed.putBoolean("zuckhr_sunna_2", zuckhr_sunna_2.isChecked());
+
+        ed.putBoolean("asr", asr.isChecked());
+        ed.putBoolean("asr_sunna", asr_sunna.isChecked());
+        ed.putBoolean("asr_fard", asr_fard.isChecked());
+
+        ed.putBoolean("magrib", magrib.isChecked());
+        ed.putBoolean("magrib_fard", magrib_fard.isChecked());
+        ed.putBoolean("magrib_sunna", magrib_sunna.isChecked());
+
+        ed.putBoolean("isha", isha.isChecked());
+        ed.putBoolean("isha_sunna_4", isha_sunna_4.isChecked());
+        ed.putBoolean("isha_fard", isha_fard.isChecked());
+        ed.putBoolean("isha_sunna_2", isha_sunna_2.isChecked());
+        ed.putBoolean("tahajud", tahajud.isChecked());
+        ed.putBoolean("witr", witr_vajib.isChecked());
+
+        ed.apply();
+    }
+
+    public void loadText() {
+        ssPref = getActivity().getPreferences(MODE_PRIVATE);
+
+        fajr.setChecked(ssPref.getBoolean("fadjr", false));
+        fadjr_sunna.setChecked(ssPref.getBoolean("fadjr_sunna", false));
+        fadjr_fard.setChecked(ssPref.getBoolean("fadjr_fard", false));
+
+        zuckhr.setChecked(ssPref.getBoolean("zuckhr", false));
+        zuckhr_sunna_4.setChecked(ssPref.getBoolean("zuckhr_sunna_4", false));
+        zuckhr_fard.setChecked(ssPref.getBoolean("zuckhr_fard", false));
+        zuckhr_sunna_2.setChecked(ssPref.getBoolean("zuckhr_sunna_2", false));
+
+        asr.setChecked(ssPref.getBoolean("asr", false));
+        asr_sunna.setChecked(ssPref.getBoolean("asr_sunna", false));
+        asr_fard.setChecked(ssPref.getBoolean("asr_fard", false));
+
+        magrib.setChecked(ssPref.getBoolean("magrib", false));
+        magrib_fard.setChecked(ssPref.getBoolean("magrib_fard", false));
+        magrib_sunna.setChecked(ssPref.getBoolean("magrib_sunna", false));
+
+        isha.setChecked(ssPref.getBoolean("isha", false));
+        isha_sunna_4.setChecked(ssPref.getBoolean("isha_sunna_4", false));
+        isha_fard.setChecked(ssPref.getBoolean("isha_fard", false));
+        isha_sunna_2.setChecked(ssPref.getBoolean("isha_sunna_2", false));
+        tahajud.setChecked(ssPref.getBoolean("tahajud", false));
+        witr_vajib.setChecked(ssPref.getBoolean("witr", false));
+
+    }
+
+    @Override
+    public void onDestroy() {
+        saveText();
+        loadText();
+        super.onDestroy();
+    }
+
 }

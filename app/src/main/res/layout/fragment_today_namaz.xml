@@ -93,7 +93,7 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.075" />
@@ -108,7 +108,7 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127" />
@@ -123,55 +123,10 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
-
-    <CheckBox
-        android:id="@+id/isha_sunna_4_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="4 раката Иша сунна"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
-
-    <CheckBox
-        android:id="@+id/isha_fard_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="4 раката Иша фард"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
-
-    <CheckBox
-        android:id="@+id/magrib_fard_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="3 раката Магриб фард"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
+        app:layout_constraintVertical_bias="0.302" />
 
     <CheckBox
         android:id="@+id/zuckhr_sunna_4_namaz"
@@ -183,100 +138,10 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
-
-    <CheckBox
-        android:id="@+id/tahajud_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="2 раката Тахаджуд"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
-
-    <CheckBox
-        android:id="@+id/witr_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="3 раката Витр-ваджиб"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
-
-    <CheckBox
-        android:id="@+id/asr_fard_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="4 раката Аср фард"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
-
-    <CheckBox
-        android:id="@+id/magrib_sunna_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="2 раката Магриб сунна"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
-
-    <CheckBox
-        android:id="@+id/isha_sunna_2_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="2 раката Иша сунна"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
-
-    <CheckBox
-        android:id="@+id/asr_sunna_namaz"
-        android:layout_width="284dp"
-        android:layout_height="27dp"
-        android:buttonTint="@color/purple_300"
-        android:checked="false"
-        android:text="4 раката Аср сунна"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
+        app:layout_constraintVertical_bias="0.248" />
 
     <CheckBox
         android:id="@+id/zuckhr_sunna_2_namaz"
@@ -288,10 +153,145 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintVertical_bias="0.353" />
+
+    <CheckBox
+        android:id="@+id/magrib_fard_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="3 раката Магриб фард"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <CheckBox
+        android:id="@+id/magrib_sunna_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="2 раката Магриб сунна"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.696" />
+
+    <CheckBox
+        android:id="@+id/asr_fard_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="4 раката Аср фард"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <CheckBox
+        android:id="@+id/asr_sunna_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="4 раката Аср сунна"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475" />
+
+    <CheckBox
+        android:id="@+id/isha_sunna_2_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="2 раката Иша сунна"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <CheckBox
+        android:id="@+id/tahajud_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="2 раката Тахаджуд"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.923" />
+
+    <CheckBox
+        android:id="@+id/isha_sunna_4_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="4 раката Иша сунна"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.808" />
+
+    <CheckBox
+        android:id="@+id/witr_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="3 раката Витр-ваджиб"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
+
+    <CheckBox
+        android:id="@+id/isha_fard_namaz"
+        android:layout_width="284dp"
+        android:layout_height="27dp"
+        android:buttonTint="@color/purple_300"
+        android:checked="false"
+        android:text="4 раката Иша фард"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846" />
 
     <Button
         android:id="@+id/back_namaz"
@@ -304,5 +304,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="92dp"
+        android:layout_height="46dp"
+        android:text="reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

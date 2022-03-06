@@ -19,17 +19,15 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
     private Button ok;
     private Button starter;
     private Button nazad;
+    private Button prod;
 
     private int dolg;
     public int dney;
     private int namazov;
-    private String strDney;
+    public String strDney;
     private String strNamazov;
     private View view;
     private LayoutInflater layoutInflater;
-    public SharedPreferences ssPref;
-    public TextView ostalos;
-    public TextView vospoln;
     private String[] ism;
     private Spinner qwert;
 
@@ -44,6 +42,8 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
         ok = view.findViewById(R.id.okk);
         starter = view.findViewById(R.id.startt);
         nazad = view.findViewById(R.id.nazad);
+        prod = view.findViewById(R.id.prod);
+        prod.setOnClickListener(this);
 
         tsel = view.findViewById(R.id.tsel);
         podschet = view.findViewById(R.id.podschet);
@@ -78,7 +78,6 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
         //loadText();
         return view;
     }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -92,7 +91,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 } else if (myIsm == "Годы") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
-                        Toast.makeText(getContext(), "Введите число больше нуля",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         dney = dolg * 365;
@@ -104,7 +103,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 } else if (myIsm == "Месяцы") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
-                        Toast.makeText(getContext(), "Введите число больше нуля",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         dney = dolg * 30;
@@ -116,7 +115,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 } else if (myIsm == "Недели") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
-                        Toast.makeText(getContext(), "Введите число больше нуля",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         dney = dolg * 7;
@@ -128,7 +127,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 } else if (myIsm == "Дни") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
-                        Toast.makeText(getContext(), "Введите число больше нуля",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         dney = dolg;
@@ -137,14 +136,15 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         strNamazov = Integer.toString(namazov);
                         podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
                     }
-                } else if (myIsm == "Свое количество намазов") {
+                } else if (myIsm == "Свое Количество намазов") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
-                        Toast.makeText(getContext(), "Введите число больше нуля",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
                         break;
                     } else {
                         namazov = dolg;
                         strNamazov = Integer.toString(namazov);
+                        strDney = strNamazov;
                         podschet.setText(String.format("Вам надо восполнить %s намазов. ", strNamazov));
                     }
                 }
@@ -159,13 +159,28 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                     Toast toast = Toast.makeText(getContext(), "Введите количество намазов и нажмите ок!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgNamazFragment()).commit();
+                    DolgNamazFragment dolgNamazFragment = new DolgNamazFragment();
+                    Boolean flag = false;
+                    Bundle bundle = new Bundle();
+                    bundle.putString("days", strDney);
+                    bundle.putBoolean("1", flag);
+                    dolgNamazFragment.setArguments(bundle);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgNamazFragment).commit();
                     break;
                 }
                 break;
 
             case R.id.nazad:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
+                break;
+
+            case R.id.prod:
+                DolgNamazFragment dolgNamazFragment1 = new DolgNamazFragment();
+                Boolean flag = true;
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("1", flag);
+                dolgNamazFragment1.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgNamazFragment1).commit();
                 break;
         }
     }
