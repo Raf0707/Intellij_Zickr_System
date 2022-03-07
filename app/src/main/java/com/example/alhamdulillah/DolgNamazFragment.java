@@ -270,10 +270,10 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
                 if (dolg > 0) dolg--;
                 ost.setText(Integer.toString(dolg));
                 sdel = Integer.parseInt(vosp.getText().toString());
-                if (sdel < (dolg + sdel + 1)) sdel++;
+                if (sdel <= (dolg + sdel)) sdel++;
                 vosp.setText(Integer.toString(sdel));
 
-                if (dolg == 0) {
+                if (dolg == 0 && sdel == (dolg + sdel)) {
                     Toast toast = Toast.makeText(getContext(), "Цель выполнена", Toast.LENGTH_SHORT);
                     toast.show();
                     plus.setClickable(false);
@@ -306,12 +306,12 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
 
                 //final int days1 = Integer.parseInt(getArguments().getString("days"));
 
-                if (dolg < (dolg + sdel + 1)) dolg++;
+                if (dolg <= (dolg + sdel)) dolg++;
                 ost.setText(Integer.toString(dolg));
                 if (sdel > 0) sdel--;
                 vosp.setText(Integer.toString(sdel));
 
-                if (dolg == 0) {
+                if (dolg == 0 && sdel == (dolg + sdel)) {
                     Toast toast = Toast.makeText(getContext(), "Цель выполнена", Toast.LENGTH_SHORT);
                     toast.show();
                     plus.setClickable(false);
@@ -330,6 +330,7 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
     public void saveText() {
         ssPref = getActivity().getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = ssPref.edit();
+
         ed.putString("Восполнил", vosp.getText().toString());
         ed.putString("Осталось", ost.getText().toString());
 
