@@ -270,15 +270,17 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
                 if (dolg > 0) dolg--;
                 ost.setText(Integer.toString(dolg));
                 sdel = Integer.parseInt(vosp.getText().toString());
-                if (sdel <= (dolg + sdel)) sdel++;
+                if (sdel != (dolg + sdel + 1)) sdel++;
                 vosp.setText(Integer.toString(sdel));
 
                 if (dolg == 0 && sdel == (dolg + sdel)) {
                     Toast toast = Toast.makeText(getContext(), "Цель выполнена", Toast.LENGTH_SHORT);
                     toast.show();
                     plus.setClickable(false);
+                    minus.setClickable(false);
                 } else {
                     plus.setClickable(true);
+                    minus.setClickable(true);
                 }
 
                 saveText();
@@ -306,17 +308,19 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
 
                 //final int days1 = Integer.parseInt(getArguments().getString("days"));
 
-                if (dolg <= (dolg + sdel)) dolg++;
+                if (dolg != (dolg + sdel + 1)) dolg++;
                 ost.setText(Integer.toString(dolg));
                 if (sdel > 0) sdel--;
                 vosp.setText(Integer.toString(sdel));
 
-                if (dolg == 0 && sdel == (dolg + sdel)) {
+                if (dolg == 0 && sdel == (dolg + sdel - 1)) {
                     Toast toast = Toast.makeText(getContext(), "Цель выполнена", Toast.LENGTH_SHORT);
                     toast.show();
                     plus.setClickable(false);
+                    minus.setClickable(false);
                 } else {
                     plus.setClickable(true);
+                    minus.setClickable(true);
                 }
 
                 saveText();
