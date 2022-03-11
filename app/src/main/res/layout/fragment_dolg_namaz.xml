@@ -23,6 +23,34 @@
         app:layout_constraintVertical_bias="0.088" />
 
     <TextView
+        android:id="@+id/dneynamazov1"
+        android:layout_width="181dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/dneynamazov2"
+        android:layout_width="181dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:textColor="@color/purple_300"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
         android:id="@+id/vospolnill"
         android:layout_width="181dp"
         android:layout_height="75dp"

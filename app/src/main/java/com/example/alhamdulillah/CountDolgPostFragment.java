@@ -15,15 +15,17 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
 
     private EditText tselPost;
     private TextView podschetPost;
+
     private Button okPost;
+    private Button prodPost;
+    private Button starterPost;
+    private Button nazadPost;
+
     private int dolgPost;
     private int postov;
-    private String strDneyPost;
     private String strPostov;
     private LayoutInflater layoutInflaterPost;
     public SharedPreferences ssPrefPost;
-    public TextView ostalosPost;
-    public TextView vospolnPost;
     private String[] ismPost;
     private Spinner qwertPost;
 
@@ -33,18 +35,24 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_dolg_post, null);
 
-        ismPost = new String[]{"Единица измерения", "Годы", "Недели", "Свое Количество дней"};
+        ismPost = new String[]{"Единица измерения", "Годы", "Недели", "Свое количество дней"};
 
-        Button starterPost = view.findViewById(R.id.starttPost);
+        starterPost = view.findViewById(R.id.starttPost);
         starterPost.setOnClickListener(this);
 
-        Button nazadPost = view.findViewById(R.id.nazadPost);
+        nazadPost = view.findViewById(R.id.nazadPost);
         nazadPost.setOnClickListener(this);
 
         tselPost = view.findViewById(R.id.tselPost);
         podschetPost = view.findViewById(R.id.podschetPost);
+
         okPost = view.findViewById(R.id.okkPost);
         okPost.setOnClickListener(this);
+
+        prodPost = view.findViewById(R.id.prodPost);
+        prodPost.setOnClickListener(this);
+
+
         layoutInflaterPost = getLayoutInflater();
         qwertPost = view.findViewById(R.id.spinnerqwertPost);
 
@@ -122,12 +130,27 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
                     Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else if (podschetPost.getText().toString().length() == 0) {
-                    Toast toast = Toast.makeText(getContext(), "Введите количество намазов и нажмите ок!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getContext(), "Введите количество дней (постов) и нажмите ок!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgPostFragment()).commit();
+                    DolgPostFragment dolgPostFragment = new DolgPostFragment();
+                    Boolean flag = false;
+                    Bundle bundle = new Bundle();
+                    bundle.putString("postKey", strPostov);
+                    bundle.putBoolean("1", flag);
+                    dolgPostFragment.setArguments(bundle);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgPostFragment).commit();
                     break;
                 }
+                break;
+
+            case R.id.prodPost:
+                DolgPostFragment dolgPostFragment1 = new DolgPostFragment();
+                Boolean flag = true;
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("1", flag);
+                dolgPostFragment1.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgPostFragment1).commit();
                 break;
 
             case R.id.nazadPost:

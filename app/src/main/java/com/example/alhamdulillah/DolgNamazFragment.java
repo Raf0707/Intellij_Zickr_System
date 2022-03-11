@@ -175,7 +175,7 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
             }
         });
 
-        if (flag == true) loadText();
+        if (flag) loadText();
 
         return view;
 

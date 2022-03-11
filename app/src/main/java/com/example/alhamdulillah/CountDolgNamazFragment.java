@@ -37,7 +37,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_count_dolg_namaz, null);
 
-        ism = new String[]{"Единица измерения", "Годы", "Месяцы", "Недели", "Дни", "Свое Количество намазов"};
+        ism = new String[]{"Единица измерения", "Годы", "Месяцы", "Недели", "Дни", "Свое количество намазов"};
 
         ok = view.findViewById(R.id.okk);
         starter = view.findViewById(R.id.startt);
@@ -122,7 +122,11 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg * 7 * 6;
                         strDney = Integer.toString(dney);
                         strNamazov = Integer.toString(namazov);
-                        podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
+                        if (strNamazov == "11" || strNamazov == "12" || strNamazov == "13" || strNamazov == "14") {
+                            podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
+                        } else if (strNamazov.substring(strNamazov.length() - 1) == "1" && strNamazov != "11") {
+                            podschet.setText(String.format("Вам надо восполнить долг за %s день, совершить %s намазов. ", strDney, strNamazov));
+                        }
                     }
                 } else if (myIsm == "Дни") {
                     dolg = Integer.parseInt(tsel.getText().toString());
@@ -136,7 +140,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         strNamazov = Integer.toString(namazov);
                         podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
                     }
-                } else if (myIsm == "Свое Количество намазов") {
+                } else if (myIsm == "Свое количество намазов") {
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
