@@ -85,6 +85,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAllFajrCheckedChange(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -92,6 +94,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAllZuckrCheckedChange(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -99,6 +103,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAllAsrCheckedChange(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -106,6 +112,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAllMagribCheckedChange(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -113,6 +121,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAllIshaCheckedChange(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -120,6 +130,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkFajr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -127,6 +139,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkFajr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -134,6 +148,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkZuckhr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -141,6 +157,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkZuckhr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -148,6 +166,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkZuckhr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -155,6 +175,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAsr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -162,6 +184,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkAsr(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -169,6 +193,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkMagrib(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -176,6 +202,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkMagrib(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -183,6 +211,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -190,6 +220,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -197,6 +229,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -204,6 +238,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -211,6 +247,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 checkIsha(isChecked);
+                saveText();
+                loadText();
             }
         });
 
@@ -222,6 +260,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
                 loadText();
                 Intent bacckkmenu = new Intent(getContext(), MainActivity.class);
                 startActivity(bacckkmenu);
+                saveText();
+                loadText();
             }
         });
 
@@ -234,22 +274,30 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
     private void checkAllFajrCheckedChange(boolean isChecked)  {
         this.fadjr_sunna.setChecked(isChecked);
         this.fadjr_fard.setChecked(isChecked);
+        saveText();
+        loadText();
     }
 
     private void checkAllZuckrCheckedChange(boolean isChecked) {
         this.zuckhr_sunna_4.setChecked(isChecked);
         this.zuckhr_fard.setChecked(isChecked);
         this.zuckhr_sunna_2.setChecked(isChecked);
+        saveText();
+        loadText();
     }
 
     private void checkAllAsrCheckedChange(boolean isChecked) {
         this.asr_sunna.setChecked(isChecked);
         this.asr_fard.setChecked(isChecked);
+        saveText();
+        loadText();
     }
 
     private void checkAllMagribCheckedChange(boolean isChecked) {
         this.magrib_fard.setChecked(isChecked);
         this.magrib_sunna.setChecked(isChecked);
+        saveText();
+        loadText();
     }
 
     private void checkAllIshaCheckedChange(boolean isChecked) {
@@ -258,35 +306,47 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
         this.isha_sunna_2.setChecked(isChecked);
         this.tahajud.setChecked(isChecked);
         this.witr_vajib.setChecked(isChecked);
+        saveText();
+        loadText();
     }
 
     private void checkFajr (boolean isChecked) {
         if (fadjr_sunna.isChecked() & fadjr_fard.isChecked()) {
             this.fajr.setChecked(isChecked);
+            saveText();
+            loadText();
         }
     }
 
     private void checkZuckhr (boolean isChecked) {
         if (zuckhr_sunna_4.isChecked() & zuckhr_fard.isChecked() & zuckhr_sunna_2.isChecked()) {
             this.zuckhr.setChecked(isChecked);
+            saveText();
+            loadText();
         }
     }
 
     private void checkAsr (boolean isChecked) {
         if (asr_sunna.isChecked() & asr_fard.isChecked()) {
             this.asr.setChecked(isChecked);
+            saveText();
+            loadText();
         }
     }
 
     private void checkMagrib (boolean isChecked) {
         if (magrib_fard.isChecked() & magrib_sunna.isChecked()) {
             this.magrib.setChecked(isChecked);
+            saveText();
+            loadText();
         }
     }
 
     private void checkIsha (boolean isChecked) {
         if (isha_sunna_4.isChecked() & isha_fard.isChecked() & isha_sunna_2.isChecked() & tahajud.isChecked() & witr_vajib.isChecked()) {
             this.isha.setChecked(isChecked);
+            saveText();
+            loadText();
         }
     }
 
@@ -298,8 +358,14 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
                 saveText();
                 loadText();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
+                saveText();
+                loadText();
+                break;
 
             case R.id.reset:
+
+                saveText();
+                loadText();
 
                 fajr.setChecked(false);
                 fadjr_sunna.setChecked(false);
@@ -327,6 +393,8 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
 
                 saveText();
                 loadText();
+
+                break;
 
         }
 
@@ -366,29 +434,29 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
     public void loadText() {
         ssPref = getActivity().getPreferences(MODE_PRIVATE);
 
-        fajr.setChecked(ssPref.getBoolean("fadjr", false));
-        fadjr_sunna.setChecked(ssPref.getBoolean("fadjr_sunna", false));
-        fadjr_fard.setChecked(ssPref.getBoolean("fadjr_fard", false));
+        fajr.setChecked(ssPref.getBoolean("fadjr", true));
+        fadjr_sunna.setChecked(ssPref.getBoolean("fadjr_sunna", true));
+        fadjr_fard.setChecked(ssPref.getBoolean("fadjr_fard", true));
 
-        zuckhr.setChecked(ssPref.getBoolean("zuckhr", false));
-        zuckhr_sunna_4.setChecked(ssPref.getBoolean("zuckhr_sunna_4", false));
-        zuckhr_fard.setChecked(ssPref.getBoolean("zuckhr_fard", false));
-        zuckhr_sunna_2.setChecked(ssPref.getBoolean("zuckhr_sunna_2", false));
+        zuckhr.setChecked(ssPref.getBoolean("zuckhr", true));
+        zuckhr_sunna_4.setChecked(ssPref.getBoolean("zuckhr_sunna_4", true));
+        zuckhr_fard.setChecked(ssPref.getBoolean("zuckhr_fard", true));
+        zuckhr_sunna_2.setChecked(ssPref.getBoolean("zuckhr_sunna_2", true));
 
-        asr.setChecked(ssPref.getBoolean("asr", false));
-        asr_sunna.setChecked(ssPref.getBoolean("asr_sunna", false));
-        asr_fard.setChecked(ssPref.getBoolean("asr_fard", false));
+        asr.setChecked(ssPref.getBoolean("asr", true));
+        asr_sunna.setChecked(ssPref.getBoolean("asr_sunna", true));
+        asr_fard.setChecked(ssPref.getBoolean("asr_fard", true));
 
-        magrib.setChecked(ssPref.getBoolean("magrib", false));
-        magrib_fard.setChecked(ssPref.getBoolean("magrib_fard", false));
-        magrib_sunna.setChecked(ssPref.getBoolean("magrib_sunna", false));
+        magrib.setChecked(ssPref.getBoolean("magrib", true));
+        magrib_fard.setChecked(ssPref.getBoolean("magrib_fard", true));
+        magrib_sunna.setChecked(ssPref.getBoolean("magrib_sunna", true));
 
-        isha.setChecked(ssPref.getBoolean("isha", false));
-        isha_sunna_4.setChecked(ssPref.getBoolean("isha_sunna_4", false));
-        isha_fard.setChecked(ssPref.getBoolean("isha_fard", false));
-        isha_sunna_2.setChecked(ssPref.getBoolean("isha_sunna_2", false));
-        tahajud.setChecked(ssPref.getBoolean("tahajud", false));
-        witr_vajib.setChecked(ssPref.getBoolean("witr", false));
+        isha.setChecked(ssPref.getBoolean("isha", true));
+        isha_sunna_4.setChecked(ssPref.getBoolean("isha_sunna_4", true));
+        isha_fard.setChecked(ssPref.getBoolean("isha_fard", true));
+        isha_sunna_2.setChecked(ssPref.getBoolean("isha_sunna_2", true));
+        tahajud.setChecked(ssPref.getBoolean("tahajud", true));
+        witr_vajib.setChecked(ssPref.getBoolean("witr", true));
 
     }
 
