@@ -16,6 +16,7 @@ import android.animation.*;
 import android.os.*;
 import android.view.*;
 import android.view.animation.*;
+import android.view.inputmethod.*;
 import android.widget.*;
 
 import java.text.*;
@@ -32,8 +33,10 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     private Button Ok;
     private Button baccck;
     private Button set;
+    private Button editTsel;
     private TextView counter;
     private TextView editprogress;
+    private EditText titleTsel;
     private EditText tsel;
     private Handler handler;
     private SharedPreferences sPreff;
@@ -55,9 +58,11 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         mProgressBar = view.findViewById(R.id.mainProgressBar);
         mProgressBar.setVisibility(ProgressBar.VISIBLE);
         tsel = view.findViewById(R.id.Tsel);
+        titleTsel = view.findViewById(R.id.titleTsel);
         Ok = view.findViewById(R.id.ok);
         baccck = view.findViewById(R.id.baccck);
         set = view.findViewById(R.id.set);
+        editTsel = view.findViewById(R.id.editTselAndTitle);
 
         plus.setOnClickListener(this);
         Zero.setOnClickListener(this);
@@ -65,6 +70,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
         Ok.setOnClickListener(this);
         set.setOnClickListener(this);
         baccck.setOnClickListener(this);
+        editTsel.setOnClickListener(this);
 
         handler = new Handler();
 
@@ -109,6 +115,14 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                 tsel.setText(tsel.getText().toString().replaceAll(",", ""));
                 tsel.setText(tsel.getText().toString().replaceAll(" ", ""));
 
+                tsel.setCursorVisible(false);
+                tsel.setFocusableInTouchMode(false);
+                tsel.setEnabled(false);
+
+                titleTsel.setCursorVisible(false);
+                titleTsel.setFocusableInTouchMode(false);
+                titleTsel.setEnabled(false);
+
                 if (tsel.getText().toString().length() == 0) {
                     tsel.setText(defolt_value);
                     maxvalue = Integer.parseInt(tsel.getText().toString());
@@ -125,12 +139,38 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
                         toast.show();
                         maxvalue = Integer.parseInt(tsel.getText().toString());
                         mProgressBar.setMax(maxvalue);
+                        editprogress.setText(MessageFormat.format("{0} / {1}", myCounter, tsel.getText().toString()));
 
                     }
                 }
 
                 saveText();
                 loadText();
+
+                break;
+
+            case R.id.editTselAndTitle:
+
+                tsel.setCursorVisible(true);
+                tsel.setFocusableInTouchMode(true);
+                tsel.setEnabled(true);
+
+                titleTsel.setCursorVisible(true);
+                titleTsel.setFocusableInTouchMode(true);
+                titleTsel.setEnabled(true);
+
+                tsel.requestFocus();
+                tsel.setSelection(tsel.getText().length());
+
+                getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
+                getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.showSoftInput(tsel, InputMethodManager.SHOW_FORCED);
+                }
 
                 break;
 
@@ -233,6 +273,7 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
     public void saveText() {
         sPreff = getActivity().getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPreff.edit();
+        ed.putString("Название", titleTsel.getText().toString());
         ed.putString("Цель", tsel.getText().toString());
         ed.putString("Сделал", counter.getText().toString());
         ed.putString("ПрогрессВью", editprogress.getText().toString());
@@ -244,9 +285,11 @@ public class CounterFragment extends Fragment implements View.OnClickListener {
 
     public void loadText() {
         sPreff = getActivity().getPreferences(MODE_PRIVATE);
+        String titleTselText = sPreff.getString("Название", titleTsel.getText().toString());
         String tselText = sPreff.getString("Цель", tsel.getText().toString());
         String sdelText = sPreff.getString("Сделал", counter.getText().toString());
         String progressText = sPreff.getString("ПрогрессВью", editprogress.getText().toString());
+        titleTsel.setText(titleTselText);
         tsel.setText(tselText);
         counter.setText(sdelText);
         editprogress.setText(progressText);

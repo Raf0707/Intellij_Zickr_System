@@ -51,10 +51,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026" />
 
+    <Button
+        android:id="@+id/plusTsel"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <Button
+        android:id="@+id/saveProgress"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:background="@drawable/ic_baseline_check_24"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
     <EditText
         android:id="@+id/Tsel"
         android:layout_width="match_parent"
-        android:layout_height="126dp"
+        android:layout_height="86dp"
         android:gravity="center"
         android:hint="@string/Tsel"
         android:imeOptions="actionDone"
@@ -67,7 +93,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.257" />
+
+    <EditText
+        android:id="@+id/titleTsel"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:gravity="center"
+        android:hint="Название цели"
+        android:imeOptions="actionDone"
+        android:textColor="@color/white"
+        android:textCursorDrawable="@drawable/green_cursor"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
 
     <TextView
         android:id="@+id/count"
@@ -116,7 +159,7 @@
 
     <Button
         android:id="@+id/ok"
-        android:layout_width="match_parent"
+        android:layout_width="135dp"
         android:layout_height="62dp"
         android:gravity="center"
         android:text="@string/ok"
@@ -124,10 +167,25 @@
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.391" />
+
+    <Button
+        android:id="@+id/editTselAndTitle"
+        android:layout_width="135dp"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:text="Изменить"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391" />
 
     <ProgressBar
         android:id="@+id/mainProgressBar"
@@ -158,5 +216,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.946" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

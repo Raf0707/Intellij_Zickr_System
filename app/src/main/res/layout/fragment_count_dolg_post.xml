@@ -33,6 +33,7 @@
         android:hint="введите число"
         android:inputType="number"
         android:textColorHint="@color/purple_10"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
     <TextView
         android:id="@+id/podschetPost"
         android:layout_width="match_parent"
-        android:layout_height="262dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/purple_300"
@@ -57,15 +58,27 @@
 
     <Button
         android:id="@+id/okkPost"
-        android:layout_width="98dp"
+        android:layout_width="150dp"
         android:layout_height="62dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/instructsiaPost"
-        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintVertical_bias="0.375" />
+
+    <Button
+        android:id="@+id/editPost"
+        android:layout_width="150dp"
+        android:layout_height="62dp"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/instructsiaPost"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
 
     <Button
         android:id="@+id/prodPost"
@@ -74,10 +87,10 @@
         android:text="Продолжить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/instructsiaPost"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintVertical_bias="0.484" />
 
     <Button
         android:id="@+id/starttPost"

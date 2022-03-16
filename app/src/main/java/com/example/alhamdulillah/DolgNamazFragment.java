@@ -34,6 +34,9 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
     public TextView vosp;
     public TextView ost;
 
+    private TextView dneyNamazov1;
+    private TextView dneyNamazov2;
+
     private int dolg;
     private int sdel;
 
@@ -55,17 +58,27 @@ public class DolgNamazFragment extends Fragment implements View.OnClickListener 
 
         vosp = view.findViewById(R.id.vospolnill);
         ost = view.findViewById(R.id.ostaloss);
-        //int this_dolg = getActivity().getIntent().getIntExtra("dney", 0);
-        //String this_save_dolg = Integer.toString(this_dolg);
+
+        dneyNamazov1 = view.findViewById(R.id.dneynamazov1);
+        dneyNamazov2 = view.findViewById(R.id.dneynamazov2);
 
         ost.setText(getArguments().getString("days")); //NULL POINTER EXCEPTION
         Bundle bundle = this.getArguments();
         ost.setText(bundle.getString("days"));
         Boolean flag = bundle.getBoolean("1");
+        Boolean flagNamazDays = bundle.getBoolean("2");
 
         //ost.setText(Integer.toString(this_dolg));
         ost.setTextColor(Color.rgb(18,112,90));
         vosp.setText("0");
+
+        if (flagNamazDays) {
+            dneyNamazov1.setText("Дни");
+            dneyNamazov2.setText("Дни");
+        } else {
+            dneyNamazov1.setText("Намазы");
+            dneyNamazov2.setText("Намазы");
+        }
 
         weakReference = new WeakReference<>(this);
 

@@ -55,7 +55,6 @@ public class DolgPostFragment extends Fragment implements View.OnClickListener {
         resetDolgPost.setOnClickListener(this);
         backPost.setOnClickListener(this);
 
-//        assert getArguments() != null;
         ostPostDolg.setText(getArguments().getString("postKey")); //NULL POINTER EXCEPTION
         Bundle bundle = this.getArguments();
         ostPostDolg.setText(bundle.getString("postKey"));

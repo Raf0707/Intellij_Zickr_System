@@ -32,6 +32,7 @@
         android:hint="введите число"
         android:inputType="number"
         android:textColorHint="@color/purple_10"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +42,7 @@
     <TextView
         android:id="@+id/podschet"
         android:layout_width="match_parent"
-        android:layout_height="262dp"
+        android:layout_height="200dp"
         android:gravity="center"
         android:text=""
         android:textColor="@color/purple_300"
@@ -56,15 +57,27 @@
 
     <Button
         android:id="@+id/okk"
-        android:layout_width="98dp"
+        android:layout_width="150dp"
         android:layout_height="62dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/instructsia"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.369" />
+
+    <Button
+        android:id="@+id/editNamaz"
+        android:layout_width="150dp"
+        android:layout_height="62dp"
+        android:text="изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/instructsia"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.369" />
 
     <Button
         android:id="@+id/prod"
@@ -73,10 +86,10 @@
         android:text="Продолжить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/instructsia"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.475" />
 
     <Button
         android:id="@+id/startt"

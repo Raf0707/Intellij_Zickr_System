@@ -5,9 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
+import android.view.inputmethod.*;
 import android.widget.*;
 
 
@@ -20,6 +19,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
     private Button starter;
     private Button nazad;
     private Button prod;
+    private Button editNamaz;
 
     private int dolg;
     public int dney;
@@ -30,6 +30,8 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
     private LayoutInflater layoutInflater;
     private String[] ism;
     private Spinner qwert;
+
+    public boolean flagNamazDays;
 
 
     @Override
@@ -43,7 +45,8 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
         starter = view.findViewById(R.id.startt);
         nazad = view.findViewById(R.id.nazad);
         prod = view.findViewById(R.id.prod);
-        prod.setOnClickListener(this);
+        editNamaz = view.findViewById(R.id.editNamaz);
+
 
         tsel = view.findViewById(R.id.tsel);
         podschet = view.findViewById(R.id.podschet);
@@ -53,6 +56,8 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
         ok.setOnClickListener(this);
         starter.setOnClickListener(this);
         nazad.setOnClickListener(this);
+        prod.setOnClickListener(this);
+        editNamaz.setOnClickListener(this);
 
         // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
         ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, ism);
@@ -82,6 +87,11 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.okk:
+
+                tsel.setCursorVisible(false);
+                tsel.setFocusableInTouchMode(false);
+                tsel.setEnabled(false);
+
                 String myIsm = qwert.getSelectedItem().toString();
                 if (myIsm == "Единица измерения") {
                     podschet.setText("Выберете единицу измерения!");
@@ -89,6 +99,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                     Toast toast = Toast.makeText(getContext(), "Введите цель!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else if (myIsm == "Годы") {
+                    flagNamazDays = true;
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
@@ -98,9 +109,10 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg * 365 * 6;
                         strDney = Integer.toString(dney);
                         strNamazov = Integer.toString(namazov);
-                        podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
+                        podschet.setText(String.format("Дни (кол-во): %s \n Намазы (кол-во): %s ", strDney, strNamazov));
                     }
                 } else if (myIsm == "Месяцы") {
+                    flagNamazDays = true;
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
@@ -110,9 +122,10 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg * 30 * 6;
                         strDney = Integer.toString(dney);
                         strNamazov = Integer.toString(namazov);
-                        podschet.setText(String.format("Согласно мусульманскому календарю в каждом месяце 30 дней. Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
+                        podschet.setText(String.format("Согласно мусульманскому календарю в каждом месяце 30 дней. \n \n Дни (кол-во): %s \n Намазы (кол-во): %s  ", strDney, strNamazov));
                     }
                 } else if (myIsm == "Недели") {
+                    flagNamazDays = true;
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
@@ -122,13 +135,10 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg * 7 * 6;
                         strDney = Integer.toString(dney);
                         strNamazov = Integer.toString(namazov);
-                        if (strNamazov == "11" || strNamazov == "12" || strNamazov == "13" || strNamazov == "14") {
-                            podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
-                        } else if (strNamazov.substring(strNamazov.length() - 1) == "1" && strNamazov != "11") {
-                            podschet.setText(String.format("Вам надо восполнить долг за %s день, совершить %s намазов. ", strDney, strNamazov));
-                        }
+                        podschet.setText(String.format("Дни (кол-во): %s \n Намазы (кол-во): %s  ", strDney, strNamazov));
                     }
                 } else if (myIsm == "Дни") {
+                    flagNamazDays = true;
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
@@ -138,9 +148,10 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg * 6;
                         strDney = Integer.toString(dney);
                         strNamazov = Integer.toString(namazov);
-                        podschet.setText(String.format("Вам надо восполнить долг за %s дней, совершить %s намазов. ", strDney, strNamazov));
+                        podschet.setText(String.format("Дни (кол-во): %s \n Намазы (кол-во): %s  ", strDney, strNamazov));
                     }
                 } else if (myIsm == "Свое количество намазов") {
+                    flagNamazDays = false;
                     dolg = Integer.parseInt(tsel.getText().toString());
                     if (dolg <= 0) {
                         Toast.makeText(getContext(), "Введите число больше нуля", Toast.LENGTH_SHORT).show();
@@ -149,9 +160,30 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                         namazov = dolg;
                         strNamazov = Integer.toString(namazov);
                         strDney = strNamazov;
-                        podschet.setText(String.format("Вам надо восполнить %s намазов. ", strNamazov));
+                        podschet.setText(String.format(" Намазы (кол-во): %s ", strNamazov));
                     }
                 }
+                break;
+
+            case R.id.editNamaz:
+
+                tsel.setCursorVisible(true);
+                tsel.setFocusableInTouchMode(true);
+                tsel.setEnabled(true);
+
+                tsel.requestFocus();
+                tsel.setSelection(tsel.getText().length());
+
+                getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
+                getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.showSoftInput(tsel, InputMethodManager.SHOW_FORCED);
+                }
+
                 break;
 
             case R.id.startt:
@@ -168,6 +200,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                     Bundle bundle = new Bundle();
                     bundle.putString("days", strDney);
                     bundle.putBoolean("1", flag);
+                    bundle.putBoolean("2", flagNamazDays);
                     dolgNamazFragment.setArguments(bundle);
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgNamazFragment).commit();
                     break;
@@ -183,6 +216,7 @@ public class CountDolgNamazFragment extends Fragment implements View.OnClickList
                 Boolean flag = true;
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("1", flag);
+                bundle.putBoolean("2", flagNamazDays);
                 dolgNamazFragment1.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgNamazFragment1).commit();
                 break;

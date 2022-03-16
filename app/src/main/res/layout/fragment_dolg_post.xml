@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintVertical_bias="0.926" />
 
     <TextView
         android:id="@+id/sdelDolgPostText"
@@ -44,12 +44,12 @@
         android:id="@+id/plusDolgPost"
         android:layout_width="109dp"
         android:layout_height="77dp"
-        android:text="+"
         android:gravity="center|top"
+        android:text="+"
         android:textSize="41sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.444" />
@@ -84,12 +84,12 @@
         android:id="@+id/minusDolgPost"
         android:layout_width="109dp"
         android:layout_height="77dp"
-        android:text="-"
         android:gravity="center|top"
+        android:text="-"
         android:textSize="41sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.444" />

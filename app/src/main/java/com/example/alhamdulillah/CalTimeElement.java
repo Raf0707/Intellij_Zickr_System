@@ -46,7 +46,7 @@ public class CalTimeElement {
             long a;
             long fst = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Иша")));
             long scnd = secPerHours(Objects.requireNonNull(MainActivity.hm.get("Фаджр")));
-            a = (((fst + 2 * ((fst - scnd) / 3))) - (24 * 3600));
+            a = (scnd) - ((24 * 3600 - fst + scnd) / 3);
             String b = timeToString(a);
             this.time = b;
             MainActivity.hm.put("Тахаджуд", b);

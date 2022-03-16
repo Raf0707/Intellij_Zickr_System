@@ -5,9 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
+import android.view.inputmethod.*;
 import android.widget.*;
 
 
@@ -20,6 +19,7 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
     private Button prodPost;
     private Button starterPost;
     private Button nazadPost;
+    private Button editPost;
 
     private int dolgPost;
     private int postov;
@@ -51,6 +51,9 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
 
         prodPost = view.findViewById(R.id.prodPost);
         prodPost.setOnClickListener(this);
+
+        editPost = view.findViewById(R.id.editPost);
+        editPost.setOnClickListener(this);
 
 
         layoutInflaterPost = getLayoutInflater();
@@ -85,6 +88,11 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.okkPost:
+
+                tselPost.setCursorVisible(false);
+                tselPost.setFocusableInTouchMode(false);
+                tselPost.setEnabled(false);
+
                 String myIsm = qwertPost.getSelectedItem().toString();
                 if (myIsm == "Единица измерения") {
                     podschetPost.setText("Выберете единицу измерения!");
@@ -142,6 +150,27 @@ public class CountDolgPostFragment extends Fragment implements View.OnClickListe
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, dolgPostFragment).commit();
                     break;
                 }
+                break;
+
+            case R.id.editPost:
+
+                tselPost.setCursorVisible(true);
+                tselPost.setFocusableInTouchMode(true);
+                tselPost.setEnabled(true);
+
+                tselPost.requestFocus();
+                tselPost.setSelection(tselPost.getText().length());
+
+                getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+
+                getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.showSoftInput(tselPost, InputMethodManager.SHOW_FORCED);
+                }
+
                 break;
 
             case R.id.prodPost:
