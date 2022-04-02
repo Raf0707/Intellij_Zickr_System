@@ -441,7 +441,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
-            
+
         });
 
         Thread t = new Thread(() -> {
@@ -716,6 +716,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String elt = Jsoup.parse(txt).text();
 
             Elements elementsRasp = document.getElementsByClass("modiptprayer");
+            //Elements elementsRasp = document.getElementsByClass("modiptultimer");
             ArrayList<CalTimeElement> ctElements = new ArrayList<CalTimeElement>();
 
             Element ayat = document.getElementById("srq_quote");
@@ -728,7 +729,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String elh= element.html();
                 String preresul = elh.replace("<span>","spaceop").replace("</span>","spacend");
                 String resul = preresul.replace("spaceop"," ").replace("spacend","");
-                String[] pars = resul.split(" ",2);
+                String[] pars = resul.split(" ", 2);
                 hm.put(pars[0], pars[1]);
             }
 
@@ -737,7 +738,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String elh= element.html();
                 String preresul = elh.replace("<span>","spaceop").replace("</span>","spacend");
                 String resul = preresul.replace("spaceop"," ").replace("spacend","");
-                String[] pars = resul.split(" ",2);
+                String[] pars = resul.split(" ", 2);
 
                 if (pars[1].contains(" ")) {
                     pars[1] = pars[1].replace(" ", "");

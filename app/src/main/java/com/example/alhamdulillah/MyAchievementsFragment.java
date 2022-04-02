@@ -31,6 +31,7 @@ public class MyAchievementsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_achievements, null, false);
         //view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()));
 
+
         achivLayout = view.findViewById(R.id.achivLayout);
 
         recyclerView = view.findViewById(R.id.listtt);
@@ -50,14 +51,22 @@ public class MyAchievementsFragment extends Fragment {
         MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         mainViewModel.getNoteLiveData().observe(getViewLifecycleOwner(), adapter::setItems);
 
-//        achivLayout.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
-//            @Override
-//            public void onSwipeRight() {
-//                Intent intent = new Intent(getContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
+                if (dy < 0 && !fab.isShown())
+                    fab.show();
+                else if(dy > 0 && fab.isShown())
+                    fab.hide();
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
 
         return view;
     }
+
 }

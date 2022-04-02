@@ -17,7 +17,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:backgroundTint="@color/purple_300"
-        app:tint="@color/white"
-        android:src="@drawable/ic_baseline_add_task_24" />
+        android:src="@drawable/ic_baseline_add_task_24"
+        app:tint="@color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
