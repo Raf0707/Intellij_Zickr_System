@@ -88,7 +88,7 @@ public class SalavatFragment extends Fragment implements View.OnClickListener{
 
         t.start();
 
-        myLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+        view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
 
             @Override
             public void onSwipeRight() {

@@ -46,7 +46,7 @@ public class Jest_CounterFragment extends Fragment implements View.OnClickListen
 
         t.start();
 
-        jestLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+        view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
 
             int countClick = 0;
 

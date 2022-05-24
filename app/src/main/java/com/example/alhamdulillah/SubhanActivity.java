@@ -10,6 +10,7 @@ import android.view.*;
 import android.widget.*;
 
 import java.util.concurrent.*;
+import java.util.zip.*;
 
 public class SubhanActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,7 +30,7 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subhan);
-        subhanLayout = findViewById(R.id.subhanLayout1);
+        //subhanLayout = findViewById(R.id.subhanLayout1);
         handler = new Handler();
         subhanCounter = findViewById(R.id.subhanCount1);
         bacckmenusss = findViewById(R.id.bacckmenusss1);
@@ -44,6 +45,8 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
         tselCount = Integer.parseInt(generateTsel.getText().toString());
         final int ccount = Integer.parseInt(generateTsel.getText().toString());
 
+        View view = findViewById(R.id.subhanView);
+
         Thread t = new Thread(() -> {
             try{
                 TimeUnit.MILLISECONDS.sleep(10);
@@ -56,7 +59,7 @@ public class SubhanActivity extends AppCompatActivity implements View.OnClickLis
         t.start();
 
 
-        subhanLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
+        view.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
 
             @Override
             public void onSwipeRight() {
