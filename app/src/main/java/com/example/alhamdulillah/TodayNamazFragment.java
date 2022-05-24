@@ -359,7 +359,7 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
                 loadText();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new DolgFragment()).commit();
                 saveText();
-                loadText();
+                //loadText();
                 break;
 
             case R.id.reset:
@@ -392,7 +392,7 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
                 witr_vajib.setChecked(false);
 
                 saveText();
-                loadText();
+                //loadText();
 
                 break;
 

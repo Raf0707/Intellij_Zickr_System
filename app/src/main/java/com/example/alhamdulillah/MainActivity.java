@@ -151,14 +151,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         settings.setVisibility(View.GONE);
-        kompas.setVisibility(View.GONE);
+        //kompas.setVisibility(View.GONE);
         zickr_Counter.setVisibility(View.GONE);
         swipe_Zickr_Counter.setVisibility(View.GONE);
         dolgi_i_zaslugi.setVisibility(View.GONE);
-        my_tsels.setVisibility(View.GONE);
+        //my_tsels.setVisibility(View.GONE);
         my_achieves.setVisibility(View.GONE);
-        resfolder.setVisibility(View.GONE);
-        music_Koran.setVisibility(View.GONE);
+        //resfolder.setVisibility(View.GONE);
+        //music_Koran.setVisibility(View.GONE);
 
         isAllFabsVisible = false;
         isAllWijetsVisible = false;
@@ -166,25 +166,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fab.setOnClickListener(View -> {
             if (!(isAllFabsVisible)) {
                 Koran_Karim.show();
-                sunna.show();
+                //sunna.show();
                 salavats.show();
-                dua.show();
-                zickr.show();
-                hadice.show();
+                //dua.show();
+                //zickr.show();
+                //hadice.show();
                 names_of_Allah.show();
                 post.show();
-                intellij_zickr_system.show();
+                //intellij_zickr_system.show();
                 isAllFabsVisible = true;
             } else {
                 Koran_Karim.hide();
-                sunna.hide();
+                //sunna.hide();
                 salavats.hide();
-                dua.hide();
-                zickr.hide();
-                hadice.hide();
+                //dua.hide();
+                //zickr.hide();
+                //hadice.hide();
                 names_of_Allah.hide();
                 post.hide();
-                intellij_zickr_system.hide();
+                //intellij_zickr_system.hide();
                 isAllFabsVisible = false;
             }
         });
@@ -246,25 +246,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         wijets.setOnClickListener(View -> {
             if (!(isAllWijetsVisible)) {
                 settings.show();
-                kompas.show();
+                //kompas.show();
                 zickr_Counter.show();
                 swipe_Zickr_Counter.show();
                 dolgi_i_zaslugi.show();
-                my_tsels.show();
+                //my_tsels.show();
                 my_achieves.show();
-                resfolder.show();
-                music_Koran.show();
+                //resfolder.show();
+                //music_Koran.show();
                 isAllWijetsVisible = true;
             } else {
                 settings.hide();
-                kompas.hide();
+                //kompas.hide();
                 zickr_Counter.hide();
                 swipe_Zickr_Counter.hide();
                 dolgi_i_zaslugi.hide();
-                my_tsels.hide();
+                //my_tsels.hide();
                 my_achieves.hide();
-                resfolder.hide();
-                music_Koran.hide();
+                //resfolder.hide();
+                //music_Koran.hide();
                 isAllWijetsVisible = false;
             }
         });
@@ -323,6 +323,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         daily.setOnClickListener(View -> {
+            Intent intentt = new Intent(this, DailyActivity.class);
+            startActivity(intentt);
             Toast toast = Toast.makeText(getApplicationContext(), "Дневной план", Toast.LENGTH_SHORT);
             toast.show();
         });

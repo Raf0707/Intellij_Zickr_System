@@ -50,6 +50,7 @@ public class NavigationActivity extends AppCompatActivity {
             case 10:
                 getSupportFragmentManager().beginTransaction().replace(R.id.navigationlayout, new MyAchievementsFragment()).commit();
                 break;
+
         }
     }
 }

@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.637" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_post"
@@ -35,7 +35,7 @@
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.812" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_intellij_zickr_system"
@@ -44,6 +44,7 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_view_in_ar_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -58,6 +59,7 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_book_online_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -114,12 +116,13 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_blur_on_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.201" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_salavats"
@@ -142,12 +145,13 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_hexagon_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.374" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_zickr_counter"
@@ -222,12 +226,13 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_share_location_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
+        app:layout_constraintVertical_bias="0.462" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_settings"
@@ -279,12 +284,13 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_adjust_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        app:layout_constraintVertical_bias="0.374" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_my_achieves"
@@ -298,7 +304,7 @@
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab_music_Koran"
@@ -307,6 +313,7 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_library_music_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -321,6 +328,7 @@
         android:layout_gravity="end"
         android:src="@drawable/ic_baseline_folder_special_24"
         app:fabSize="mini"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/add_fab_wijet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"

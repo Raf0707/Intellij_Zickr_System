@@ -108,215 +108,65 @@ public class PostRamadanFragment extends Fragment implements View.OnClickListene
         c30 = view.findViewById(R.id.r30);
 
 
-        this.c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c1.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c2.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c3.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c4.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c5.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c6.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c7.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c8.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c9.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c10.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c11.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c12.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c13.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c13.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c14.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c14.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c15.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c15.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c16.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c16.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c17.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c17.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c18.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c18.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c19.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c19.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c20.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c20.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c21.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c21.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c22.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c22.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c23.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c23.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c24.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c24.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c25.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c25.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c26.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c26.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c27.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c27.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c28.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c28.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c29.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c29.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
-        this.c30.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                onCountCheck(isChecked);
-            }
-        });
+        this.c30.setOnCheckedChangeListener((buttonView, isChecked) -> onCountCheck(isChecked));
 
         loadText();
 

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DailyActivity">
+
+    <Button
+        android:id="@+id/checkDailySalavat2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/checkDailySalavat1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
+
+    <Button
+        android:id="@+id/checkDailyAllahuAkbar1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
+
+    <Button
+        android:id="@+id/checkDailyAllahuAkbar2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
+
+    <Button
+        android:id="@+id/checkDailyLaHaulaWaLaKuwwataIllaBiLlah1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703" />
+
+    <Button
+        android:id="@+id/checkDailyLaHaulaWaLaKuwwataIllaBiLlah2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703" />
+
+
+    <Button
+        android:id="@+id/checkDailyRabbyGfirLy2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
+
+    <Button
+        android:id="@+id/checkDailyRabbyGfirLy1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
+
+    <Button
+        android:id="@+id/checkDailySubhanaLlahiWaBiHamdih1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <Button
+        android:id="@+id/checkDailySubhanaLlahiWaBiHamdih2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <Button
+        android:id="@+id/checkDailyAstagfiruLlah2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <Button
+        android:id="@+id/checkDailyAstagfiruLlah1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <TextView
+        android:id="@+id/dailyHasbunaLlah"
+        android:layout_width="270dp"
+        android:layout_height="93dp"
+        android:gravity="center"
+        android:text="حَسْبُنَا اللّهُ وَنِعْمَ الْوَكِيل"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.203" />
+
+    <TextView
+        android:id="@+id/dailySalavat"
+        android:layout_width="270dp"
+        android:layout_height="93dp"
+        android:gravity="center"
+        android:text="اللَّهُـمَّ صَلِّ عَلَـى مُحَمَّـدٍ، وَعَلَـى آلِ مُحَمَّد"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <TextView
+        android:id="@+id/dailyAllahuAkbar"
+        android:layout_width="270dp"
+        android:layout_height="61dp"
+        android:gravity="center"
+        android:text="اللهُ أكْبَرُ"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819" />
+
+    <TextView
+        android:id="@+id/dailyAstagfiruLlah"
+        android:layout_width="270dp"
+        android:layout_height="61dp"
+        android:gravity="center"
+        android:text="أَسْتَغْفِرُ الله"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.337" />
+
+    <TextView
+        android:id="@+id/dailyTauhid"
+        android:layout_width="270dp"
+        android:layout_height="61dp"
+        android:gravity="center"
+        android:text="لاَ إلَهَ إلاَّ الله"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/dailyRabbyGfirLy"
+        android:layout_width="270dp"
+        android:layout_height="61dp"
+        android:gravity="center"
+        android:text="رَبِّ اغْفِـرْ لِي"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.577" />
+
+    <TextView
+        android:id="@+id/dailyLaHaulaWaLaKuwwataIllaBiLlah"
+        android:layout_width="270dp"
+        android:layout_height="93dp"
+        android:gravity="center"
+        android:text="لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِٱللَّٰهِ"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
+
+    <TextView
+        android:id="@+id/dailySubhanaLlahiWaBiHamdih"
+        android:layout_width="270dp"
+        android:layout_height="93sp"
+        android:gravity="center"
+        android:text="سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّهِ الْعَظِيم"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454" />
+
+    <TextView
+        android:id="@+id/daily_zickr"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:gravity="center"
+        android:text="Ежедневный зикр"
+        android:textColor="@color/purple_300"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
+
+    <Button
+        android:id="@+id/checkDailyHasbuna1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <Button
+        android:id="@+id/checkDailyHasbuna2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <Button
+        android:id="@+id/checkDailyTauhid1"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_control_point_24"
+        android:gravity="left"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+    <Button
+        android:id="@+id/checkDailyTauhid2"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
+        android:background="@drawable/ic_baseline_check_24"
+        android:visibility="invisible"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,14 +9,17 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlHamduLillah">
+        <activity
+            android:name=".DailyActivity"
+            android:exported="false" />
         <activity
             android:name=".SubhanActivity"
             android:exported="false" />
@@ -42,7 +45,7 @@
         <service
             android:name=".AzanService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
     </application>
 
 </manifest>
