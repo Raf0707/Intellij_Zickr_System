@@ -367,7 +367,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Random random = new Random();
         int myRandStringIndex = random.nextInt(dailySpis.length);
         textAyat.setText(dailySpis[myRandStringIndex]);
-        dailyCount = 33;
+        dailyCount = 5;
         textCount.setText(Integer.toString(dailyCount));
 
         Callback.addCallback(() -> {
