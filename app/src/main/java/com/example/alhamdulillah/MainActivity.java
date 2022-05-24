@@ -96,10 +96,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int dailyCount;
     private String[] dailySpis;
 
+    private View mainView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainView = findViewById(R.id.mainView);
 
         ctx = new WeakReference<MainActivity>(this);
 
@@ -457,7 +461,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         t.start();
 
-        namazLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
+        mainView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
 
             @Override
             public void onDoubleClick() {

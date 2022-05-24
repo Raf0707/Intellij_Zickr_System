@@ -28,10 +28,14 @@ public class DailyActivity extends AppCompatActivity implements View.OnClickList
     public Button dailyAllahuAkbar2;
     public Button dailySalavat2;
 
+    private View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily);
+
+        view = findViewById(R.id.dailyView);
 
         tauhid1 = findViewById(R.id.checkDailyTauhid1);
         hasbunaLlah1 = findViewById(R.id.checkDailyHasbuna1);
@@ -68,6 +72,19 @@ public class DailyActivity extends AppCompatActivity implements View.OnClickList
         haulya2.setOnClickListener(this);
         dailyAllahuAkbar2.setOnClickListener(this);
         dailySalavat2.setOnClickListener(this);
+
+        view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+
+            @Override
+            public void onDoubleClick() {
+                saveText();
+                loadText();
+                Intent bacckkmenu = new Intent(view.getContext(), MainActivity.class);
+                startActivity(bacckkmenu);
+                saveText();
+                loadText();
+            }
+        });
 
         loadText();
 

@@ -252,7 +252,7 @@ public class TodayNamazFragment extends Fragment implements View.OnClickListener
             }
         });
 
-        todayLayout.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
+        view.setOnTouchListener(new OnSwipeTouchListener(view.getContext()) {
 
             @Override
             public void onDoubleClick() {

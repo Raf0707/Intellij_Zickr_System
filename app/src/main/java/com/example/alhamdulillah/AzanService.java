@@ -20,13 +20,21 @@ public class AzanService extends Service {
         createNotificationChannel();
     }
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId){
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        Intent resultIntent1 = new Intent(this, DailyActivity.class);
+        PendingIntent resultPendingIntent1 = PendingIntent.getActivity(this, 0, resultIntent1,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this,"mychid")
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Title")
-                        .setContentText("Notification text");
+                        .setContentTitle("Daily Zickr")
+                        .setContentText("Let's go!")
+                        .setContentIntent(resultPendingIntent1);
+
+
 
         Notification notification = builder.build();
 
@@ -41,8 +49,8 @@ public class AzanService extends Service {
         NotificationCompat.Builder builder1 =
                 new NotificationCompat.Builder(this, "newMain")
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Main")
-                        .setContentText("Main")
+                        .setContentTitle("СубханаЛлахи ва би Хамдих СубханаЛлахиль Азым")
+                        .setContentText("СубханаЛлахи ва би Хамдих СубханаЛлахиль Азым")
                         .setContentIntent(resultPendingIntent);
 
         Notification notification1 = builder1.build();
@@ -51,6 +59,10 @@ public class AzanService extends Service {
         NotificationManagerCompat notificationManager2 = NotificationManagerCompat.from(this);
 
         notificationManager2.notify(2, notification1);
+
+//        Intent resultIntent1 = new Intent(this, DailyActivity.class);
+//        PendingIntent resultPendingIntent1 = PendingIntent.getActivity(this, 0, resultIntent1,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
 
         //startForeground(1,notification);
 
