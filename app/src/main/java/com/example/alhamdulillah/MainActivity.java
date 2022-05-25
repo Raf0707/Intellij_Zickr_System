@@ -470,24 +470,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle("Title")
-                        .setContentText("Notification text")
-                        .setContentIntent(resultPendingIntent);
-
-        Notification notification = builder.build();
-
-
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(2, notification);
+//        Intent resultIntent = new Intent(this, MainActivity.class);
+//        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//
+//
+//        NotificationCompat.Builder builder =
+//                new NotificationCompat.Builder(this)
+//                        .setSmallIcon(R.mipmap.ic_launcher)
+//                        .setContentTitle("Title")
+//                        .setContentText("Notification text")
+//                        .setContentIntent(resultPendingIntent);
+//
+//        Notification notification = builder.build();
+//
+//
+//        NotificationManager notificationManager =
+//                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        notificationManager.notify(2, notification);
 
     }
 
